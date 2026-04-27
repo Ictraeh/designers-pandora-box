@@ -1,5 +1,7 @@
 # Designer’s pandora box (workspace)
 
+**This documentation repo:** [github.com/Ictraeh/designers-pandora-box](https://github.com/Ictraeh/designers-pandora-box)
+
 This folder is a **local workspace** that holds several separate Git projects. This **root repository** only tracks shared documentation:
 
 - **`docs/animation-reference/`** — Motion / GSAP / anime.js notes, `tone-vibes.json`, gallery indexes, prompt workflow.
