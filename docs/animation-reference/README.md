@@ -25,7 +25,7 @@ Supplementary reference for AI-assisted website building: **official docs first*
 | `recipes.md` | Minimal copy-pasteable patterns (your codebase) |
 | `prompt-workflow.md` | How to use this folder **inside vibe-coding / website prompts** (Cursor @, order, snippets) |
 | `tone-to-motion.md` | Map vague language (“natural”, “elegant”) → **duration, easing, springs, distances** |
-| `tone-vibes.json` | **Fuzzy triggers + full URLs** per vibe → Motion, anime.js, GSAP, Theatre, React Bits, Magic UI, Animate UI, Kokonut, CuiCui |
+| `tone-vibes.json` | **Fuzzy triggers + full URLs** per vibe (v1.2+ = large `feelingKeywords` / `triggerPhrases` + meta clusters for speed, easing, intensity, direction) |
 
 ## Conventions
 
