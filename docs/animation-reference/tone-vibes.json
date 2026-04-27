@@ -1,7 +1,7 @@
 {
-  "version": "1.1.0",
-  "description": "Maps vibe ids + natural-language triggers to official docs and gallery pages so AI/tools can open the right reference before coding.",
-  "routingInstructions": "1) Match user text to the best vibe `id` via `triggerPhrases` + `feelingKeywords`. 2) Open every URL in `externalRefs` for that vibe (Motion first). 3) Reimplement; do not paste vendor source without license. 4) Cross-link `patterns.json` via `patternsJson`.",
+  "version": "1.2.0",
+  "description": "Maps vibe ids + natural-language triggers to official docs and gallery pages so AI/tools can open the right reference before coding. v1.2: expanded feelingKeywords, triggerPhrases, and keyword→site clusters.",
+  "routingInstructions": "1) Match user text to the best vibe `id` via `triggerPhrases` + `feelingKeywords`. 2) Open every URL in `externalRefs` for that vibe (Motion first). 3) Reimplement; do not paste vendor source without license. 4) Cross-link `patterns.json` via `patternsJson`. 5) Use `feelingKeywordToSites` when language is broad (speed, easing, scroll, 3d) before picking a specific vibe.",
   "globalHubs": {
     "motion": "https://motion.dev/docs/react",
     "motionAnimation": "https://motion.dev/docs/react-animation",
@@ -26,8 +26,37 @@
     {
       "id": "magic.borderBeam",
       "patternsJson": ["hover-tap-micro"],
-      "feelingKeywords": ["magical", "beam", "glow edge", "trace", "neon border", "energy ring", "outline animation"],
-      "triggerPhrases": ["energy running around the edge", "glowing border that moves", "light tracing the outline", "magic ui border beam", "animated border glow", "running light on card edge", "chase light border"],
+      "feelingKeywords": [
+        "magical", "magic", "beam", "border beam", "glow edge", "edge glow", "trace", "tracing", "neon border", "energy ring", "outline animation", "running light", "chase light", "perimeter", "conic", "gradient border", "animated border", "moving border", "light chase", "rim light", "luminescent", "prismatic", "fantasy ui", "enchanted", "spellbound", "holographic edge", "aura edge", "electric edge", "circuit glow", "sci-fi border", "premium edge", "highlight sweep border", "offset path", "infinite loop border", "linear border motion"
+      ],
+      "triggerPhrases": [
+        "energy running around the edge",
+        "glowing border that moves",
+        "light tracing the outline",
+        "feels like magic ui border beam",
+        "animated border glow",
+        "running light on card edge",
+        "chase light border",
+        "i want it to feel like there's energy running around the edge",
+        "border that animates around the card",
+        "moving glow on the frame",
+        "like a laser tracing the box",
+        "kitt scanner vibe on the border",
+        "neon outline animation",
+        "gradient traveling around the button",
+        "focus ring that moves",
+        "card edge energy",
+        "highlight runs along the perimeter",
+        "magic ui style border",
+        "shiny animated frame",
+        "not static border something alive on the edge",
+        "outline pulse that travels",
+        "ring of light around the component",
+        "animated stroke around the container",
+        "border shimmer but on the edge path",
+        "make the edge feel electrified",
+        "subtle sci fi frame animation"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "keyframes, repeat, linear transitions on custom props" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-svg-animation", "why": "offset paths / stroke motion if vector-based" },
@@ -40,8 +69,38 @@
     {
       "id": "magic.shimmer",
       "patternsJson": ["gradient-bg-motion"],
-      "feelingKeywords": ["magical", "shimmer", "sweep", "holographic", "loading shine", "gloss"],
-      "triggerPhrases": ["light passing through", "shiny sweep effect", "holographic card", "gloss moving across", "premium loading feel", "sheen animation", "skeleton shimmer"],
+      "feelingKeywords": [
+        "magical", "shimmer", "sheen", "gloss", "sweep", "sweeping", "holographic", "iridescent", "loading shine", "skeleton shimmer", "shine pass", "light streak", "specular", "polish sweep", "chrome swipe", "gradient sweep", "gleam", "luster", "pearlescent", "opalescent", "premium loading", "placeholder shine", "skeleton screen shine", "cta shine", "text shine", "button sheen", "horizontal light band", "diagonal shine", "reflective swipe", "glass glare moving", "wet look sweep", "vinyl highlight", "studio lighting pass"
+      ],
+      "triggerPhrases": [
+        "light passing through",
+        "shiny sweep effect",
+        "like a holographic card",
+        "gloss moving across",
+        "premium loading feel",
+        "sheen animation",
+        "skeleton shimmer",
+        "it should look like light is passing through it",
+        "light moves across the surface",
+        "shimmer when loading",
+        "shiny loading bar on the card",
+        "glossy sweep for premium feel",
+        "like light is skimming the button",
+        "animated highlight across text",
+        "subtle moving reflection",
+        "make it feel expensive with a moving shine",
+        "not boring skeleton use shimmer",
+        "sweeping gradient overlay",
+        "shine goes left to right on repeat",
+        "holographic foil effect",
+        "rainbow sheen subtle",
+        "loading state with moving light",
+        "card looks polished when hovered sheen",
+        "metallic swipe animation",
+        "soft moving highlight stripe",
+        "animated specular line",
+        "luxury product photography vibe motion"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "translateX loop on gradient overlay" },
         { "site": "magic-ui", "url": "https://magicui.design/docs/components/shimmer-button", "why": "shimmer treatment on CTA" },
@@ -54,8 +113,36 @@
     {
       "id": "magic.glow",
       "patternsJson": ["gradient-bg-motion"],
-      "feelingKeywords": ["magical", "glow", "aura", "halo", "neon", "radiate", "pulse light"],
-      "triggerPhrases": ["radiating warmth", "soft halo", "glowing like it has power", "neon aura", "lit from within", "pulsing glow", "outer glow animation"],
+      "feelingKeywords": [
+        "magical", "glow", "glowing", "aura", "halo", "radiate", "radiating", "neon", "neon aura", "pulse light", "pulsing glow", "ambient glow", "outer glow", "inner glow", "bloom", "luminescence", "ethereal light", "soft power", "charged", "energized", "lit from within", "nimbus", "corona", "god rays subtle", "warm light pulse", "cool light pulse", "violet glow", "cyan glow", "cta aura", "icon halo", "badge glow", "featured card glow", "soft bloom", "breathing glow", "throbbing light", "lighthouse pulse", "bioluminescent vibe"
+      ],
+      "triggerPhrases": [
+        "radiating warmth",
+        "soft halo around it",
+        "glowing like it has power",
+        "neon aura",
+        "feels lit from within",
+        "pulsing glow",
+        "outer glow animation",
+        "it should feel like it's radiating warmth or power",
+        "soft halo behind the avatar",
+        "button looks like it has energy",
+        "gentle glow pulse forever",
+        "ambient aura around the icon",
+        "card has a soft light pool",
+        "make the element feel sacred or premium with glow",
+        "subtle neon without being tacky",
+        "pulsing shadow glow",
+        "warm halo animation",
+        "feels powered on",
+        "glow intensifies on hover",
+        "breathing outer shadow",
+        "soft bloom around focus",
+        "radiates softly in a loop",
+        "magical ambient light",
+        "feels like a power up state",
+        "gentle aura for dark mode"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "opacity / shadow tweening" },
         { "site": "magic-ui", "url": "https://magicui.design/docs/components/magic-card", "why": "card glow treatments" },
@@ -67,8 +154,38 @@
     {
       "id": "natural.breathing",
       "patternsJson": ["enter-fade-up"],
-      "feelingKeywords": ["natural", "alive", "breathing", "organic", "idle", "soft pulse"],
-      "triggerPhrases": ["feels alive", "like it's breathing", "organic idle animation", "gentle in and out", "softly moving", "living pulse", "ambient life on avatar"],
+      "feelingKeywords": [
+        "natural", "alive", "living", "breathing", "breathe", "organic", "idle", "idle motion", "soft pulse", "gentle pulse", "ebb and flow", "inhale exhale", "calm loop", "meditative motion", "zen animation", "slow rhythm", "cardiac rhythm", "gentle swell", "subtle scale pulse", "ambient life", "not static", "alive ui", "tender motion", "softly moving", "living interface", "biomorphic", "respiration", "resting animation", "idle character energy", "waiting state motion", "heartbeat subtle", "wave breathing", "organic loop"
+      ],
+      "triggerPhrases": [
+        "feels alive",
+        "like it's breathing",
+        "organic idle animation",
+        "gentle in and out",
+        "not static softly moving",
+        "living pulse",
+        "ambient life on avatar",
+        "i want it to feel alive like it's breathing",
+        "gentle in and out motion on loop",
+        "subtle scale up and down forever",
+        "soft opacity pulse idle",
+        "avatar feels present not frozen",
+        "status dot gently pulses",
+        "hero image barely breathes",
+        "cta softly pulses attention without shouting",
+        "organic idle not robotic loop",
+        "calm repetitive motion like breathing",
+        "living product feel",
+        "gentle swell on the card",
+        "soft life in the background",
+        "ambient motion while user reads",
+        "idle animation for mascot",
+        "subtle alive motion",
+        "make waiting feel calm not dead",
+        "gentle rhythm like waves",
+        "soft oscillation",
+        "organic periodic motion"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "looping scale/opacity keyframes" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "spring vs tween for organic loop" },
@@ -80,8 +197,37 @@
     {
       "id": "natural.fluid",
       "patternsJson": ["enter-fade-up"],
-      "feelingKeywords": ["natural", "fluid", "liquid", "water", "organic", "smooth transition"],
-      "triggerPhrases": ["smooth like water", "not robotic", "flows naturally", "feels liquid", "organic transition", "modal should feel liquid"],
+      "feelingKeywords": [
+        "natural", "fluid", "liquid", "water", "flowing", "organic", "smooth transition", "non linear", "springy soft", "viscous", "molten", "graceful", "seamless", "morph", "morphing", "continuous", "unbroken", "no hard cuts", "anti robotic", "human speed", "weighty", "inertia soft", "ease out soft", "velvety transition", "drawer syrup", "modal water", "accordion fluid", "page turn liquid", "momentum gentle", "curve rich", "bezier smooth", "long blend"
+      ],
+      "triggerPhrases": [
+        "smooth like water",
+        "not robotic or snappy",
+        "flows naturally",
+        "feels liquid",
+        "organic transition",
+        "modal should feel liquid",
+        "transitions should feel like water not mechanical",
+        "never use step transitions",
+        "prefer spring for this panel",
+        "opening the drawer should feel fluid",
+        "accordion expand like liquid height",
+        "page transition should feel continuous",
+        "no harsh pops between states",
+        "morph smoothly between layouts",
+        "feels viscous and premium",
+        "slow natural settle",
+        "organic duration between five and eight hundred ms",
+        "avoid linear for position changes",
+        "fluid state changes",
+        "soft inertia when closing",
+        "graceful expand and collapse",
+        "waterlike motion design",
+        "feels hand tuned not template",
+        "buttery transition curves",
+        "smooth height animation",
+        "organic layout shift"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "springs and duration" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-layout-animations", "why": "layout morph fluidity" },
@@ -93,8 +239,39 @@
     {
       "id": "natural.drift",
       "patternsJson": ["grid-dots-pattern"],
-      "feelingKeywords": ["natural", "drift", "float", "hover idle", "parallax soft", "gentle sway"],
-      "triggerPhrases": ["gently floating", "hovering in space", "soft idle movement", "drifting", "parallax-like idle", "slow sway", "floating badge"],
+      "feelingKeywords": [
+        "natural", "drift", "drifting", "float", "floating", "hover idle", "parallax soft", "gentle sway", "bob", "bobbing", "levitate", "levitation", "anti gravity", "slow orbit", "lazy motion", "ambient float", "cloud like", "zeppelin", "balloon", "feather", "pendulum soft", "sine wave motion", "idle parallax", "decorative motion", "background drift", "blob drift", "shape float", "gentle yaw", "micro rotate", "dreamy motion", "airy", "weightless", "slow loop", "long period oscillation"
+      ],
+      "triggerPhrases": [
+        "gently floating",
+        "hovering in space",
+        "soft idle movement",
+        "drifting",
+        "parallax-like idle",
+        "slow sway",
+        "floating badge",
+        "elements should gently float not sit still",
+        "like it's hovering",
+        "soft idle movement in the background",
+        "drifting in space",
+        "parallax like idle without scroll",
+        "randomize duration per element for organic feel",
+        "gentle rotate and translate loop",
+        "decorative blob motion",
+        "hero illustration subtle float",
+        "badge gently bobs",
+        "soft sway like on water",
+        "floating shapes behind content",
+        "ambient drift for depth",
+        "not attention grabbing just alive",
+        "slow gentle oscillation",
+        "floating ui ornament",
+        "gentle levitation animation",
+        "background shapes breathe sideways",
+        "soft pendulum feeling",
+        "airy motion design",
+        "dreamy floating layers"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "infinite subtle translate/rotate" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-scroll-animations", "why": "if drift ties to scroll" },
@@ -107,8 +284,40 @@
     {
       "id": "reactive.snap",
       "patternsJson": ["hover-tap-micro"],
-      "feelingKeywords": ["reactive", "snap", "tactile", "click", "press", "immediate"],
-      "triggerPhrases": ["satisfying click", "feels physical", "snappy response", "real button", "immediate feedback", "press down feel", "tactile ui"],
+      "feelingKeywords": [
+        "reactive", "snap", "snappy", "tactile", "click", "press", "pressed", "immediate", "instant feedback", "physical", "real button", "keyboard click feel", "mouse down", "pointer down", "satisfying", "crisp press", "binary feedback", "haptic like", "rubber button", "mechanical switch", "under two hundred ms", "fast response", "latency free", "tight ui", "responsive control", "micro press", "depress", "spring back fast", "hit target feel", "game button", "arcade", "confirming press", "punchy interaction", "snappy hover out"
+      ],
+      "triggerPhrases": [
+        "satisfying click",
+        "feels physical",
+        "snappy response",
+        "real button",
+        "immediate feedback",
+        "press down feel",
+        "tactile ui",
+        "when i click it i want immediate satisfying feedback",
+        "like pressing a real button",
+        "scale down quick on tap",
+        "keep under two hundred ms total",
+        "feels laggy if longer",
+        "tactile micro interaction on buttons",
+        "icon button should feel clickable",
+        "toggle should feel decisive on tap",
+        "checkbox press feels real",
+        "physical press animation",
+        "pointer down scale",
+        "snappy active state",
+        "crisp downstroke on click",
+        "mobile tap feedback",
+        "desktop mousedown feedback",
+        "satisfying press on primary cta",
+        "micro bounce back after press",
+        "no mushy button feel",
+        "responsive hit area feedback",
+        "gamey satisfying click",
+        "tight press release",
+        "instant visual confirmation on press"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-gestures", "why": "whileTap / whileHover" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-hover-animation", "why": "hover micro-interactions" },
@@ -121,8 +330,36 @@
     {
       "id": "reactive.ripple",
       "patternsJson": ["hover-tap-micro"],
-      "feelingKeywords": ["reactive", "ripple", "material", "touch wave", "spread"],
-      "triggerPhrases": ["ripple on click", "material design feel", "energy spreading outward", "touch wave", "click radiates", "water ripple button"],
+      "feelingKeywords": [
+        "reactive", "ripple", "ripples", "material", "material design", "touch wave", "radial", "radial spread", "water ripple", "ink drop", "propagate", "emanate", "touch feedback", "click wave", "surface wave", "pond ripple", "circular expand", "touchdown", "tap bloom", "spread from cursor", "coordinates ripple", "md ripple", "android ripple", "liquid click", "disturbance", "concentric", "shock ring soft", "pulse from point", "interaction wave"
+      ],
+      "triggerPhrases": [
+        "ripple on click",
+        "material design feel",
+        "energy spreading outward",
+        "touch wave effect",
+        "click radiates",
+        "water ripple button",
+        "i want the click to spread outward like a ripple",
+        "ripple from the cursor position",
+        "circle expands from tap point",
+        "material style ink ripple",
+        "touch surface wave",
+        "energy radiates on press",
+        "wave propagates across the button",
+        "list row ripple on tap",
+        "card ripple when clicked",
+        "subtle ripple feedback",
+        "classic android ripple",
+        "radial fade from click",
+        "expand ring from pointer",
+        "ripple inherits theme color",
+        "soft ripple not harsh",
+        "touch ripple for accessibility feel",
+        "click bloom animation",
+        "surface disturbance effect",
+        "radial mask ripple"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-gestures", "why": "tap origin + spawned motion" },
         { "site": "magic-ui", "url": "https://magicui.design/docs/components/ripple-button", "why": "ripple treatment reference" },
@@ -134,8 +371,38 @@
     {
       "id": "reactive.bounce",
       "patternsJson": ["stagger-children", "enter-fade-up"],
-      "feelingKeywords": ["reactive", "bounce", "springy", "playful", "pop", "elastic"],
-      "triggerPhrases": ["springy entrance", "bounces in", "playful when it appears", "elastic pop", "not a flat fade", "overshoot entrance", "happy modal"],
+      "feelingKeywords": [
+        "reactive", "bounce", "bouncy", "springy", "playful", "pop", "pops in", "elastic", "overshoot", "rubber", "cartoon entrance", "joyful", "energetic entrance", "spring entrance", "elastic pop", "overshoot scale", "friendly modal", "celebratory small", "jelly", "wobble settle", "impact soft", "recoil", "juvenile fun", "not flat fade", "alive entrance", "squash stretch lite", "happy ui", "bubbly", "zest", "peppy", "vivacious"
+      ],
+      "triggerPhrases": [
+        "springy entrance",
+        "bounces in",
+        "playful when it appears",
+        "elastic pop",
+        "not a flat fade",
+        "overshoot entrance",
+        "happy modal",
+        "when something appears it should feel springy and alive",
+        "something with energy not boring fade",
+        "scale overshoot on enter",
+        "toast bounces in",
+        "dropdown pops with personality",
+        "badge appears with a spring",
+        "modal entrance playful",
+        "elastic overshoot one oh eight",
+        "spring stiffness four hundred damping seventeen vibe",
+        "friendly onboarding animation",
+        "micro bounce for delight",
+        "overshoot then settle",
+        "cartoon lite not childish",
+        "playful pop for new content",
+        "spring physics entrance",
+        "elastic ease overshoot curve",
+        "joyful reveal animation",
+        "bouncy list item appear",
+        "tooltip pops in springy",
+        "not corporate stiff entrance"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "spring type, stiffness, damping" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "keyframes overshoot" },
@@ -148,8 +415,41 @@
     {
       "id": "elegant.silk",
       "patternsJson": ["enter-fade-up"],
-      "feelingKeywords": ["elegant", "silk", "premium", "refined", "luxury", "apple", "linear app"],
-      "triggerPhrases": ["feels expensive", "high-end transition", "like apple or linear", "refined and smooth", "nothing jarring", "quiet luxury motion", "soft reveal"],
+      "feelingKeywords": [
+        "elegant", "silk", "silky", "luxury", "luxurious", "premium", "high end", "refined", "restrained", "understated", "tasteful", "apple like", "linear app", "quiet luxury", "soft reveal", "expo out", "small translate", "minimal drama", "couture", "bespoke", "editorial", "fashion", "jewelry", "watch brand", "concierge", "five star", "hotel lobby", "museum", "gallery calm", "nothing jarring", "polished", "sophisticated", "classy", "grace", "dignified", "velvet", "cashmere", "champagne", "muted motion", "thin motion", "light touch animation"
+      ],
+      "triggerPhrases": [
+        "feels expensive",
+        "high-end transition",
+        "like apple or linear",
+        "refined and smooth",
+        "nothing jarring",
+        "quiet luxury motion",
+        "soft reveal",
+        "transitions should feel expensive and refined",
+        "small y offset four to eight pixels max",
+        "three eighty ms sweet spot",
+        "opacity plus tiny translate",
+        "premium landing page reveal",
+        "editorial section entrance",
+        "luxury brand motion restraint",
+        "no big bounce keep it silk",
+        "linear style calm motion",
+        "apple style fade up",
+        "minimal jank elegant ease",
+        "soft expo out curve",
+        "refined card appear",
+        "modal fades up slightly",
+        "hero text elegant enter",
+        "understated sophistication",
+        "quiet confidence in motion",
+        "high craft motion design",
+        "subtle y only six pixels",
+        "expensive feeling without flash",
+        "classy fade and rise",
+        "museum quality transition",
+        "nothing cheap or loud"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "small y + opacity" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "expo-out style eases" },
@@ -161,8 +461,38 @@
     {
       "id": "elegant.glide",
       "patternsJson": ["stagger-children", "scroll-in-view"],
-      "feelingKeywords": ["elegant", "glide", "slide", "stagger", "panel", "drawer"],
-      "triggerPhrases": ["slides in confidently", "always belonged there", "no drama appears", "smooth slide from side", "panel glides", "staggered list entrance"],
+      "feelingKeywords": [
+        "elegant", "glide", "gliding", "slide", "slides", "sliding", "stagger", "staggered", "panel", "drawer", "sidebar", "sheet", "navigation motion", "spatial", "directional", "from left", "from right", "enter from side", "confident", "assured", "smooth slide", "sequential reveal", "cascade", "waterfall list", "choreographed list", "list rhythm", "grid reveal", "row by row", "column enter", "pan motion", "lateral", "horizontal enter", "no drama", "effortless", "inevitable", "always belonged", "slide and fade combo"
+      ],
+      "triggerPhrases": [
+        "slides in confidently",
+        "always belonged there",
+        "no drama appears",
+        "smooth slide from side",
+        "panel glides",
+        "staggered list entrance",
+        "it should slide in like it was always there",
+        "stagger fifty ms per child",
+        "direction matches spatial logic left panel from left",
+        "drawer glides in",
+        "sidebar slides smooth",
+        "nav items stagger in",
+        "list items appear in sequence",
+        "horizontal slide with opacity",
+        "confident panel entrance",
+        "smooth slide from the right for right aligned panel",
+        "glide not snap for this drawer",
+        "elegant stagger children",
+        "section lines glide up",
+        "table rows stagger reveal",
+        "menu slides with grace",
+        "spatially correct motion",
+        "panel motion feels intentional",
+        "smooth lateral transition",
+        "staggered grid reveal",
+        "cards glide into view",
+        "horizontal confidence motion"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "staggerChildren variants" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-scroll-animations", "why": "scroll-linked slide" },
@@ -175,8 +505,38 @@
     {
       "id": "elegant.fade",
       "patternsJson": ["enter-fade-up"],
-      "feelingKeywords": ["elegant", "fade", "minimal", "quiet", "opacity only"],
-      "triggerPhrases": ["just fades in", "no movement", "quiet appearance", "subtle don't overdo", "minimal transition", "only opacity"],
+      "feelingKeywords": [
+        "elegant", "fade", "fading", "fades in", "opacity", "opacity only", "minimal", "quiet", "still", "no movement", "understated", "ghost fade", "dissolve", "cross fade", "soft appear", "gentle appear", "low motion", "reduced spatial", "simple", "clean", "pure", "honest", "restraint", "less is more", "whisper fade", "barely there entrance", "non directional", "no translate", "image fade in", "overlay fade", "tooltip fade", "popover soft", "two fifty to three fifty ms", "ease default", "subtle on purpose"
+      ],
+      "triggerPhrases": [
+        "just fades in",
+        "no movement needed",
+        "quiet appearance",
+        "subtle don't overdo it",
+        "minimal transition",
+        "only opacity",
+        "just a clean quiet appearance no fuss",
+        "opacity only no y",
+        "fade without sliding",
+        "when spatial movement would distract",
+        "less is more for this overlay",
+        "tooltip simple fade",
+        "image loads with fade",
+        "background cross dissolve",
+        "quiet presence",
+        "minimal transition only opacity",
+        "subtle fade two fifty ms",
+        "no drama fade",
+        "clean fade for modal backdrop",
+        "gentle dissolve in",
+        "soft appearance no slide",
+        "fade for accessibility calm",
+        "keep motion minimal here",
+        "opacity tween only",
+        "simple ease fade",
+        "non directional reveal",
+        "fade for loading skeleton replacement"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "opacity-only transitions" },
         { "site": "magic-ui", "url": "https://magicui.design/docs/components/blur-fade", "why": "optional blur + fade" },
@@ -187,8 +547,40 @@
     {
       "id": "bold.slam",
       "patternsJson": ["enter-fade-up"],
-      "feelingKeywords": ["bold", "slam", "dramatic", "impact", "hero", "statement"],
-      "triggerPhrases": ["hits hard", "dramatic entrance", "slams into place", "bold and confident", "makes a statement", "big entrance", "hero slam"],
+      "feelingKeywords": [
+        "bold", "slam", "dramatic", "impact", "hero", "statement", "punch", "punchy", "loud", "high impact", "confident", "assertive", "aggressive", "big entrance", "heavy landing", "drop in", "thud", "cinematic entrance", "trailer", "title card", "announce", "proclamation", "boom", "heroic", "stadium", "concert", "keynote", "drop the mic", "oversized start", "scale down settle", "fast drama", "attention grab", "marketing hero", "campaign landing", "statement headline", "power slide down", "gravity slam"
+      ],
+      "triggerPhrases": [
+        "hits hard",
+        "dramatic entrance",
+        "slams into place",
+        "bold and confident",
+        "makes a statement",
+        "big entrance",
+        "hero slam",
+        "it should hit the screen with confidence",
+        "start oversized then settle",
+        "dropping into place feeling",
+        "hero heading dramatic",
+        "full screen modal slams",
+        "alert banner impactful enter",
+        "marketing headline punch",
+        "bold scale translate entrance",
+        "three twenty ms drama",
+        "feels like a trailer title",
+        "keynote slide energy",
+        "big first impression motion",
+        "attention grabbing but not cheap",
+        "confident landing animation",
+        "statement typography motion",
+        "slam down from above slightly",
+        "scale oversize then correct",
+        "dramatic but controlled",
+        "hero moment animation",
+        "bold confident transition",
+        "high impact section intro",
+        "landing page punch motion"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "dramatic keyframes" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-scroll-animations", "why": "scroll-triggered hero punch" },
@@ -200,8 +592,39 @@
     {
       "id": "bold.burst",
       "patternsJson": ["timeline-sequence", "enter-fade-up"],
-      "feelingKeywords": ["bold", "burst", "explosion", "celebration", "shockwave", "radial"],
-      "triggerPhrases": ["explodes outward", "radiates from center", "burst of energy", "shockwave", "celebration effect", "success explosion", "rings expanding"],
+      "feelingKeywords": [
+        "bold", "burst", "bursts", "explosion", "explode", "celebration", "celebrate", "shockwave", "radial", "radiate burst", "confetti vibe", "success burst", "achievement", "unlock", "fireworks", "spark", "sparks", "rings", "concentric burst", "pulse out", "shock ring", "energy release", "climax", "finale", "party", "yay", "win state", "like button burst", "heart explode", "star burst", "radial wipe", "nova", "detonation soft", "ripple burst", "cascade outward"
+      ],
+      "triggerPhrases": [
+        "explodes outward",
+        "radiates from center",
+        "burst of energy",
+        "shockwave",
+        "celebration effect",
+        "success explosion",
+        "rings expanding",
+        "like an explosion of energy from the center",
+        "layer two three rings staggered",
+        "celebration micro animation",
+        "achievement unlocked feel",
+        "like button heart burst",
+        "success state radial",
+        "confetti adjacent motion",
+        "radial scale opacity out",
+        "shockwave rings ui",
+        "energy emanates from center",
+        "party pop motion",
+        "win animation burst",
+        "scale from zero to big fade",
+        "multiple staggered bursts",
+        "radial celebration effect",
+        "success feedback dramatic",
+        "fireworks lite in ui",
+        "explosive delight",
+        "center origin burst",
+        "celebration without clutter",
+        "shockwave for onboarding complete"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "staggered scale bursts" },
         { "site": "magic-ui", "url": "https://magicui.design/docs/components/confetti", "why": "celebration particles" },
@@ -213,8 +636,40 @@
     {
       "id": "subtle.whisper",
       "patternsJson": [],
-      "feelingKeywords": ["subtle", "whisper", "ambient", "barely", "hint", "micro"],
-      "triggerPhrases": ["barely noticeable", "just a hint", "ambient movement", "don't distract", "background life", "micro motion", "almost static"],
+      "feelingKeywords": [
+        "subtle", "whisper", "whispers", "ambient", "barely", "barely noticeable", "hint", "trace", "micro", "micro motion", "nuanced", "low key", "delicate", "fine", "faint", "sub pixel", "one pixel", "tiny opacity", "slow loop", "four second loop", "non distracting", "peripheral", "secondary motion", "background only", "decorative subtle", "idle whisper", "almost static", "quiet life", "hidden life", "easter egg motion", "if you notice it reduce it", "calm ambient", "zen background", "soft pulse barely", "low amplitude", "low contrast motion", "gentle ambient", "atmosphere", "mood not message"
+      ],
+      "triggerPhrases": [
+        "barely noticeable",
+        "just a hint",
+        "ambient movement",
+        "don't distract the user",
+        "background life",
+        "micro motion",
+        "almost static",
+        "i barely want to notice it just a hint of life",
+        "sub pixel movement",
+        "if user notices it it's too much",
+        "four thousand ms slow loop",
+        "opacity micro pulse",
+        "one pixel translate maybe",
+        "decorative background motion only",
+        "inactive icon subtle pulse",
+        "secondary text gentle shimmer of life",
+        "ambient not focal",
+        "keep motion under perception threshold",
+        "whisper animation",
+        "hint of life in the ui",
+        "background decoration idle",
+        "non intrusive loop",
+        "calm peripheral motion",
+        "subtle ambient loop forever",
+        "gentle atmosphere motion",
+        "barely there breathing",
+        "so soft users feel calm not distracted",
+        "micro oscillation ambient",
+        "decorative only no narrative motion"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "very small deltas" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-reduce-bundle-size", "why": "LazyMotion if many subtle instances" },
@@ -225,8 +680,38 @@
     {
       "id": "subtle.ghost",
       "patternsJson": ["enter-fade-up"],
-      "feelingKeywords": ["subtle", "ghost", "materialize", "tooltip", "popover", "blur in"],
-      "triggerPhrases": ["appears silently", "no entrance drama", "materializes", "fades from nothing", "disappears cleanly", "ghost tooltip"],
+      "feelingKeywords": [
+        "subtle", "ghost", "ghostly", "materialize", "dematerialize", "vanish", "appear silently", "fade blur", "blur in", "blur out", "soft focus", "defocus", "ethereal appear", "mist", "fog", "vapor", "dissolve in", "dissolve out", "tooltip", "popover", "context menu", "inline hint", "micro overlay", "two hundred ms", "fast subtle", "no entrance drama", "clean appear", "stealth ui", "ninja", "silent", "whisper appear", "lightweight overlay motion", "ephemeral", "transient", "fleeting", "soft blur two px", "materialize from nothing"
+      ],
+      "triggerPhrases": [
+        "appears silently",
+        "no entrance drama",
+        "materializes",
+        "fades from nothing",
+        "disappears cleanly",
+        "ghost tooltip",
+        "it should appear and disappear like it was never there",
+        "opacity plus blur micro",
+        "two hundred ms ease out",
+        "blur adds materializing quality",
+        "tooltip ghost in",
+        "context menu soft appear",
+        "popover minimal motion",
+        "inline hint fade blur",
+        "silent materialization",
+        "no spatial movement just blur fade",
+        "clean disappear on dismiss",
+        "ghost like transition",
+        "soft focus to sharp",
+        "mist clears into ui",
+        "ephemeral overlay motion",
+        "respect reduced motion maybe skip blur",
+        "lightweight popover enter",
+        "hint appears without slide",
+        "clean ghost for dropdown",
+        "subtle blur fade for toast optional",
+        "materialize silently for coachmark"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "opacity + filter (use sparingly)" },
         { "site": "magic-ui", "url": "https://magicui.design/docs/components/blur-fade", "why": "blur + fade reference" },
@@ -237,8 +722,41 @@
     {
       "id": "precise.lock",
       "patternsJson": ["hover-tap-micro", "layout-shift"],
-      "feelingKeywords": ["precise", "lock", "snap", "settle", "grid", "dnd"],
-      "triggerPhrases": ["snaps into place", "feels confirmed", "lock clicking", "decisive placement", "grid snap feel", "overshoot settle", "drag release snap"],
+      "feelingKeywords": [
+        "precise", "precision", "lock", "locking", "locked", "settle", "settles", "snap", "snap grid", "grid snap", "magnet snap", "click into place", "dnd", "drag and drop", "sortable", "reorder", "slider snap", "tick", "notch", "detent", "mechanical settle", "digital crisp", "accurate", "crisp", "decisive", "confirmed position", "micro overshoot", "one px overshoot", "target snap", "alignment motion", "layout snap", "pixel perfect motion", "engineering feel", "cad snap", "ruler snap", "ios dock snap", "windows snap", "tolerance zero vibe", "exact landing"
+      ],
+      "triggerPhrases": [
+        "snaps into place",
+        "feels confirmed",
+        "lock clicking",
+        "decisive placement",
+        "grid snap feel",
+        "overshoot settle",
+        "drag release snap",
+        "when it snaps into place i want it to feel confirmed",
+        "like a lock clicking",
+        "micro overshoot then settle",
+        "one px overshoot past target",
+        "one eighty ms sharp bezier",
+        "drag end snap to slot",
+        "sortable list settle",
+        "toggle snaps decisively",
+        "slider thumb snaps to tick",
+        "form validation snap to error field",
+        "layout grid snap animation",
+        "dnd card locks into column",
+        "precise placement feedback",
+        "mechanical click sensation without sound",
+        "digital instrument feel",
+        "crisp settle motion",
+        "confidence in the snap",
+        "magnetic snap to grid",
+        "release and lock animation",
+        "target acquisition motion",
+        "alignment confirmation motion",
+        "engineering ui motion",
+        "pixel perfect drop"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "spring settle tuning" },
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-drag", "why": "drag + release motion" },
@@ -249,8 +767,39 @@
     {
       "id": "precise.confirm",
       "patternsJson": ["hover-tap-micro"],
-      "feelingKeywords": ["precise", "confirm", "success", "flash", "saved", "check"],
-      "triggerPhrases": ["quick success flash", "visual nod", "confirms the action", "green flash", "checkmark feel", "saved feedback", "copy success"],
+      "feelingKeywords": [
+        "precise", "confirm", "confirmation", "success", "succeeded", "flash", "saved", "check", "checkmark", "done", "ok", "complete", "completed", "copied", "submitted", "green flash", "affirmation", "acknowledgment", "micro reward", "positive feedback", "state change success", "toast success", "button success", "three hundred ms", "color flash", "scale micro", "visual nod", "yes moment", "validated", "verified", "uploaded", "published", "synced"
+      ],
+      "triggerPhrases": [
+        "quick success flash",
+        "visual nod",
+        "confirms the action",
+        "green flash moment",
+        "checkmark feel",
+        "saved feedback",
+        "copy success",
+        "a quick visual nod that the action worked",
+        "color flash plus scale micro",
+        "eighty ms success color scale one oh five",
+        "three hundred ms total ease out",
+        "submit button confirms save",
+        "copy to clipboard success flash",
+        "form field success micro animation",
+        "green accent pulse then return",
+        "micro scale bounce success",
+        "user needs instant yes feedback",
+        "success state without confetti",
+        "subtle success color transition",
+        "check icon pop success",
+        "saved label flash",
+        "upload complete nod",
+        "synced tick animation",
+        "positive reinforcement motion",
+        "transaction complete feedback",
+        "micro celebration without burst",
+        "trust building feedback animation",
+        "confirmed action subtle flash"
+      ],
       "externalRefs": [
         { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "short sequence keyframes" },
         { "site": "kokonut-ui", "url": "https://kokonutui.com/docs/buttons/particle-button", "why": "success-style button motion" },
@@ -261,7 +810,9 @@
   ],
   "feelingKeywordToSites": [
     {
-      "keywords": ["magical", "sparkle", "beam", "shimmer", "glow", "holographic", "aura", "neon edge", "wonder", "enchanted", "mystical", "fairy", "spell"],
+      "keywords": [
+        "magical", "magic", "sparkle", "sparkles", "beam", "beams", "shimmer", "shimmers", "glow", "glowing", "holographic", "aura", "auras", "neon edge", "wonder", "wonderful", "enchanted", "enchanting", "mystical", "mystery", "fairy", "spell", "spellbound", "fantasy", "wizard", "sorcery", "divine", "celestial", "stardust", "constellation", "prismatic", "chromatic", "iridescent", "luminescent", "ethereal glow", "enchant", "charm", "charismatic ui", "delight", "delightful", "whimsy", "whimsical", "playful magic", "premium sparkle"
+      ],
       "openFirst": [
         "https://magicui.design/docs/components",
         "https://motion.dev/docs/react-animation",
@@ -274,7 +825,9 @@
       ]
     },
     {
-      "keywords": ["natural", "organic", "fluid", "breathing", "alive", "water", "drift", "float", "calm", "soft", "gentle", "flowing", "liquid"],
+      "keywords": [
+        "natural", "nature", "organic", "organically", "fluid", "fluids", "breathing", "breathe", "alive", "living", "water", "liquid", "liquids", "drift", "drifting", "float", "floating", "calm", "calming", "soft", "softer", "gentle", "gently", "flowing", "flow", "zen", "meditative", "slow", "slowly", "ambient life", "earthy", "biomorphic", "wave", "waves", "river", "stream", "oceanic", "tidal", "breathable ui", "unforced", "easy", "ease", "relaxed", "restful", "peaceful", "harmonious", "undulating", "sway soft", "rocking gentle"
+      ],
       "openFirst": [
         "https://motion.dev/docs/react-transitions",
         "https://animate-ui.com/docs/components",
@@ -287,7 +840,9 @@
       ]
     },
     {
-      "keywords": ["reactive", "snap", "bounce", "ripple", "click", "tap", "immediate", "tactile", "springy", "responsive", "feedback", "satisfying"],
+      "keywords": [
+        "reactive", "reactivity", "snap", "snappy", "snaps", "bounce", "bounces", "bouncy", "ripple", "ripples", "click", "clicked", "clicks", "tap", "tapped", "taps", "press", "pressed", "immediate", "instant", "instantly", "tactile", "haptic like", "springy", "responsive", "responsiveness", "feedback", "feedbacks", "satisfying", "satisfaction", "physical", "real button", "latency", "low latency", "fast feedback", "pointer", "interaction", "micro interaction", "button feel", "touch response", "input response", "alive controls", "twitch", "peppy controls", "energetic ui", "nimble", "agile ui"
+      ],
       "openFirst": [
         "https://motion.dev/docs/react-gestures",
         "https://kokonutui.com/docs/buttons/particle-button",
@@ -300,7 +855,9 @@
       ]
     },
     {
-      "keywords": ["elegant", "silk", "premium", "refined", "fade", "glide", "minimal", "quiet", "luxury", "classy", "sophisticated", "understated", "polished"],
+      "keywords": [
+        "elegant", "elegance", "silk", "silky", "premium", "premiums", "refined", "refinement", "fade", "fades", "fading", "glide", "glides", "gliding", "minimal", "minimalism", "quiet", "quieter", "luxury", "luxurious", "classy", "classier", "sophisticated", "sophistication", "understated", "polished", "polish", "tasteful", "taste", "restraint", "restrained", "couture", "bespoke", "editorial", "apple like", "linear like", "high end", "five star", "museum", "gallery", "quiet luxury", "soft reveal", "velvet", "champagne", "muted", "subtle luxury", "thin motion", "grace", "graceful", "dignified"
+      ],
       "openFirst": [
         "https://motion.dev/docs/react-animation",
         "https://animate-ui.com/docs/components",
@@ -313,7 +870,9 @@
       ]
     },
     {
-      "keywords": ["bold", "slam", "dramatic", "burst", "impact", "explosion", "hero statement", "loud", "punchy", "aggressive", "high energy"],
+      "keywords": [
+        "bold", "bolder", "boldness", "slam", "slams", "dramatic", "drama", "burst", "bursts", "impact", "impacts", "impacting", "explosion", "explosions", "explode", "hero statement", "loud", "louder", "punchy", "punch", "aggressive", "aggression", "high energy", "high octane", "intense", "intensity", "powerful", "power", "statement", "big", "bigger", "huge entrance", "cinematic", "trailer", "keynote", "stadium", "concert", "hype", "marketing punch", "campaign", "viral", "attention", "command attention", "confident", "confidence", "assertive", "assert", "dominant", "heroic"
+      ],
       "openFirst": [
         "https://motion.dev/docs/react-animation",
         "https://reactbits.dev/",
@@ -325,7 +884,9 @@
       ]
     },
     {
-      "keywords": ["subtle", "whisper", "ghost", "hint", "barely", "ambient", "trace", "delicate", "micro", "nuanced", "low key"],
+      "keywords": [
+        "subtle", "subtler", "whisper", "whispers", "ghost", "ghosts", "hint", "hints", "barely", "barely noticeable", "ambient", "ambience", "trace", "traces", "delicate", "micro", "micro motion", "nuanced", "nuance", "low key", "lowkey", "quiet motion", "soft motion", "minimal motion", "hidden", "peripheral", "non intrusive", "nonintrusive", "under the radar", "fine grain", "light touch", "feather", "whiff", "suggestion", "implied motion", "almost nothing", "easter egg", "secret motion"
+      ],
       "openFirst": [
         "https://motion.dev/docs/react-animation",
         "https://reactbits.dev/",
@@ -334,7 +895,9 @@
       "alsoTry": ["https://animate-ui.com/docs/primitives"]
     },
     {
-      "keywords": ["precise", "lock", "confirm", "settle", "snap grid", "drag", "dnd", "accurate", "crisp", "decisive", "mechanical"],
+      "keywords": [
+        "precise", "precision", "lock", "locks", "locking", "confirm", "confirms", "confirmation", "settle", "settles", "snap grid", "drag", "dragging", "dnd", "drop", "dropped", "accurate", "accuracy", "crisp", "crisper", "decisive", "decision", "mechanical", "digital", "instrument", "engineering", "pixel perfect", "exact", "exactly", "tolerance", "grid", "snap", "sortable", "reorder", "slider", "detent", "notch", "tick marks", "alignment", "align", "snap into place", "lock in", "settled", "confirmed", "verified", "validated"
+      ],
       "openFirst": [
         "https://motion.dev/docs/react-drag",
         "https://motion.dev/docs/react-transitions",
@@ -347,7 +910,9 @@
       ]
     },
     {
-      "keywords": ["scroll", "parallax", "scrub", "pin", "section reveal", "story scroll", "on scroll", "scroll linked"],
+      "keywords": [
+        "scroll", "scrolling", "scrolled", "parallax", "parallaxes", "scrub", "scrubs", "scrubbing", "pin", "pinned", "pinning", "section reveal", "story scroll", "on scroll", "scroll linked", "scrolltrigger", "scroll trigger", "while in view", "in view", "viewport", "reveal on scroll", "fade in on scroll", "progress bar scroll", "scroll progress", "narrative scroll", "scrollytelling", "sticky scroll", "scroll hijack careful", "scroll speed", "scroll based", "enter viewport"
+      ],
       "openFirst": [
         "https://motion.dev/docs/react-scroll-animations",
         "https://gsap.com/docs/v3/Plugins/ScrollTrigger/"
@@ -359,7 +924,9 @@
       ]
     },
     {
-      "keywords": ["timeline", "sequence", "orchestrate", "choreograph", "one after another", "stagger story", "chain animation"],
+      "keywords": [
+        "timeline", "timelines", "sequence", "sequences", "sequential", "orchestrate", "orchestrated", "choreograph", "choreographed", "one after another", "stagger story", "chain animation", "chained", "ordered", "queue", "queued", "steps", "stepped careful", "storyboard", "beats", "rhythm", "cadence", "multi step", "multistep", "series", "serial animations", "waterfall timing", "cascade timing", "after another", "then then then", "first second third"
+      ],
       "openFirst": [
         "https://motion.dev/docs/react-animation",
         "https://animejs.com/documentation/timeline/",
@@ -368,10 +935,60 @@
       "alsoTry": ["https://reactbits.dev/"]
     },
     {
-      "keywords": ["3d", "three", "webgl", "camera", "stage", "scene"],
+      "keywords": [
+        "3d", "three d", "three.js", "threejs", "webgl", "web gpu", "camera", "cameras", "stage", "stages", "scene", "scenes", "mesh", "meshes", "gltf", "model", "models", "orbit", "theatre", "theater", "spatial ui", "volumetric", "depth", "z axis", "extrude", "rotate y", "rotate x", "isometric", "perspective", "cinematic 3d"
+      ],
       "openFirst": ["https://www.theatrejs.com/docs", "https://motion.dev/docs/react"],
       "alsoTry": ["https://reactbits.dev/", "https://magicui.design/docs/components/globe"],
       "note": "Pair Theatre.js or R3F with Motion for DOM overlay UI."
+    },
+    {
+      "keywords": [
+        "instant", "immediately", "snappy timing", "quick timing", "fast timing", "slow timing", "very slow", "cinematic timing", "deliberate timing", "comfortable speed", "natural speed", "responsive speed", "one hundred ms", "two hundred ms", "three hundred ms", "three fifty ms", "four hundred ms", "five hundred ms", "six hundred ms", "one second", "fifteen hundred ms", "two seconds", "three seconds", "four seconds", "six seconds", "speed mapping", "duration choice", "timing feel", "tempo", "rhythm speed", "pace", "paced", "hurried", "leisurely", "snail", "rush", "urgent timing", "calm timing"
+      ],
+      "openFirst": [
+        "https://motion.dev/docs/react-transitions",
+        "https://motion.dev/docs/react-animation",
+        "https://animejs.com/documentation/animation/"
+      ],
+      "alsoTry": ["https://gsap.com/docs/v3/", "https://reactbits.dev/"],
+      "note": "Speed words map to duration bands; combine with a vibe id for full intent."
+    },
+    {
+      "keywords": [
+        "playful", "playfully", "bouncy", "bouncier", "fun", "funner", "overshoot", "overshoots", "elastic", "rubber", "expo out", "exponential", "premium easing", "elegant easing", "natural easing", "organic easing", "snappy easing", "decisive easing", "mechanical easing", "sharp bezier", "gentle easing", "ease in out", "cubic bezier", "spring physics", "spring", "springs", "damping", "stiffness", "mass", "personality curve", "curve personality", "easing personality", "not linear", "avoid linear", "avoid step", "step function bad", "smooth curve", "graph editor", "motion personality"
+      ],
+      "openFirst": [
+        "https://motion.dev/docs/react-transitions",
+        "https://motion.dev/docs/react-animation",
+        "https://gsap.com/docs/v3/"
+      ],
+      "alsoTry": ["https://animejs.com/documentation/animation/", "https://reactbits.dev/"],
+      "note": "Easing words map to bezier/spring choices; see tone-to-motion.md TRANSLATION_RULES."
+    },
+    {
+      "keywords": [
+        "barely noticeable intensity", "subtle intensity", "normal intensity", "dramatic intensity", "bold intensity", "extreme intensity", "cinematic intensity", "scale range", "opacity range", "small motion", "big motion", "huge motion", "tiny motion", "micro scale", "macro scale", "full screen motion", "local motion", "global motion", "intensity mapping", "how much motion", "amplitude", "range of motion", "travel distance", "displacement", "transform amount", "less motion", "more motion", "turn it down", "turn it up", "dial back animation", "crank up animation"
+      ],
+      "openFirst": [
+        "https://motion.dev/docs/react-animation",
+        "https://motion.dev/docs/react-accessibility",
+        "https://motion.dev/docs/react-use-reduced-motion"
+      ],
+      "alsoTry": ["https://reactbits.dev/", "https://animate-ui.com/docs"],
+      "note": "Intensity phrases map to scale/opacity ranges; respect prefers-reduced-motion."
+    },
+    {
+      "keywords": [
+        "from below", "from above", "slides from left", "slides from right", "from the left", "from the right", "from bottom", "from top", "enter upward", "enter downward", "enter leftward", "enter rightward", "expand from center", "collapse to center", "no movement", "opacity only direction", "spatial direction", "which direction", "slide direction", "origin", "transform origin", "translate direction", "gravity up", "gravity down", "reverse direction", "invert motion path", "rtl motion", "ltr motion"
+      ],
+      "openFirst": [
+        "https://motion.dev/docs/react-animation",
+        "https://motion.dev/docs/react-layout-animations",
+        "https://gsap.com/docs/v3/"
+      ],
+      "alsoTry": ["https://reactbits.dev/", "https://animate-ui.com/docs/components"],
+      "note": "Direction phrases map to translate/scale sign; match layout logic."
     }
   ]
 }
