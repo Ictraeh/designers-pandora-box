@@ -1,0 +1,132 @@
+{
+  "title": "Animation reference patterns",
+  "version": "1.0.0",
+  "patterns": [
+    {
+      "id": "enter-fade-up",
+      "name": "Enter: fade + slight translate",
+      "category": "elements",
+      "engines": ["motion", "css"],
+      "tags": ["enter", "opacity", "translate", "subtle"],
+      "docs": ["https://motion.dev/docs/react", "https://motion.dev/docs/react-animation"],
+      "notes": "Prefer Motion initial/animate or CSS @keyframes; map duration to CSS variable for Tailwind."
+    },
+    {
+      "id": "stagger-children",
+      "name": "Staggered list reveal",
+      "category": "elements",
+      "engines": ["motion", "gsap"],
+      "tags": ["stagger", "list", "children"],
+      "docs": ["https://motion.dev/docs/react-animation"],
+      "notes": "Motion: transition.staggerChildren on parent. GSAP: timeline with position parameter."
+    },
+    {
+      "id": "scroll-in-view",
+      "name": "Scroll-triggered reveal",
+      "category": "interaction",
+      "engines": ["motion", "gsap"],
+      "tags": ["scroll", "viewport", "once"],
+      "docs": ["https://motion.dev/docs/react-scroll-animations"],
+      "notes": "Motion: whileInView. Heavy scroll choreography: consider GSAP ScrollTrigger."
+    },
+    {
+      "id": "scroll-linked-progress",
+      "name": "Scroll-linked progress (bar / scrub)",
+      "category": "interaction",
+      "engines": ["motion", "gsap"],
+      "tags": ["scroll", "scrub", "progress"],
+      "docs": ["https://motion.dev/docs/react-scroll-animations", "https://gsap.com/docs/v3/Plugins/ScrollTrigger/"],
+      "notes": "Motion: useScroll + useTransform. GSAP: ScrollTrigger scrub for timelines."
+    },
+    {
+      "id": "hover-tap-micro",
+      "name": "Hover / tap micro-interaction",
+      "category": "interaction",
+      "engines": ["motion", "css"],
+      "tags": ["hover", "tap", "button"],
+      "docs": ["https://motion.dev/docs/react-gestures", "https://motion.dev/docs/react-hover-animation"],
+      "notes": "Motion whileHover/whileTap; simple color/scale can stay CSS for weight."
+    },
+    {
+      "id": "text-reveal",
+      "name": "Text reveal / split feel",
+      "category": "text",
+      "engines": ["motion", "gsap", "css"],
+      "tags": ["text", "reveal", "headline"],
+      "docs": ["https://motion.dev/docs/react-animation"],
+      "notes": "Start with opacity + y per line or word; advanced split typography may need GSAP SplitText (plugin) or manual spans."
+    },
+    {
+      "id": "svg-line-draw",
+      "name": "SVG stroke / path draw",
+      "category": "elements",
+      "engines": ["motion", "gsap"],
+      "tags": ["svg", "icon", "path"],
+      "docs": ["https://motion.dev/docs/react-svg-animation"],
+      "notes": "Motion pathLength on path elements; match reduced-motion with static state."
+    },
+    {
+      "id": "layout-shift",
+      "name": "Layout reorder / shared layout",
+      "category": "elements",
+      "engines": ["motion"],
+      "tags": ["layout", "flip", "reorder"],
+      "docs": ["https://motion.dev/docs/react-layout-animations"],
+      "notes": "Motion layout and layoutId; avoid animating width/height without transform tricks."
+    },
+    {
+      "id": "gradient-bg-motion",
+      "name": "Animated gradient / mesh background",
+      "category": "backgrounds",
+      "engines": ["css", "canvas"],
+      "tags": ["background", "gradient", "performance"],
+      "docs": [],
+      "notes": "Prefer CSS variables + keyframes; canvas/WebGL only if needed for noise/mesh complexity."
+    },
+    {
+      "id": "grid-dots-pattern",
+      "name": "Grid / dots / noise backdrop",
+      "category": "backgrounds",
+      "engines": ["css", "canvas"],
+      "tags": ["pattern", "grid", "decorative"],
+      "docs": [],
+      "notes": "CSS background-image + animation; watch contrast for text readability."
+    },
+    {
+      "id": "timeline-sequence",
+      "name": "Multi-step choreographed sequence",
+      "category": "interaction",
+      "engines": ["gsap", "motion"],
+      "tags": ["timeline", "sequence", "hero"],
+      "docs": ["https://gsap.com/docs/v3/GSAP/Timeline/", "https://motion.dev/docs/react-animation"],
+      "notes": "GSAP timelines for complex sync; Motion for simpler ordered variants."
+    },
+    {
+      "id": "anime-timeline-lite",
+      "name": "Lightweight timeline on DOM / SVG",
+      "category": "elements",
+      "engines": ["anime"],
+      "tags": ["timeline", "svg", "dom"],
+      "docs": ["https://animejs.com/documentation/animation/"],
+      "notes": "anime.js when you want imperative timelines without React component wrappers everywhere."
+    },
+    {
+      "id": "scene-3d-basic",
+      "name": "Basic 3D scene (model / orbit)",
+      "category": "3d",
+      "engines": ["r3f"],
+      "tags": ["three", "webgl", "optional"],
+      "docs": ["https://docs.pmnd.rs/react-three-fiber/getting-started/introduction"],
+      "notes": "Optional peer; lazy-load; provide static image fallback for low-power devices."
+    },
+    {
+      "id": "theatre-authoring",
+      "name": "Authoring-driven 3D / property sequences",
+      "category": "3d",
+      "engines": ["r3f"],
+      "tags": ["theatre", "authoring", "advanced"],
+      "docs": ["https://www.theatrejs.com/"],
+      "notes": "Theatre.js for in-browser tuning; export values back to code for production if possible."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "description": "Third-party animation/UI reference hubs for vibe coding (indexes only; see sources/*.md)",
+  "officialEngines": [
+    {
+      "id": "motion",
+      "name": "Motion for React",
+      "baseUrl": "https://motion.dev/docs/react",
+      "indexDoc": "docs/animation-reference/motion.md"
+    },
+    {
+      "id": "animejs",
+      "name": "anime.js",
+      "baseUrl": "https://animejs.com/documentation/animation/",
+      "indexDoc": "docs/animation-reference/animejs.md"
+    },
+    {
+      "id": "gsap",
+      "name": "GSAP",
+      "baseUrl": "https://gsap.com/docs/v3/",
+      "indexDoc": "docs/animation-reference/gsap.md"
+    },
+    {
+      "id": "theatre",
+      "name": "Theatre.js",
+      "baseUrl": "https://www.theatrejs.com/docs",
+      "notes": "Authoring / sequencing with 3D or custom renderers"
+    }
+  ],
+  "libraries": [
+    {
+      "id": "react-bits",
+      "name": "React Bits",
+      "baseUrl": "https://reactbits.dev/",
+      "indexDoc": "docs/animation-reference/sources/react-bits.md",
+      "notes": "Client-heavy site; use for ideas and pattern names."
+    },
+    {
+      "id": "magic-ui",
+      "name": "Magic UI",
+      "baseUrl": "https://magicui.design/docs/components",
+      "docUrlPattern": "https://magicui.design/docs/components/{slug}",
+      "indexDoc": "docs/animation-reference/sources/magic-ui.md"
+    },
+    {
+      "id": "animate-ui",
+      "name": "Animate UI",
+      "baseUrl": "https://animate-ui.com/docs",
+      "indexDoc": "docs/animation-reference/sources/animate-ui.md",
+      "notes": "Tailwind + Motion; primitives and components."
+    },
+    {
+      "id": "kokonut-ui",
+      "name": "Kokonut UI",
+      "baseUrl": "https://kokonutui.com/docs",
+      "docUrlPattern": "https://kokonutui.com/docs/{category}/{slug}",
+      "registryPattern": "https://kokonutui.com/r/{name}.json",
+      "indexDoc": "docs/animation-reference/sources/kokonut-ui.md"
+    },
+    {
+      "id": "cuicui",
+      "name": "CuiCui",
+      "baseUrl": "https://cuicui.day/",
+      "commonUiPattern": "https://cuicui.day/common-ui/{category}",
+      "indexDoc": "docs/animation-reference/sources/cuicui.md"
+    }
+  ]
+}

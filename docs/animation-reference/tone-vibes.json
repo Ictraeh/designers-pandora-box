@@ -1,0 +1,377 @@
+{
+  "version": "1.1.0",
+  "description": "Maps vibe ids + natural-language triggers to official docs and gallery pages so AI/tools can open the right reference before coding.",
+  "routingInstructions": "1) Match user text to the best vibe `id` via `triggerPhrases` + `feelingKeywords`. 2) Open every URL in `externalRefs` for that vibe (Motion first). 3) Reimplement; do not paste vendor source without license. 4) Cross-link `patterns.json` via `patternsJson`.",
+  "globalHubs": {
+    "motion": "https://motion.dev/docs/react",
+    "motionAnimation": "https://motion.dev/docs/react-animation",
+    "motionTransitions": "https://motion.dev/docs/react-transitions",
+    "motionGestures": "https://motion.dev/docs/react-gestures",
+    "motionScroll": "https://motion.dev/docs/react-scroll-animations",
+    "motionSvg": "https://motion.dev/docs/react-svg-animation",
+    "motionLayout": "https://motion.dev/docs/react-layout-animations",
+    "animeAnimation": "https://animejs.com/documentation/animation/",
+    "animeTimeline": "https://animejs.com/documentation/timeline/",
+    "gsapDocs": "https://gsap.com/docs/v3/",
+    "gsapScrollTrigger": "https://gsap.com/docs/v3/Plugins/ScrollTrigger/",
+    "theatre": "https://www.theatrejs.com/docs",
+    "reactBits": "https://reactbits.dev/",
+    "magicUiHub": "https://magicui.design/docs/components",
+    "animateUiDocs": "https://animate-ui.com/docs",
+    "animateUiComponents": "https://animate-ui.com/docs/components",
+    "kokonutDocs": "https://kokonutui.com/docs",
+    "cuicuiCommonUi": "https://cuicui.day/common-ui"
+  },
+  "vibes": [
+    {
+      "id": "magic.borderBeam",
+      "patternsJson": ["hover-tap-micro"],
+      "feelingKeywords": ["magical", "beam", "glow edge", "trace", "neon border", "energy ring", "outline animation"],
+      "triggerPhrases": ["energy running around the edge", "glowing border that moves", "light tracing the outline", "magic ui border beam", "animated border glow", "running light on card edge", "chase light border"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "keyframes, repeat, linear transitions on custom props" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-svg-animation", "why": "offset paths / stroke motion if vector-based" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/border-beam", "why": "reference props: duration, colors, size" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search for border / beam / glow card patterns" },
+        { "site": "animate-ui", "url": "https://animate-ui.com/docs/components", "why": "shadcn-style animated cards / effects" },
+        { "site": "kokonut-ui", "url": "https://kokonutui.com/docs", "why": "browse backgrounds & cards for accent motion" }
+      ]
+    },
+    {
+      "id": "magic.shimmer",
+      "patternsJson": ["gradient-bg-motion"],
+      "feelingKeywords": ["magical", "shimmer", "sweep", "holographic", "loading shine", "gloss"],
+      "triggerPhrases": ["light passing through", "shiny sweep effect", "holographic card", "gloss moving across", "premium loading feel", "sheen animation", "skeleton shimmer"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "translateX loop on gradient overlay" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/shimmer-button", "why": "shimmer treatment on CTA" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/animated-shiny-text", "why": "text sheen patterns" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search shimmer / shine text" },
+        { "site": "animate-ui", "url": "https://animate-ui.com/docs/components", "why": "text + button shine components" },
+        { "site": "animejs", "url": "https://animejs.com/documentation/animation/", "why": "imperative sweep on multiple targets" }
+      ]
+    },
+    {
+      "id": "magic.glow",
+      "patternsJson": ["gradient-bg-motion"],
+      "feelingKeywords": ["magical", "glow", "aura", "halo", "neon", "radiate", "pulse light"],
+      "triggerPhrases": ["radiating warmth", "soft halo", "glowing like it has power", "neon aura", "lit from within", "pulsing glow", "outer glow animation"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "opacity / shadow tweening" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/magic-card", "why": "card glow treatments" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/border-beam", "why": "accent energy on edges" },
+        { "site": "kokonut-ui", "url": "https://kokonutui.com/docs/backgrounds/beams-background", "why": "ambient beam glow backgrounds" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search glow / spotlight / card" }
+      ]
+    },
+    {
+      "id": "natural.breathing",
+      "patternsJson": ["enter-fade-up"],
+      "feelingKeywords": ["natural", "alive", "breathing", "organic", "idle", "soft pulse"],
+      "triggerPhrases": ["feels alive", "like it's breathing", "organic idle animation", "gentle in and out", "softly moving", "living pulse", "ambient life on avatar"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "looping scale/opacity keyframes" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "spring vs tween for organic loop" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/meteors", "why": "soft ambient motion reference" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search floating / idle / subtle" },
+        { "site": "animejs", "url": "https://animejs.com/documentation/animation/", "why": "alternate loop on multiple props" }
+      ]
+    },
+    {
+      "id": "natural.fluid",
+      "patternsJson": ["enter-fade-up"],
+      "feelingKeywords": ["natural", "fluid", "liquid", "water", "organic", "smooth transition"],
+      "triggerPhrases": ["smooth like water", "not robotic", "flows naturally", "feels liquid", "organic transition", "modal should feel liquid"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "springs and duration" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-layout-animations", "why": "layout morph fluidity" },
+        { "site": "animate-ui", "url": "https://animate-ui.com/docs/primitives", "why": "animated primitives for drawers/dialogs" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search fluid / transition" },
+        { "site": "animejs", "url": "https://animejs.com/documentation/timeline/", "why": "choreographed multi-step fluid sequences" }
+      ]
+    },
+    {
+      "id": "natural.drift",
+      "patternsJson": ["grid-dots-pattern"],
+      "feelingKeywords": ["natural", "drift", "float", "hover idle", "parallax soft", "gentle sway"],
+      "triggerPhrases": ["gently floating", "hovering in space", "soft idle movement", "drifting", "parallax-like idle", "slow sway", "floating badge"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "infinite subtle translate/rotate" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-scroll-animations", "why": "if drift ties to scroll" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/orbiting-circles", "why": "orbital / floating motion" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search float / parallax / blob" },
+        { "site": "kokonut-ui", "url": "https://kokonutui.com/docs/backgrounds/flow-field", "why": "ambient field motion (if available in nav)" },
+        { "site": "gsap", "url": "https://gsap.com/docs/v3/", "why": "ScrollSmoother / parallax only if Motion insufficient" }
+      ]
+    },
+    {
+      "id": "reactive.snap",
+      "patternsJson": ["hover-tap-micro"],
+      "feelingKeywords": ["reactive", "snap", "tactile", "click", "press", "immediate"],
+      "triggerPhrases": ["satisfying click", "feels physical", "snappy response", "real button", "immediate feedback", "press down feel", "tactile ui"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-gestures", "why": "whileTap / whileHover" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-hover-animation", "why": "hover micro-interactions" },
+        { "site": "kokonut-ui", "url": "https://kokonutui.com/docs/buttons/particle-button", "why": "click feedback patterns" },
+        { "site": "cuicui", "url": "https://cuicui.day/common-ui/buttons", "why": "magnetic / modern animated buttons" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/ripple-button", "why": "ripple + press" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search button / micro interaction" }
+      ]
+    },
+    {
+      "id": "reactive.ripple",
+      "patternsJson": ["hover-tap-micro"],
+      "feelingKeywords": ["reactive", "ripple", "material", "touch wave", "spread"],
+      "triggerPhrases": ["ripple on click", "material design feel", "energy spreading outward", "touch wave", "click radiates", "water ripple button"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-gestures", "why": "tap origin + spawned motion" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/ripple-button", "why": "ripple treatment reference" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/ripple", "why": "ripple background / effect" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search ripple / material" },
+        { "site": "cuicui", "url": "https://cuicui.day/common-ui/buttons", "why": "button interaction catalog" }
+      ]
+    },
+    {
+      "id": "reactive.bounce",
+      "patternsJson": ["stagger-children", "enter-fade-up"],
+      "feelingKeywords": ["reactive", "bounce", "springy", "playful", "pop", "elastic"],
+      "triggerPhrases": ["springy entrance", "bounces in", "playful when it appears", "elastic pop", "not a flat fade", "overshoot entrance", "happy modal"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "spring type, stiffness, damping" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "keyframes overshoot" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/blur-fade", "why": "enter motion reference" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search bounce / spring text" },
+        { "site": "animate-ui", "url": "https://animate-ui.com/docs/components", "why": "Motion-based enters" },
+        { "site": "gsap", "url": "https://gsap.com/docs/v3/", "why": "timeline overshoot if non-React DOM" }
+      ]
+    },
+    {
+      "id": "elegant.silk",
+      "patternsJson": ["enter-fade-up"],
+      "feelingKeywords": ["elegant", "silk", "premium", "refined", "luxury", "apple", "linear app"],
+      "triggerPhrases": ["feels expensive", "high-end transition", "like apple or linear", "refined and smooth", "nothing jarring", "quiet luxury motion", "soft reveal"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "small y + opacity" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "expo-out style eases" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/blur-fade", "why": "subtle enter" },
+        { "site": "animate-ui", "url": "https://animate-ui.com/docs/components", "why": "tasteful Motion defaults" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search fade / blur / minimal" }
+      ]
+    },
+    {
+      "id": "elegant.glide",
+      "patternsJson": ["stagger-children", "scroll-in-view"],
+      "feelingKeywords": ["elegant", "glide", "slide", "stagger", "panel", "drawer"],
+      "triggerPhrases": ["slides in confidently", "always belonged there", "no drama appears", "smooth slide from side", "panel glides", "staggered list entrance"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "staggerChildren variants" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-scroll-animations", "why": "scroll-linked slide" },
+        { "site": "kokonut-ui", "url": "https://kokonutui.com/docs/navigation/smooth-drawer", "why": "drawer / nav motion (confirm slug in sidebar)" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/dock", "why": "dock / bar motion" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search slide / stagger" },
+        { "site": "gsap", "url": "https://gsap.com/docs/v3/Plugins/ScrollTrigger/", "why": "heavy scroll-linked panels" }
+      ]
+    },
+    {
+      "id": "elegant.fade",
+      "patternsJson": ["enter-fade-up"],
+      "feelingKeywords": ["elegant", "fade", "minimal", "quiet", "opacity only"],
+      "triggerPhrases": ["just fades in", "no movement", "quiet appearance", "subtle don't overdo", "minimal transition", "only opacity"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "opacity-only transitions" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/blur-fade", "why": "optional blur + fade" },
+        { "site": "animate-ui", "url": "https://animate-ui.com/docs/components", "why": "fade primitives" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search fade / minimal" }
+      ]
+    },
+    {
+      "id": "bold.slam",
+      "patternsJson": ["enter-fade-up"],
+      "feelingKeywords": ["bold", "slam", "dramatic", "impact", "hero", "statement"],
+      "triggerPhrases": ["hits hard", "dramatic entrance", "slams into place", "bold and confident", "makes a statement", "big entrance", "hero slam"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "dramatic keyframes" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-scroll-animations", "why": "scroll-triggered hero punch" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search dramatic / hero / text impact" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/text-reveal", "why": "big typography motion" },
+        { "site": "gsap", "url": "https://gsap.com/docs/v3/", "why": "timeline hero choreography" }
+      ]
+    },
+    {
+      "id": "bold.burst",
+      "patternsJson": ["timeline-sequence", "enter-fade-up"],
+      "feelingKeywords": ["bold", "burst", "explosion", "celebration", "shockwave", "radial"],
+      "triggerPhrases": ["explodes outward", "radiates from center", "burst of energy", "shockwave", "celebration effect", "success explosion", "rings expanding"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "staggered scale bursts" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/confetti", "why": "celebration particles" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/particles", "why": "particle systems" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search confetti / burst / celebrate" },
+        { "site": "gsap", "url": "https://gsap.com/docs/v3/", "why": "complex burst timelines" }
+      ]
+    },
+    {
+      "id": "subtle.whisper",
+      "patternsJson": [],
+      "feelingKeywords": ["subtle", "whisper", "ambient", "barely", "hint", "micro"],
+      "triggerPhrases": ["barely noticeable", "just a hint", "ambient movement", "don't distract", "background life", "micro motion", "almost static"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "very small deltas" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-reduce-bundle-size", "why": "LazyMotion if many subtle instances" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search subtle / ambient" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/dot-pattern", "why": "quiet background motion" }
+      ]
+    },
+    {
+      "id": "subtle.ghost",
+      "patternsJson": ["enter-fade-up"],
+      "feelingKeywords": ["subtle", "ghost", "materialize", "tooltip", "popover", "blur in"],
+      "triggerPhrases": ["appears silently", "no entrance drama", "materializes", "fades from nothing", "disappears cleanly", "ghost tooltip"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "opacity + filter (use sparingly)" },
+        { "site": "magic-ui", "url": "https://magicui.design/docs/components/blur-fade", "why": "blur + fade reference" },
+        { "site": "animate-ui", "url": "https://animate-ui.com/docs/primitives", "why": "popover / tooltip primitives" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search ghost / tooltip" }
+      ]
+    },
+    {
+      "id": "precise.lock",
+      "patternsJson": ["hover-tap-micro", "layout-shift"],
+      "feelingKeywords": ["precise", "lock", "snap", "settle", "grid", "dnd"],
+      "triggerPhrases": ["snaps into place", "feels confirmed", "lock clicking", "decisive placement", "grid snap feel", "overshoot settle", "drag release snap"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-transitions", "why": "spring settle tuning" },
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-drag", "why": "drag + release motion" },
+        { "site": "gsap", "url": "https://gsap.com/docs/v3/", "why": "Flip / inertia plugins for complex DnD" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search drag / sort" }
+      ]
+    },
+    {
+      "id": "precise.confirm",
+      "patternsJson": ["hover-tap-micro"],
+      "feelingKeywords": ["precise", "confirm", "success", "flash", "saved", "check"],
+      "triggerPhrases": ["quick success flash", "visual nod", "confirms the action", "green flash", "checkmark feel", "saved feedback", "copy success"],
+      "externalRefs": [
+        { "site": "motion.dev", "url": "https://motion.dev/docs/react-animation", "why": "short sequence keyframes" },
+        { "site": "kokonut-ui", "url": "https://kokonutui.com/docs/buttons/particle-button", "why": "success-style button motion" },
+        { "site": "cuicui", "url": "https://cuicui.day/common-ui/buttons", "why": "CTA / dual action feedback" },
+        { "site": "react-bits", "url": "https://reactbits.dev/", "why": "search success / check / toast" }
+      ]
+    }
+  ],
+  "feelingKeywordToSites": [
+    {
+      "keywords": ["magical", "sparkle", "beam", "shimmer", "glow", "holographic", "aura", "neon edge", "wonder", "enchanted", "mystical", "fairy", "spell"],
+      "openFirst": [
+        "https://magicui.design/docs/components",
+        "https://motion.dev/docs/react-animation",
+        "https://reactbits.dev/"
+      ],
+      "alsoTry": [
+        "https://animate-ui.com/docs/components",
+        "https://kokonutui.com/docs",
+        "https://animejs.com/documentation/animation/"
+      ]
+    },
+    {
+      "keywords": ["natural", "organic", "fluid", "breathing", "alive", "water", "drift", "float", "calm", "soft", "gentle", "flowing", "liquid"],
+      "openFirst": [
+        "https://motion.dev/docs/react-transitions",
+        "https://animate-ui.com/docs/components",
+        "https://reactbits.dev/"
+      ],
+      "alsoTry": [
+        "https://magicui.design/docs/components/marquee",
+        "https://animejs.com/documentation/timeline/",
+        "https://kokonutui.com/docs/texts/scroll-text"
+      ]
+    },
+    {
+      "keywords": ["reactive", "snap", "bounce", "ripple", "click", "tap", "immediate", "tactile", "springy", "responsive", "feedback", "satisfying"],
+      "openFirst": [
+        "https://motion.dev/docs/react-gestures",
+        "https://kokonutui.com/docs/buttons/particle-button",
+        "https://cuicui.day/common-ui/buttons"
+      ],
+      "alsoTry": [
+        "https://magicui.design/docs/components/ripple-button",
+        "https://reactbits.dev/",
+        "https://animate-ui.com/docs/components"
+      ]
+    },
+    {
+      "keywords": ["elegant", "silk", "premium", "refined", "fade", "glide", "minimal", "quiet", "luxury", "classy", "sophisticated", "understated", "polished"],
+      "openFirst": [
+        "https://motion.dev/docs/react-animation",
+        "https://animate-ui.com/docs/components",
+        "https://magicui.design/docs/components/blur-fade"
+      ],
+      "alsoTry": [
+        "https://reactbits.dev/",
+        "https://kokonutui.com/docs",
+        "https://cuicui.day/common-ui/buttons"
+      ]
+    },
+    {
+      "keywords": ["bold", "slam", "dramatic", "burst", "impact", "explosion", "hero statement", "loud", "punchy", "aggressive", "high energy"],
+      "openFirst": [
+        "https://motion.dev/docs/react-animation",
+        "https://reactbits.dev/",
+        "https://magicui.design/docs/components/text-reveal"
+      ],
+      "alsoTry": [
+        "https://gsap.com/docs/v3/",
+        "https://animate-ui.com/docs/components"
+      ]
+    },
+    {
+      "keywords": ["subtle", "whisper", "ghost", "hint", "barely", "ambient", "trace", "delicate", "micro", "nuanced", "low key"],
+      "openFirst": [
+        "https://motion.dev/docs/react-animation",
+        "https://reactbits.dev/",
+        "https://magicui.design/docs/components/dot-pattern"
+      ],
+      "alsoTry": ["https://animate-ui.com/docs/primitives"]
+    },
+    {
+      "keywords": ["precise", "lock", "confirm", "settle", "snap grid", "drag", "dnd", "accurate", "crisp", "decisive", "mechanical"],
+      "openFirst": [
+        "https://motion.dev/docs/react-drag",
+        "https://motion.dev/docs/react-transitions",
+        "https://gsap.com/docs/v3/"
+      ],
+      "alsoTry": [
+        "https://reactbits.dev/",
+        "https://kokonutui.com/docs",
+        "https://cuicui.day/common-ui"
+      ]
+    },
+    {
+      "keywords": ["scroll", "parallax", "scrub", "pin", "section reveal", "story scroll", "on scroll", "scroll linked"],
+      "openFirst": [
+        "https://motion.dev/docs/react-scroll-animations",
+        "https://gsap.com/docs/v3/Plugins/ScrollTrigger/"
+      ],
+      "alsoTry": [
+        "https://magicui.design/docs/components/scroll-based-velocity",
+        "https://reactbits.dev/",
+        "https://kokonutui.com/docs/texts/scroll-text"
+      ]
+    },
+    {
+      "keywords": ["timeline", "sequence", "orchestrate", "choreograph", "one after another", "stagger story", "chain animation"],
+      "openFirst": [
+        "https://motion.dev/docs/react-animation",
+        "https://animejs.com/documentation/timeline/",
+        "https://gsap.com/docs/v3/"
+      ],
+      "alsoTry": ["https://reactbits.dev/"]
+    },
+    {
+      "keywords": ["3d", "three", "webgl", "camera", "stage", "scene"],
+      "openFirst": ["https://www.theatrejs.com/docs", "https://motion.dev/docs/react"],
+      "alsoTry": ["https://reactbits.dev/", "https://magicui.design/docs/components/globe"],
+      "note": "Pair Theatre.js or R3F with Motion for DOM overlay UI."
+    }
+  ]
+}
