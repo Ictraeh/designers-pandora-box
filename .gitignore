@@ -6,7 +6,6 @@
 # Nested projects (each has its own .git + remote)
 chopshop/
 Component/
-Image Video Compression/
 landing page/
 React animation library/
 seo-generator/

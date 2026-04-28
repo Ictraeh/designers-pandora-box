@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compress — images & video for the web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="bg-gradient" aria-hidden="true"></div>
+    <header class="site-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">◇</span>
+        <span class="name">Compress</span>
+      </div>
+      <nav class="nav">
+        <a href="#app">Tool</a>
+        <a href="#help">Help</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Smaller files, faster pages</h1>
+        <p class="lede">
+          Convert and compress images (WebP-first) and video (WebM VP9) in the
+          browser—batch-friendly, with clear quality presets.
+        </p>
+      </section>
+
+      <section id="app" class="panel">
+        <div class="tabs" role="tablist" aria-label="Compression type">
+          <button
+            type="button"
+            class="tab is-active"
+            role="tab"
+            aria-selected="true"
+            data-mode="image"
+            id="tab-image"
+          >
+            Images
+          </button>
+          <button
+            type="button"
+            class="tab"
+            role="tab"
+            aria-selected="false"
+            data-mode="video"
+            id="tab-video"
+          >
+            Video
+          </button>
+        </div>
+
+        <div
+          id="file-queue-panel"
+          class="file-queue-panel hidden"
+          aria-live="polite"
+        >
+          <div class="file-queue-head">
+            <span class="file-queue-title">Files ready to upload</span>
+            <span class="file-queue-badge" id="file-queue-badge"></span>
+          </div>
+          <ul id="file-queue-list" class="file-queue-list"></ul>
+          <p class="file-queue-hint" id="file-queue-hint"></p>
+        </div>
+
+        <div
+          id="status-panel"
+          class="status-panel hidden"
+          role="status"
+          aria-live="polite"
+          aria-busy="false"
+        >
+          <div class="status-header">
+            <span class="status-phase" id="status-phase">Uploading</span>
+            <span class="status-pct" id="status-pct">0%</span>
+          </div>
+          <div class="status-bar-track">
+            <div class="status-bar-fill" id="status-bar-fill"></div>
+          </div>
+          <p class="status-detail" id="status-detail"></p>
+        </div>
+
+        <form id="form-image" class="mode-form" data-mode="image">
+          <div
+            class="dropzone"
+            id="drop-image"
+            tabindex="0"
+            role="button"
+            aria-label="Drop images or click to browse"
+          >
+            <input
+              type="file"
+              id="file-image"
+              name="files"
+              accept=".jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.svg"
+              multiple
+              hidden
+            />
+            <p class="drop-title">Drop images here</p>
+            <p class="drop-hint">JPEG, PNG, GIF, BMP, TIFF, SVG — batch OK</p>
+          </div>
+
+          <div class="controls grid-2">
+            <label class="field">
+              <span>Output format</span>
+              <select name="format" id="image-format">
+                <option value="webp" selected>WebP (recommended)</option>
+                <option value="jpeg">JPEG</option>
+                <option value="png">PNG</option>
+                <option value="gif">GIF</option>
+                <option value="avif">AVIF</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Quality</span>
+              <select name="quality" id="image-quality">
+                <option value="low">Low (smaller)</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+          </div>
+          <label class="checkbox field-inline" id="webp-lossless-wrap">
+            <input type="checkbox" name="lossless" id="image-lossless" />
+            <span>Lossless WebP (only applies to WebP)</span>
+          </label>
+
+          <button type="submit" class="btn primary" id="btn-image">
+            Compress images
+          </button>
+        </form>
+
+        <form id="form-video" class="mode-form hidden" data-mode="video">
+          <div
+            class="dropzone"
+            id="drop-video"
+            tabindex="0"
+            role="button"
+            aria-label="Drop videos or click to browse"
+          >
+            <input
+              type="file"
+              id="file-video"
+              name="files"
+              accept=".mp4,.avi,.mov,.mkv,.wmv"
+              multiple
+              hidden
+            />
+            <p class="drop-title">Drop videos here</p>
+            <p class="drop-hint">MP4, AVI, MOV, MKV, WMV — batch OK</p>
+          </div>
+
+          <div class="controls grid-2">
+            <label class="field">
+              <span>Output format</span>
+              <select name="format" id="video-format">
+                <option value="webm" selected>WebM (VP9 + Opus)</option>
+                <option value="mp4">MP4 (H.264 + AAC)</option>
+                <option value="ogg">OGG (Theora + Vorbis)</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Quality</span>
+              <select name="quality" id="video-quality">
+                <option value="low">Low (smaller)</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+          </div>
+          <div class="controls grid-2">
+            <label class="field">
+              <span>Max width (px, optional)</span>
+              <input
+                type="number"
+                name="maxWidth"
+                id="video-max-width"
+                min="160"
+                max="7680"
+                placeholder="e.g. 1280"
+              />
+            </label>
+            <label class="field">
+              <span>Video bitrate (optional, e.g. 2M)</span>
+              <input
+                type="text"
+                name="bitrate"
+                id="video-bitrate"
+                placeholder="VP9: overrides CRF if set"
+              />
+            </label>
+          </div>
+
+          <button type="submit" class="btn primary" id="btn-video">
+            Compress videos
+          </button>
+        </form>
+
+        <div id="results" class="results hidden">
+          <h2 class="results-title">Ready to download</h2>
+          <ul id="results-list" class="results-list"></ul>
+        </div>
+
+        <div id="error-panel" class="error-panel hidden" role="alert">
+          <div class="error-panel-head">
+            <span class="error-code" id="error-code"></span>
+            <h3 class="error-title" id="error-title">Something went wrong</h3>
+          </div>
+          <p class="error-message" id="error-message"></p>
+          <pre class="error-details hidden" id="error-details"></pre>
+        </div>
+      </section>
+
+      <section id="help" class="help">
+        <h2>Help</h2>
+        <div class="help-grid">
+          <article>
+            <h3>Images</h3>
+            <p>
+              Default export is WebP, which usually gives the best size and
+              quality balance for the web. Use AVIF for even smaller files on
+              modern browsers. SVGs are rasterized when converting to pixel
+              formats.
+            </p>
+          </article>
+          <article>
+            <h3>Video</h3>
+            <p>
+              WebM uses VP9 and Opus. Video compression needs
+              <strong>FFmpeg</strong> on your Mac (e.g.
+              <code>brew install ffmpeg</code>), then restart the app. If the
+              app still cannot find it, set <code>FFMPEG_PATH</code> to your
+              <code>ffmpeg</code> binary (often
+              <code>/opt/homebrew/bin/ffmpeg</code>). Optional max width scales
+              video down; bitrate overrides quality-based encoding for WebM when
+              set.
+            </p>
+          </article>
+          <article>
+            <h3>Accounts</h3>
+            <p>
+              Sign-in and saved preferences are not in this build—they can be
+              added later with auth and a database.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Local processing · runs on your Node server</span>
+    </footer>
+
+    <script src="/js/app.js" type="module"></script>
+  </body>
+</html>
