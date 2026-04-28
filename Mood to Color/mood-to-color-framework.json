@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "Mood to Color — framework",
+    "version": "0.1.0",
+    "purpose": "Map mood / emotion / abstract adjectives to curated palettes (Mindful Palettes, future Pinterest pins) using explicit axes + evidence-based bibliography. Not deterministic psychology: culture, medium, and brand context change readings (see NN/g + Color Palette Studio notes).",
+    "lexiconFile": "mood-to-color-lexicon.json",
+    "motionMapFile": "../Mood to Motion Map/mood-to-motion-map.json",
+    "mindfulPalettesHint": "Default path: Design Style Layout Markdown Library/Color system/Mindful Palletes/mindful-palettes.json — override with env MINDFUL_PALETTES_JSON"
+  },
+  "bibliography": [
+    {
+      "id": "adobe-discover-color-meaning",
+      "title": "Adobe — Color meaning (design discovery)",
+      "url": "https://www.adobe.com/creativecloud/design/discover/color-meaning.html",
+      "useFor": ["hue–emotion framings", "brand storytelling cautions"]
+    },
+    {
+      "id": "smartpress-marketing",
+      "title": "Smartpress — Color psychology in marketing & sales",
+      "url": "https://smartpress.com/blog/features/color-psychology-how-to-use-it-for-marketing-sales?srsltid=AfmBOooDc2v7TN88jbZyYhOG4g1r9ppY-rPMUx2DJr_mH_Na1--IOCyR",
+      "useFor": ["conversion context", "CTA contrast reminders"]
+    },
+    {
+      "id": "rmcad-graphic-design",
+      "title": "RMCAD — Psychology of color in graphic design",
+      "url": "https://www.rmcad.edu/blog/the-psychology-of-color-in-graphic-design/",
+      "useFor": ["discipline-specific palette intent", "composition + color"]
+    },
+    {
+      "id": "lafilm-psychology",
+      "title": "LA Film School — Psychology of color",
+      "url": "https://www.lafilm.edu/blog/the-psychology-of-color/",
+      "useFor": ["cross-media emotional cues"]
+    },
+    {
+      "id": "figma-color-theory",
+      "title": "Figma — What is color theory?",
+      "url": "https://www.figma.com/resource-library/what-is-color-theory/",
+      "useFor": ["harmony models", "systems vocabulary (hue/chroma/lightness)"]
+    },
+    {
+      "id": "stoneside-interiors",
+      "title": "Stoneside — Psychology of color in interior spaces",
+      "url": "https://www.stoneside.com/resources/articles/interior-design-understanding-the-psychology-of-color-in-spaces",
+      "useFor": ["spatial scale & surround effects", "warm/cool room dynamics"]
+    },
+    {
+      "id": "envato-elements",
+      "title": "Envato Elements — Color psychology primer",
+      "url": "https://elements.envato.com/learn/color-psychology?srsltid=AfmBOop1orIRoHmfMob0P9N9XjXYpsLlUBzmfazTp30WRMiLUlQS2Vmt",
+      "useFor": ["marketing palette examples", "pairing heuristics"]
+    },
+    {
+      "id": "color-palette-studio",
+      "title": "Color Palette Studio — Color psychology vs palette psychology",
+      "url": "https://thecolorpalettestudio.com/blogs/resources-tips/color-psychology-vs-color-palette-psychology?srsltid=AfmBOop4kNj2D-Sl7VAVZ-bRPx1SkGTFGLlZ8OPxg37Eu1Ou-RWUhxoh",
+      "useFor": ["whole-palette relationships vs isolated hue claims", "discourage single-swatches-only jumps"]
+    },
+    {
+      "id": "nngroup-color-enhance",
+      "title": "NN/g — Color as an aid to thinking",
+      "url": "https://www.nngroup.com/articles/color-enhance-design/",
+      "useFor": ["usability first", "color supports meaning; weak alone", "accessibility hierarchy"]
+    },
+    {
+      "id": "platt-graphic-design",
+      "title": "Platt College — Psychology of color in graphic design",
+      "url": "https://platt.edu/blog/psychology-color-graphic-design/",
+      "useFor": ["industry-ready tone tables", "portfolio framing"]
+    },
+    {
+      "id": "adobe-express-marketing-uk",
+      "title": "Adobe Express (UK) — Colour psychology in marketing",
+      "url": "https://www.adobe.com/uk/express/learn/blog/colour-psychology-in-marketing",
+      "useFor": ["channel-specific guidance", "brand consistency"]
+    },
+    {
+      "id": "bethanyworks",
+      "title": "Bethany Works — Color psychology",
+      "url": "https://bethanyworks.com/color-psychology/",
+      "useFor": ["brand storytelling", "nonprofit / human tone"]
+    },
+    {
+      "id": "colorpsychology-org",
+      "title": "ColorPsychology.org",
+      "url": "https://www.colorpsychology.org/",
+      "useFor": ["reference hub", "cross-check popular hue–word associations"]
+    },
+    {
+      "id": "instapage-guide",
+      "title": "Instapage — Ultimate guide to color psychology",
+      "url": "https://instapage.com/blog/ultimate-guide-to-color-psychology",
+      "useFor": ["landing-page heuristics", "A/B testing cautions"]
+    },
+    {
+      "id": "color-meanings",
+      "title": "Color Meanings",
+      "url": "https://www.color-meanings.com/",
+      "useFor": ["symbolic lexicon seeds", "cultural variance flags"]
+    }
+  ],
+  "axesDefinition": {
+    "warmCool": {
+      "min": -1,
+      "max": 1,
+      "description": "+1 warmer (red–orange–yellow emphasis), −1 cooler (cyan–blue–violet). Derived from palette mean hue using cosine projection vs 180° (approximate R–B emotional axis in Western color education, per Figma color-theory + RMCAD framings)."
+    },
+    "arousal": {
+      "min": 0,
+      "max": 1,
+      "description": "Chromatic energy + contrast proxy (mean saturation, lightness spread). High arousal aligns with energetic / urgent brief language (Smartpress, Instapage)."
+    },
+    "valence": {
+      "min": -1,
+      "max": 1,
+      "description": "Rough hedonic tone: lighter, higher-chroma palettes skew positive; deep muted skew somber. Use as weak prior — verify with copy and imagery (NN/g)."
+    },
+    "sophistication": {
+      "min": 0,
+      "max": 1,
+      "description": "Restraint vs playfulness: low saturation + controlled contrast reads more luxe/editorial (Adobe discover + LA Film / RMCAD discussions)."
+    },
+    "grounding": {
+      "min": 0,
+      "max": 1,
+      "description": "Earth / organic bias (hues around yellow–green–brown + muted chroma), relevant to Stoneside spatial palettes + natural brands."
+    },
+    "openness": {
+      "min": 0,
+      "max": 1,
+      "description": "Airiness / openness to variation: higher mean lightness + moderate spread (friendly SaaS vs dense luxury)."
+    }
+  },
+  "matchingRules": {
+    "hueKernel": "Gaussian on circular degrees: exp(-0.5 * (min_dtheta/sigma)^2) where min_dtheta is shortest arc on [0,360).",
+    "axisSimilarity": "For each axis a in lexicon L and palette P: sim_a = 1 - min(1, |L_a - P_a| / span_a). Missing L_a treated as 0 weight for that term.",
+    "textBoost": "Tokenize user query + paletteSummary (lowercase). +0.08 per exact lemma hit in summary (cap 0.24) to reward author language (Mindful Palettes captions).",
+    "weightsDefault": { "hueKernel": 0.42, "axes": 0.38, "textBoost": 0.2 },
+    "disclaimers": [
+      "Associations are culturally situated; marketing color tables are heuristics, not laws (ColorPsychology.org, Color Meanings, NN/g).",
+      "Palette psychology > isolated swatch psychology (Color Palette Studio).",
+      "Accessibility and legibility still override mood fit (NN/g, Figma systems thinking)."
+    ]
+  },
+  "motionClusterColorBridge": "Implemented in match_palettes.py as DEFAULT_CLUSTER_COLOR_PRIORS — one prior vector per moodClusters[].id in Mood to Motion Map v1.1.0 (31 clusters). Keeps motion↔color alignment versioned with the motion JSON.",
+  "pinterestIntegration": {
+    "schemaPath": "schemas/pinterest-pin.schema.json",
+    "notes": "Pins become first-class palettes: dominantHex[] + description lemmas pass the same matcher. Deduplicate near-identical pins via ΔE2000 mean threshold (implement in crawler stage)."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/mood-to-color/pinterest-pin.schema.json",
+  "title": "Pinterest pin — color + mood harvest (future crawler)",
+  "type": "object",
+  "required": ["pinId", "imageUrl"],
+  "properties": {
+    "pinId": { "type": "string", "description": "Stable Pinterest pin id or URL" },
+    "boardId": { "type": "string" },
+    "boardTitle": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "string", "description": "Raw pin copy for NLP / lemma extraction" },
+    "imageUrl": { "type": "string", "format": "uri" },
+    "dominantHex": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+      "maxItems": 8,
+      "description": "K-means / bucketing on image pixels or Pinterest API swatches"
+    },
+    "moodTags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Human or model-assigned mood lemmas aligned to mood-to-color-lexicon"
+    },
+    "sourceUrl": { "type": "string", "format": "uri" },
+    "capturedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

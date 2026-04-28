@@ -1,0 +1,1767 @@
+{
+  "meta": {
+    "entryCount": 85,
+    "note": "Axes are priors for matching, not claims about universal human perception. Extend lemmas per brand glossary."
+  },
+  "entries": [
+    {
+      "lemmas": [
+        "trust",
+        "trusted",
+        "trustworthy",
+        "dependable",
+        "reliable",
+        "secure",
+        "stable",
+        "fiduciary"
+      ],
+      "hueDeg": 218,
+      "hueSigmaDeg": 48,
+      "axes": {
+        "warmCool": -0.55,
+        "arousal": 0.25,
+        "valence": 0.2,
+        "sophistication": 0.55,
+        "grounding": 0.15,
+        "openness": 0.4
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "calm",
+        "serene",
+        "tranquil",
+        "peaceful",
+        "still",
+        "quiet"
+      ],
+      "hueDeg": 200,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": -0.25,
+        "arousal": 0.12,
+        "valence": 0.35,
+        "sophistication": 0.5,
+        "grounding": 0.25,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "energy",
+        "energetic",
+        "dynamic",
+        "electric",
+        "vibrant",
+        "punchy"
+      ],
+      "hueDeg": 15,
+      "hueSigmaDeg": 60,
+      "axes": {
+        "warmCool": 0.35,
+        "arousal": 0.88,
+        "valence": 0.55,
+        "sophistication": 0.25,
+        "grounding": 0.1,
+        "openness": 0.65
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "passion",
+        "passionate",
+        "desire",
+        "romantic",
+        "love",
+        "intimate"
+      ],
+      "hueDeg": 350,
+      "hueSigmaDeg": 45,
+      "axes": {
+        "warmCool": 0.45,
+        "arousal": 0.65,
+        "valence": 0.45,
+        "sophistication": 0.45,
+        "grounding": 0.2,
+        "openness": 0.45
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "danger",
+        "urgent",
+        "alert",
+        "warning",
+        "critical"
+      ],
+      "hueDeg": 8,
+      "hueSigmaDeg": 35,
+      "axes": {
+        "warmCool": 0.55,
+        "arousal": 0.9,
+        "valence": -0.35,
+        "sophistication": 0.2,
+        "grounding": 0.1,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "growth",
+        "fresh",
+        "healthy",
+        "natural",
+        "organic",
+        "renewal"
+      ],
+      "hueDeg": 125,
+      "hueSigmaDeg": 65,
+      "axes": {
+        "warmCool": -0.05,
+        "arousal": 0.35,
+        "valence": 0.45,
+        "sophistication": 0.35,
+        "grounding": 0.7,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "luxury",
+        "luxurious",
+        "opulent",
+        "prestige",
+        "exclusive",
+        "refined"
+      ],
+      "hueDeg": 285,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": -0.15,
+        "arousal": 0.3,
+        "valence": 0.15,
+        "sophistication": 0.92,
+        "grounding": 0.15,
+        "openness": 0.25
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "playful",
+        "fun",
+        "whimsical",
+        "quirky",
+        "youthful"
+      ],
+      "hueDeg": 310,
+      "hueSigmaDeg": 85,
+      "axes": {
+        "warmCool": 0.05,
+        "arousal": 0.72,
+        "valence": 0.75,
+        "sophistication": 0.2,
+        "grounding": 0.15,
+        "openness": 0.85
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "sad",
+        "melancholy",
+        "somber",
+        "grief",
+        "heavy"
+      ],
+      "hueDeg": 230,
+      "hueSigmaDeg": 60,
+      "axes": {
+        "warmCool": -0.35,
+        "arousal": 0.25,
+        "valence": -0.65,
+        "sophistication": 0.45,
+        "grounding": 0.25,
+        "openness": 0.15
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "joy",
+        "happy",
+        "cheerful",
+        "bright",
+        "uplifting",
+        "optimistic"
+      ],
+      "hueDeg": 48,
+      "hueSigmaDeg": 75,
+      "axes": {
+        "warmCool": 0.25,
+        "arousal": 0.55,
+        "valence": 0.85,
+        "sophistication": 0.2,
+        "grounding": 0.2,
+        "openness": 0.8
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "fear",
+        "anxious",
+        "nervous",
+        "tense",
+        "uneasy"
+      ],
+      "hueDeg": 265,
+      "hueSigmaDeg": 50,
+      "axes": {
+        "warmCool": -0.45,
+        "arousal": 0.45,
+        "valence": -0.55,
+        "sophistication": 0.35,
+        "grounding": 0.1,
+        "openness": 0.2
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "anger",
+        "angry",
+        "furious",
+        "aggressive",
+        "intense"
+      ],
+      "hueDeg": 2,
+      "hueSigmaDeg": 40,
+      "axes": {
+        "warmCool": 0.6,
+        "arousal": 0.92,
+        "valence": -0.55,
+        "sophistication": 0.15,
+        "grounding": 0.2,
+        "openness": 0.3
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "hope",
+        "hopeful",
+        "aspirational",
+        "uplifting cause"
+      ],
+      "hueDeg": 135,
+      "hueSigmaDeg": 80,
+      "axes": {
+        "warmCool": 0.05,
+        "arousal": 0.35,
+        "valence": 0.55,
+        "sophistication": 0.35,
+        "grounding": 0.35,
+        "openness": 0.65
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "innovation",
+        "futuristic",
+        "cutting-edge",
+        "tech",
+        "digital"
+      ],
+      "hueDeg": 195,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": -0.35,
+        "arousal": 0.45,
+        "valence": 0.25,
+        "sophistication": 0.55,
+        "grounding": 0.05,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "warm",
+        "cozy",
+        "welcoming",
+        "homely",
+        "comfort"
+      ],
+      "hueDeg": 28,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": 0.75,
+        "arousal": 0.35,
+        "valence": 0.4,
+        "sophistication": 0.3,
+        "grounding": 0.45,
+        "openness": 0.45
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "cool",
+        "crisp",
+        "clinical",
+        "sterile",
+        "precise"
+      ],
+      "hueDeg": 205,
+      "hueSigmaDeg": 45,
+      "axes": {
+        "warmCool": -0.65,
+        "arousal": 0.28,
+        "valence": 0.05,
+        "sophistication": 0.65,
+        "grounding": 0.05,
+        "openness": 0.4
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "mystery",
+        "mysterious",
+        "enigmatic",
+        "noir",
+        "shadow"
+      ],
+      "hueDeg": 275,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": -0.4,
+        "arousal": 0.35,
+        "valence": -0.15,
+        "sophistication": 0.55,
+        "grounding": 0.2,
+        "openness": 0.18
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "nostalgia",
+        "nostalgic",
+        "vintage",
+        "retro",
+        "heritage"
+      ],
+      "hueDeg": 32,
+      "hueSigmaDeg": 90,
+      "axes": {
+        "warmCool": 0.2,
+        "arousal": 0.35,
+        "valence": 0.2,
+        "sophistication": 0.45,
+        "grounding": 0.45,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "purity",
+        "pure",
+        "clean",
+        "minimal",
+        "simple"
+      ],
+      "hueDeg": 0,
+      "hueSigmaDeg": 25,
+      "axes": {
+        "warmCool": 0.0,
+        "arousal": 0.1,
+        "valence": 0.35,
+        "sophistication": 0.75,
+        "grounding": 0.1,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "earth",
+        "grounded",
+        "rustic",
+        "artisan",
+        "handmade"
+      ],
+      "hueDeg": 55,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": 0.35,
+        "arousal": 0.28,
+        "valence": 0.25,
+        "sophistication": 0.35,
+        "grounding": 0.88,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "ocean",
+        "sea",
+        "breeze",
+        "coastal",
+        "aquatic"
+      ],
+      "hueDeg": 200,
+      "hueSigmaDeg": 45,
+      "axes": {
+        "warmCool": -0.5,
+        "arousal": 0.22,
+        "valence": 0.35,
+        "sophistication": 0.4,
+        "grounding": 0.25,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "sunset",
+        "golden hour",
+        "warm glow"
+      ],
+      "hueDeg": 38,
+      "hueSigmaDeg": 40,
+      "axes": {
+        "warmCool": 0.82,
+        "arousal": 0.4,
+        "valence": 0.45,
+        "sophistication": 0.35,
+        "grounding": 0.3,
+        "openness": 0.5
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "royal",
+        "regal",
+        "majestic",
+        "noble"
+      ],
+      "hueDeg": 275,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": -0.2,
+        "arousal": 0.42,
+        "valence": 0.2,
+        "sophistication": 0.78,
+        "grounding": 0.15,
+        "openness": 0.3
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "feminine",
+        "soft feminine",
+        "delicate"
+      ],
+      "hueDeg": 330,
+      "hueSigmaDeg": 65,
+      "axes": {
+        "warmCool": 0.15,
+        "arousal": 0.32,
+        "valence": 0.45,
+        "sophistication": 0.55,
+        "grounding": 0.2,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "masculine",
+        "bold masculine",
+        "rugged"
+      ],
+      "hueDeg": 215,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": -0.25,
+        "arousal": 0.45,
+        "valence": 0.1,
+        "sophistication": 0.45,
+        "grounding": 0.35,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "celebration",
+        "festive",
+        "party",
+        "carnival"
+      ],
+      "hueDeg": 300,
+      "hueSigmaDeg": 90,
+      "axes": {
+        "warmCool": 0.1,
+        "arousal": 0.85,
+        "valence": 0.85,
+        "sophistication": 0.18,
+        "grounding": 0.15,
+        "openness": 0.85
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "premium",
+        "quality",
+        "crafted"
+      ],
+      "hueDeg": 45,
+      "hueSigmaDeg": 75,
+      "axes": {
+        "warmCool": 0.12,
+        "arousal": 0.32,
+        "valence": 0.3,
+        "sophistication": 0.82,
+        "grounding": 0.25,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "discount",
+        "sale",
+        "clearance",
+        "deal"
+      ],
+      "hueDeg": 4,
+      "hueSigmaDeg": 45,
+      "axes": {
+        "warmCool": 0.45,
+        "arousal": 0.78,
+        "valence": 0.35,
+        "sophistication": 0.12,
+        "grounding": 0.1,
+        "openness": 0.65
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "eco",
+        "sustainable",
+        "climate",
+        "green living"
+      ],
+      "hueDeg": 118,
+      "hueSigmaDeg": 60,
+      "axes": {
+        "warmCool": -0.08,
+        "arousal": 0.28,
+        "valence": 0.4,
+        "sophistication": 0.4,
+        "grounding": 0.82,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "spiritual",
+        "zen",
+        "meditative",
+        "mindful"
+      ],
+      "hueDeg": 175,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": -0.12,
+        "arousal": 0.12,
+        "valence": 0.35,
+        "sophistication": 0.55,
+        "grounding": 0.35,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "edgy",
+        "rebellious",
+        "subversive",
+        "street"
+      ],
+      "hueDeg": 320,
+      "hueSigmaDeg": 75,
+      "axes": {
+        "warmCool": 0.05,
+        "arousal": 0.7,
+        "valence": -0.05,
+        "sophistication": 0.25,
+        "grounding": 0.15,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "corporate",
+        "b2b",
+        "enterprise"
+      ],
+      "hueDeg": 215,
+      "hueSigmaDeg": 50,
+      "axes": {
+        "warmCool": -0.42,
+        "arousal": 0.25,
+        "valence": 0.12,
+        "sophistication": 0.68,
+        "grounding": 0.08,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "friendly",
+        "approachable",
+        "neighborly",
+        "kind"
+      ],
+      "hueDeg": 35,
+      "hueSigmaDeg": 85,
+      "axes": {
+        "warmCool": 0.35,
+        "arousal": 0.35,
+        "valence": 0.65,
+        "sophistication": 0.22,
+        "grounding": 0.25,
+        "openness": 0.75
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "dramatic",
+        "theatrical",
+        "bold statement"
+      ],
+      "hueDeg": 285,
+      "hueSigmaDeg": 65,
+      "axes": {
+        "warmCool": -0.25,
+        "arousal": 0.62,
+        "valence": 0.05,
+        "sophistication": 0.55,
+        "grounding": 0.18,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "soft",
+        "gentle",
+        "tender",
+        "subtle"
+      ],
+      "hueDeg": 25,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": 0.22,
+        "arousal": 0.15,
+        "valence": 0.35,
+        "sophistication": 0.55,
+        "grounding": 0.22,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "sharp",
+        "acute",
+        "incisive",
+        "crisp design"
+      ],
+      "hueDeg": 195,
+      "hueSigmaDeg": 40,
+      "axes": {
+        "warmCool": -0.35,
+        "arousal": 0.45,
+        "valence": 0.15,
+        "sophistication": 0.72,
+        "grounding": 0.05,
+        "openness": 0.45
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "dreamy",
+        "ethereal",
+        "floaty",
+        "fantasy"
+      ],
+      "hueDeg": 265,
+      "hueSigmaDeg": 75,
+      "axes": {
+        "warmCool": -0.18,
+        "arousal": 0.2,
+        "valence": 0.35,
+        "sophistication": 0.45,
+        "grounding": 0.08,
+        "openness": 0.78
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "urban",
+        "city",
+        "metropolitan",
+        "industrial"
+      ],
+      "hueDeg": 210,
+      "hueSigmaDeg": 65,
+      "axes": {
+        "warmCool": -0.35,
+        "arousal": 0.38,
+        "valence": 0.05,
+        "sophistication": 0.48,
+        "grounding": 0.35,
+        "openness": 0.4
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "tropical",
+        "vacation",
+        "island",
+        "lush"
+      ],
+      "hueDeg": 145,
+      "hueSigmaDeg": 80,
+      "axes": {
+        "warmCool": 0.05,
+        "arousal": 0.55,
+        "valence": 0.7,
+        "sophistication": 0.22,
+        "grounding": 0.45,
+        "openness": 0.7
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "winter",
+        "frost",
+        "icy",
+        "cold"
+      ],
+      "hueDeg": 205,
+      "hueSigmaDeg": 45,
+      "axes": {
+        "warmCool": -0.7,
+        "arousal": 0.18,
+        "valence": 0.05,
+        "sophistication": 0.55,
+        "grounding": 0.08,
+        "openness": 0.45
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "autumn",
+        "fall",
+        "harvest",
+        "cider"
+      ],
+      "hueDeg": 28,
+      "hueSigmaDeg": 75,
+      "axes": {
+        "warmCool": 0.55,
+        "arousal": 0.35,
+        "valence": 0.3,
+        "sophistication": 0.35,
+        "grounding": 0.55,
+        "openness": 0.4
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "spring",
+        "bloom",
+        "pastel season"
+      ],
+      "hueDeg": 330,
+      "hueSigmaDeg": 75,
+      "axes": {
+        "warmCool": 0.18,
+        "arousal": 0.32,
+        "valence": 0.65,
+        "sophistication": 0.35,
+        "grounding": 0.28,
+        "openness": 0.72
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "night",
+        "midnight",
+        "nocturnal"
+      ],
+      "hueDeg": 250,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": -0.45,
+        "arousal": 0.22,
+        "valence": -0.1,
+        "sophistication": 0.55,
+        "grounding": 0.15,
+        "openness": 0.15
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "dawn",
+        "morning",
+        "fresh start"
+      ],
+      "hueDeg": 55,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": 0.35,
+        "arousal": 0.28,
+        "valence": 0.45,
+        "sophistication": 0.42,
+        "grounding": 0.22,
+        "openness": 0.62
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "hungry",
+        "appetizing",
+        "savory",
+        "flavor"
+      ],
+      "hueDeg": 18,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": 0.55,
+        "arousal": 0.45,
+        "valence": 0.35,
+        "sophistication": 0.18,
+        "grounding": 0.35,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "sweet",
+        "dessert",
+        "sugar"
+      ],
+      "hueDeg": 320,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": 0.12,
+        "arousal": 0.35,
+        "valence": 0.55,
+        "sophistication": 0.25,
+        "grounding": 0.12,
+        "openness": 0.65
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "academic",
+        "scholarly",
+        "research"
+      ],
+      "hueDeg": 220,
+      "hueSigmaDeg": 45,
+      "axes": {
+        "warmCool": -0.35,
+        "arousal": 0.22,
+        "valence": 0.12,
+        "sophistication": 0.68,
+        "grounding": 0.18,
+        "openness": 0.38
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "hospital",
+        "clinical care",
+        "hygiene"
+      ],
+      "hueDeg": 195,
+      "hueSigmaDeg": 35,
+      "axes": {
+        "warmCool": -0.55,
+        "arousal": 0.15,
+        "valence": 0.18,
+        "sophistication": 0.62,
+        "grounding": 0.05,
+        "openness": 0.45
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "luxury spa",
+        "pamper",
+        "self-care"
+      ],
+      "hueDeg": 175,
+      "hueSigmaDeg": 65,
+      "axes": {
+        "warmCool": -0.12,
+        "arousal": 0.18,
+        "valence": 0.45,
+        "sophistication": 0.78,
+        "grounding": 0.25,
+        "openness": 0.48
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "speed",
+        "fast",
+        "velocity",
+        "rush"
+      ],
+      "hueDeg": 10,
+      "hueSigmaDeg": 50,
+      "axes": {
+        "warmCool": 0.42,
+        "arousal": 0.92,
+        "valence": 0.25,
+        "sophistication": 0.22,
+        "grounding": 0.08,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "slow",
+        "deliberate",
+        "patient",
+        "measured"
+      ],
+      "hueDeg": 40,
+      "hueSigmaDeg": 80,
+      "axes": {
+        "warmCool": 0.18,
+        "arousal": 0.12,
+        "valence": 0.25,
+        "sophistication": 0.62,
+        "grounding": 0.28,
+        "openness": 0.42
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "exclusive",
+        "vip",
+        "members-only"
+      ],
+      "hueDeg": 300,
+      "hueSigmaDeg": 60,
+      "axes": {
+        "warmCool": -0.05,
+        "arousal": 0.35,
+        "valence": 0.12,
+        "sophistication": 0.88,
+        "grounding": 0.12,
+        "openness": 0.22
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "inclusive",
+        "accessible",
+        "welcoming all"
+      ],
+      "hueDeg": 145,
+      "hueSigmaDeg": 90,
+      "axes": {
+        "warmCool": 0.05,
+        "arousal": 0.28,
+        "valence": 0.55,
+        "sophistication": 0.35,
+        "grounding": 0.28,
+        "openness": 0.82
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "transparent",
+        "honest",
+        "open book"
+      ],
+      "hueDeg": 200,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": -0.25,
+        "arousal": 0.2,
+        "valence": 0.35,
+        "sophistication": 0.55,
+        "grounding": 0.12,
+        "openness": 0.72
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "power",
+        "powerful",
+        "commanding",
+        "authority"
+      ],
+      "hueDeg": 265,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": -0.28,
+        "arousal": 0.55,
+        "valence": 0.05,
+        "sophistication": 0.65,
+        "grounding": 0.22,
+        "openness": 0.28
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "gentle authority",
+        "calm leadership"
+      ],
+      "hueDeg": 210,
+      "hueSigmaDeg": 60,
+      "axes": {
+        "warmCool": -0.22,
+        "arousal": 0.22,
+        "valence": 0.35,
+        "sophistication": 0.68,
+        "grounding": 0.22,
+        "openness": 0.45
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "moody",
+        "brooding",
+        "storm"
+      ],
+      "hueDeg": 250,
+      "hueSigmaDeg": 65,
+      "axes": {
+        "warmCool": -0.35,
+        "arousal": 0.38,
+        "valence": -0.25,
+        "sophistication": 0.48,
+        "grounding": 0.22,
+        "openness": 0.22
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "clean science",
+        "lab",
+        "data"
+      ],
+      "hueDeg": 195,
+      "hueSigmaDeg": 45,
+      "axes": {
+        "warmCool": -0.45,
+        "arousal": 0.25,
+        "valence": 0.15,
+        "sophistication": 0.72,
+        "grounding": 0.05,
+        "openness": 0.48
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "handmade",
+        "craft",
+        "maker"
+      ],
+      "hueDeg": 35,
+      "hueSigmaDeg": 80,
+      "axes": {
+        "warmCool": 0.32,
+        "arousal": 0.28,
+        "valence": 0.35,
+        "sophistication": 0.42,
+        "grounding": 0.72,
+        "openness": 0.45
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "futuristic neon",
+        "synthwave",
+        "cyber"
+      ],
+      "hueDeg": 305,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": -0.05,
+        "arousal": 0.85,
+        "valence": 0.35,
+        "sophistication": 0.22,
+        "grounding": 0.05,
+        "openness": 0.65
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "heritage luxury",
+        "old money"
+      ],
+      "hueDeg": 43,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": 0.18,
+        "arousal": 0.25,
+        "valence": 0.18,
+        "sophistication": 0.9,
+        "grounding": 0.35,
+        "openness": 0.22
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "pop",
+        "mainstream",
+        "mass appeal"
+      ],
+      "hueDeg": 330,
+      "hueSigmaDeg": 95,
+      "axes": {
+        "warmCool": 0.12,
+        "arousal": 0.62,
+        "valence": 0.65,
+        "sophistication": 0.18,
+        "grounding": 0.12,
+        "openness": 0.78
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "underground",
+        "niche",
+        "cult"
+      ],
+      "hueDeg": 265,
+      "hueSigmaDeg": 70,
+      "axes": {
+        "warmCool": -0.22,
+        "arousal": 0.55,
+        "valence": -0.05,
+        "sophistication": 0.35,
+        "grounding": 0.18,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "wedding",
+        "bridal",
+        "marriage"
+      ],
+      "hueDeg": 345,
+      "hueSigmaDeg": 65,
+      "axes": {
+        "warmCool": 0.12,
+        "arousal": 0.28,
+        "valence": 0.65,
+        "sophistication": 0.62,
+        "grounding": 0.12,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "finance crypto",
+        "web3"
+      ],
+      "hueDeg": 155,
+      "hueSigmaDeg": 75,
+      "axes": {
+        "warmCool": -0.05,
+        "arousal": 0.55,
+        "valence": 0.12,
+        "sophistication": 0.35,
+        "grounding": 0.08,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "safety",
+        "safe",
+        "protected"
+      ],
+      "hueDeg": 145,
+      "hueSigmaDeg": 60,
+      "axes": {
+        "warmCool": 0.05,
+        "arousal": 0.18,
+        "valence": 0.45,
+        "sophistication": 0.48,
+        "grounding": 0.22,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "fire",
+        "flame",
+        "burning"
+      ],
+      "hueDeg": 12,
+      "hueSigmaDeg": 40,
+      "axes": {
+        "warmCool": 0.72,
+        "arousal": 0.88,
+        "valence": 0.12,
+        "sophistication": 0.18,
+        "grounding": 0.18,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "ice",
+        "frozen",
+        "glacial"
+      ],
+      "hueDeg": 195,
+      "hueSigmaDeg": 40,
+      "axes": {
+        "warmCool": -0.72,
+        "arousal": 0.12,
+        "valence": 0.05,
+        "sophistication": 0.55,
+        "grounding": 0.08,
+        "openness": 0.42
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "royal blue",
+        "navy trust"
+      ],
+      "hueDeg": 225,
+      "hueSigmaDeg": 35,
+      "axes": {
+        "warmCool": -0.55,
+        "arousal": 0.22,
+        "valence": 0.18,
+        "sophistication": 0.68,
+        "grounding": 0.08,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "sunshine",
+        "sunny",
+        "radiant"
+      ],
+      "hueDeg": 52,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": 0.45,
+        "arousal": 0.55,
+        "valence": 0.82,
+        "sophistication": 0.18,
+        "grounding": 0.12,
+        "openness": 0.82
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "lavender",
+        "soft purple calm"
+      ],
+      "hueDeg": 285,
+      "hueSigmaDeg": 60,
+      "axes": {
+        "warmCool": -0.12,
+        "arousal": 0.18,
+        "valence": 0.35,
+        "sophistication": 0.55,
+        "grounding": 0.12,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "mint",
+        "fresh mint",
+        "cool green"
+      ],
+      "hueDeg": 155,
+      "hueSigmaDeg": 50,
+      "axes": {
+        "warmCool": -0.18,
+        "arousal": 0.22,
+        "valence": 0.45,
+        "sophistication": 0.45,
+        "grounding": 0.35,
+        "openness": 0.62
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "terracotta",
+        "clay",
+        "adobe"
+      ],
+      "hueDeg": 22,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": 0.62,
+        "arousal": 0.28,
+        "valence": 0.25,
+        "sophistication": 0.35,
+        "grounding": 0.72,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "slate",
+        "stone",
+        "concrete"
+      ],
+      "hueDeg": 215,
+      "hueSigmaDeg": 40,
+      "axes": {
+        "warmCool": -0.45,
+        "arousal": 0.18,
+        "valence": 0.0,
+        "sophistication": 0.55,
+        "grounding": 0.45,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "ivory",
+        "cream",
+        "bone"
+      ],
+      "hueDeg": 45,
+      "hueSigmaDeg": 35,
+      "axes": {
+        "warmCool": 0.18,
+        "arousal": 0.08,
+        "valence": 0.25,
+        "sophistication": 0.62,
+        "grounding": 0.22,
+        "openness": 0.48
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "charcoal",
+        "graphite",
+        "ink"
+      ],
+      "hueDeg": 220,
+      "hueSigmaDeg": 50,
+      "axes": {
+        "warmCool": -0.35,
+        "arousal": 0.22,
+        "valence": -0.05,
+        "sophistication": 0.62,
+        "grounding": 0.18,
+        "openness": 0.18
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "blush",
+        "rosy",
+        "flushed"
+      ],
+      "hueDeg": 350,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": 0.22,
+        "arousal": 0.32,
+        "valence": 0.45,
+        "sophistication": 0.48,
+        "grounding": 0.12,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "teal harmony",
+        "teal coral balance"
+      ],
+      "hueDeg": 185,
+      "hueSigmaDeg": 65,
+      "axes": {
+        "warmCool": -0.18,
+        "arousal": 0.35,
+        "valence": 0.35,
+        "sophistication": 0.48,
+        "grounding": 0.28,
+        "openness": 0.55
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "gold led",
+        "gilded",
+        "amber luxury"
+      ],
+      "hueDeg": 43,
+      "hueSigmaDeg": 55,
+      "axes": {
+        "warmCool": 0.55,
+        "arousal": 0.35,
+        "valence": 0.35,
+        "sophistication": 0.78,
+        "grounding": 0.28,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "high chroma",
+        "saturated",
+        "vivid"
+      ],
+      "hueDeg": 320,
+      "hueSigmaDeg": 100,
+      "axes": {
+        "warmCool": 0.05,
+        "arousal": 0.92,
+        "valence": 0.55,
+        "sophistication": 0.22,
+        "grounding": 0.12,
+        "openness": 0.72
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "muted",
+        "desaturated",
+        "dusty"
+      ],
+      "hueDeg": 60,
+      "hueSigmaDeg": 100,
+      "axes": {
+        "warmCool": 0.12,
+        "arousal": 0.15,
+        "valence": 0.12,
+        "sophistication": 0.55,
+        "grounding": 0.42,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "monochrome",
+        "grayscale",
+        "tonal"
+      ],
+      "hueDeg": 0,
+      "hueSigmaDeg": 25,
+      "axes": {
+        "warmCool": 0.0,
+        "arousal": 0.12,
+        "valence": 0.0,
+        "sophistication": 0.65,
+        "grounding": 0.15,
+        "openness": 0.35
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "complementary tension",
+        "pop accent"
+      ],
+      "hueDeg": 12,
+      "hueSigmaDeg": 90,
+      "axes": {
+        "warmCool": 0.35,
+        "arousal": 0.72,
+        "valence": 0.35,
+        "sophistication": 0.35,
+        "grounding": 0.15,
+        "openness": 0.62
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "analogous calm",
+        "adjacent hues"
+      ],
+      "hueDeg": 95,
+      "hueSigmaDeg": 45,
+      "axes": {
+        "warmCool": 0.12,
+        "arousal": 0.22,
+        "valence": 0.35,
+        "sophistication": 0.48,
+        "grounding": 0.35,
+        "openness": 0.48
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    },
+    {
+      "lemmas": [
+        "triadic fun",
+        "playful triad"
+      ],
+      "hueDeg": 280,
+      "hueSigmaDeg": 110,
+      "axes": {
+        "warmCool": -0.05,
+        "arousal": 0.78,
+        "valence": 0.72,
+        "sophistication": 0.18,
+        "grounding": 0.12,
+        "openness": 0.78
+      },
+      "refs": [
+        "mixed-sources"
+      ]
+    }
+  ]
+}
