@@ -1,0 +1,215 @@
+:root {
+  --bg: #0c0e12;
+  --panel: #151922;
+  --text: #e8eaef;
+  --muted: #8b929c;
+  --accent: #7c9ef0;
+  --chip: #222833;
+  --chip-on: #2a3550;
+  --border: #2a313b;
+  --radius: 10px;
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+  min-height: 100vh;
+}
+header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.sub {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  max-width: 52rem;
+}
+main {
+  padding: 1.25rem 1.5rem 3rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+section {
+  margin-bottom: 1.5rem;
+}
+h2 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+.meta-bar {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.65rem;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.chip {
+  border: 1px solid var(--border);
+  background: var(--chip);
+  color: var(--text);
+  padding: 0.45rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.chip[aria-checked="true"] {
+  background: var(--chip-on);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.chip .detail {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--muted);
+  margin-top: 0.08rem;
+}
+textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 0.5rem 0.65rem;
+  font: inherit;
+  resize: vertical;
+}
+.theme-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+.token-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.78rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.tok-label {
+  font-weight: 600;
+}
+.token-row code {
+  font-size: 0.68rem;
+  opacity: 0.95;
+}
+.tok-cr {
+  font-size: 0.68rem;
+  opacity: 0.85;
+}
+.role-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+.role-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.role-swatch {
+  height: 64px;
+  background: var(--sw);
+}
+.role-meta {
+  padding: 0.45rem 0.5rem;
+  font-size: 0.72rem;
+}
+.role-meta code {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+.role-meta .sub {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.62rem;
+}
+.variant-row {
+  font-size: 0.72rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+.variant-row code {
+  color: var(--text);
+}
+.why-list {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.why-list li {
+  margin-bottom: 0.35rem;
+}
+.copy-css {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  font: inherit;
+}
+.hint {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-left: 0.5rem;
+}
+.empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.error {
+  color: #f87171;
+  font-size: 0.85rem;
+}
+.copy-toast {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  z-index: 9999;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.copy-toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mood → Website theme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=1" />
+    <link rel="preload" href="../demo/data/mindful-palettes.json" as="fetch" crossorigin />
+    <link rel="preload" href="../demo/data/pinterest-colors.json" as="fetch" crossorigin />
+  </head>
+  <body>
+    <header>
+      <h1>Mood → Website color system</h1>
+      <p class="sub">
+        Same Mindful + Pinterest library as the palette demo. Pick a mood: we score palettes, dedupe similar sets, build an
+        OKLab color pool, then assign <strong>primary</strong>, <strong>secondary</strong>, <strong>tertiary</strong>, and
+        <strong>supplementary</strong> roles with Material-style on-colors, background, and surface.
+      </p>
+    </header>
+    <main>
+      <section>
+        <h2>Mood</h2>
+        <p class="meta-bar" id="status"></p>
+        <div id="chips" class="chips" role="radiogroup" aria-label="Mood"></div>
+      </section>
+      <section>
+        <h2>Extra words</h2>
+        <textarea id="extra" rows="2" placeholder="Optional words (same lemma nudge as palette demo)"></textarea>
+      </section>
+      <section>
+        <h2>Theme output</h2>
+        <div id="theme-out"></div>
+        <p id="err" class="error" hidden></p>
+      </section>
+    </main>
+    <div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
+    <script src="./mood-config.js"></script>
+    <script src="./mood-engine-v2.js"></script>
+    <script src="./palette-analyze.js"></script>
+    <script src="./theme-pipeline.js"></script>
+    <script src="./theme-app.js?v=1"></script>
+  </body>
+</html>
