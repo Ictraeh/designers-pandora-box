@@ -48,6 +48,8 @@ const INTRA_PALETTE_IDENTICAL_DIST = 0.004;
 /** One pair this close = drop (two swatches are effectively the same role). */
 const INTRA_PALETTE_NEAR_IDENTICAL_DIST = 0.011;
 const INTRA_PALETTE_CLOSE_DIST = 0.036;
+/** After this many palettes scored, yield so the UI can paint (large libraries). */
+const SCORE_YIELD_INTERVAL = 120;
 
 function paletteSource(p) {
   return p.source === "pinterest" ? "pinterest" : "mindful";
@@ -612,6 +614,8 @@ function buildUnifiedPaletteList(mindfulJson, pinterestJson) {
     for (const p of mindfulJson.palettes) {
       const colors = (p.colors || []).map((c) => ({ hex: normalizeHex(c.hex) })).filter((c) => c.hex);
       if (colors.length < 6) continue;
+      const hexPre = colors.map((c) => c.hex);
+      if (intraPaletteTooRedundant(hexPre)) continue;
       out.push({
         source: "mindful",
         paletteNumber: p.paletteNumber,
@@ -628,6 +632,8 @@ function buildUnifiedPaletteList(mindfulJson, pinterestJson) {
         .map((c) => ({ hex: normalizeHex(c.hex), name: c.name ? String(c.name) : "" }))
         .filter((c) => c.hex);
       if (cols.length < 4) return;
+      const hexPre = cols.map((c) => c.hex);
+      if (intraPaletteTooRedundant(hexPre)) return;
       while (cols.length < 6) {
         const L = cols[cols.length - 1];
         cols.push({ hex: L.hex, name: L.name });
@@ -837,19 +843,37 @@ async function main() {
       const rows = [];
       let maxScore = 0;
       let skippedIntra = 0;
-      for (const p of list) {
+      const nList = list.length;
+      let scored = 0;
+      for (let i = 0; i < nList; i++) {
+        const p = list[i];
         const hexes = (p.colors || []).map((c) => normalizeHex(c.hex)).filter(Boolean);
         if (hexes.length < 4) continue;
-        if (intraPaletteTooRedundant(hexes)) {
-          skippedIntra++;
-          continue;
-        }
-        const pal = analyzePalette(hexes);
-        if (!pal) continue;
+        let pal = p.__cachedPal;
+        if (pal === undefined) {
+          if (intraPaletteTooRedundant(hexes)) {
+            p.__cachedPal = false;
+            skippedIntra++;
+            continue;
+          }
+          const analyzed = analyzePalette(hexes);
+          if (!analyzed) {
+            p.__cachedPal = false;
+            continue;
+          }
+          p.__cachedPal = analyzed;
+          pal = analyzed;
+        } else if (!pal) continue;
         const summary = (p.paletteSummary || "").toLowerCase();
         const s = scoreMoodDirectional(pal, target.moodId, target.lemmas, summary);
         maxScore = Math.max(maxScore, s);
         rows.push({ score: s, p, pal });
+        scored++;
+        if (scored % SCORE_YIELD_INTERVAL === 0) {
+          if (gen !== matchGeneration) return;
+          statusEl.textContent = `Scoring palettes… ${Math.min(i + 1, nList)} / ${nList}`;
+          await new Promise((r) => setTimeout(r, 0));
+        }
       }
       rows.sort((a, b) => b.score - a.score);
       let shown = [];
