@@ -10,7 +10,9 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=7" />
+    <link rel="stylesheet" href="./styles.css?v=8" />
+    <link rel="preload" href="./data/mindful-palettes.json" as="fetch" crossorigin />
+    <link rel="preload" href="./data/pinterest-colors.json" as="fetch" crossorigin />
   </head>
   <body>
     <header>
@@ -20,7 +22,10 @@
     <main>
       <section aria-labelledby="moods-label">
         <h2 id="moods-label">Mood tags (24)</h2>
-        <p class="meta-bar">Single choice — selecting a tag loads palettes immediately.</p>
+        <p class="meta-bar">
+          Single choice. The first load fetches a large Pinterest palette file; later visits use the browser cache and feel
+          faster.
+        </p>
         <div id="chips" class="chips" role="radiogroup" aria-labelledby="moods-label"></div>
       </section>
       <section aria-labelledby="extra-label">
@@ -43,6 +48,6 @@
       </section>
     </main>
     <script src="./mood-engine-v2.js"></script>
-    <script src="./app.js?v=7" defer></script>
+    <script src="./app.js?v=8" defer></script>
   </body>
 </html>

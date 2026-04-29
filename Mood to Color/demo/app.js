@@ -628,7 +628,10 @@ function buildUnifiedPaletteList(mindfulJson, pinterestJson) {
         .map((c) => ({ hex: normalizeHex(c.hex), name: c.name ? String(c.name) : "" }))
         .filter((c) => c.hex);
       if (cols.length < 4) return;
-      while (cols.length < 6) cols.push({ ...cols[cols.length - 1] });
+      while (cols.length < 6) {
+        const L = cols[cols.length - 1];
+        cols.push({ hex: L.hex, name: L.name });
+      }
       const keyword = entry.keyword ? String(entry.keyword) : "";
       const nameStr = cols
         .map((c) => c.name)
@@ -641,7 +644,7 @@ function buildUnifiedPaletteList(mindfulJson, pinterestJson) {
         paletteNumber: 10000 + idx,
         paletteSummary: summary,
         displayTitle: title,
-        colors: cols.map((c) => ({ hex: c.hex, name: c.name ? String(c.name) : "" })),
+        colors: cols,
         pinMeta: { image_file: entry.image_file, keyword },
       });
     });
@@ -785,11 +788,14 @@ async function main() {
 
   async function ensurePalettes() {
     if (paletteBundle) return paletteBundle;
-    const mRes = await fetch("./data/mindful-palettes.json", { cache: "no-store" });
+    // Mindful (~50KB) + Pinterest (~9MB JSON) in parallel; default cache so repeat visits are fast.
+    const [mRes, pRes] = await Promise.all([
+      fetch("./data/mindful-palettes.json"),
+      fetch("./data/pinterest-colors.json"),
+    ]);
     if (!mRes.ok) throw new Error(`Could not load mindful-palettes.json (${mRes.status})`);
     const mindful = await mRes.json();
     let pinterest = { palettes_by_image: [] };
-    const pRes = await fetch("./data/pinterest-colors.json", { cache: "no-store" });
     let pinterestFetchOk = pRes.ok;
     if (pRes.ok) {
       try {
@@ -908,16 +914,20 @@ async function main() {
     if (selectedChipId) runMatchDebounced();
   });
 
-  try {
-    await ensurePalettes();
-    resultsEl.innerHTML = '<p class="empty">Select a mood tag to see matching palettes.</p>';
-    statusEl.textContent = "Pick a mood tag — results appear instantly.";
-  } catch (e) {
-    errEl.hidden = false;
-    errEl.textContent = String(e.message || e);
-    statusEl.textContent = "";
-    resultsEl.innerHTML = "";
-  }
+  resultsEl.innerHTML = '<p class="empty">Select a mood tag to see matching palettes.</p>';
+  statusEl.textContent = "Loading palette library…";
+  ensurePalettes()
+    .then(() => {
+      errEl.hidden = true;
+      if (selectedChipId) void runMatch();
+      else statusEl.textContent = "Pick a mood tag — results appear after you choose one.";
+    })
+    .catch((e) => {
+      errEl.hidden = false;
+      errEl.textContent = String(e.message || e);
+      statusEl.textContent = "";
+      resultsEl.innerHTML = "";
+    });
 }
 
 main();
