@@ -448,7 +448,8 @@ function pinterestKeywordNorm(p) {
 }
 
 function rowPaletteHexes(row) {
-  return (row.p.colors || []).map((c) => normalizeHex(c.hex)).filter(Boolean);
+  const colors = row && row.p && row.p.colors ? row.p.colors : [];
+  return colors.map((c) => normalizeHex(c.hex)).filter(Boolean);
 }
 
 function dedupeRowsByPaletteSimilarity(rows, simThreshold) {
@@ -459,7 +460,7 @@ function dedupeRowsByPaletteSimilarity(rows, simThreshold) {
     const kw = pinterestKeywordNorm(row.p);
     let dup = false;
     for (const k of kept) {
-      const hx2 = rowPaletteHexes(k.p);
+      const hx2 = rowPaletteHexes(k);
       const sim = paletteSimilarity01(hx, hx2);
       if (sim >= simThreshold) {
         dup = true;
