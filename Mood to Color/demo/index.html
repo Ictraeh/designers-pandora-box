@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=9" />
+    <link rel="stylesheet" href="./styles.css?v=11" />
     <link rel="preload" href="./data/mindful-palettes.json" as="fetch" crossorigin />
     <link rel="preload" href="./data/pinterest-colors.json" as="fetch" crossorigin />
   </head>
@@ -22,32 +22,16 @@
     <main>
       <section aria-labelledby="moods-label">
         <h2 id="moods-label">Mood tags (24)</h2>
-        <p class="meta-bar">
-          Single choice. First load downloads the Pinterest palette JSON (~3.5MB); the browser caches it for later visits.
-          Scoring many palettes can take a moment — the status line shows progress.
-        </p>
         <div id="chips" class="chips" role="radiogroup" aria-labelledby="moods-label"></div>
-      </section>
-      <section aria-labelledby="extra-label">
-        <h2 id="extra-label">Extra words</h2>
-        <textarea
-          id="extra"
-          placeholder="Optional: extra words refine scoring (e.g. trustworthy startup, soft editorial…)"
-          rows="2"
-        ></textarea>
       </section>
       <section aria-labelledby="out-label">
         <h2 id="out-label">Matching palettes</h2>
-        <p class="meta-bar">
-          Cards show source, mood match, name, then swatches. Palettes with redundant near-duplicate swatches are omitted.
-          Very similar cards and duplicate Pinterest titles are collapsed to one. Copy icon copies all hexes (one per line).
-        </p>
-        <p id="status" class="meta-bar"></p>
+        <p id="status" class="meta-bar" aria-live="polite"></p>
         <div id="results" class="grid"></div>
         <p id="err" class="error" hidden></p>
       </section>
     </main>
     <script src="./mood-engine-v2.js"></script>
-    <script src="./app.js?v=9" defer></script>
+    <script src="./app.js?v=12" defer></script>
   </body>
 </html>

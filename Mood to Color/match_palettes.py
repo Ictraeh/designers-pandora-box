@@ -93,6 +93,47 @@ def circular_mean_hues(degrees: list[float]) -> float:
     return math.degrees(math.atan2(sy, sx)) % 360.0
 
 
+def dominant_hue_cluster_indices(hs: list[float]) -> list[int]:
+    """
+    Split 6 hues into two plane clusters; return indices of the larger group.
+    So one accent (e.g. lone green among reds) does not define palette hue mood.
+    Tie 3–3 → use all indices.
+    """
+    n = len(hs)
+    if n < 4:
+        return list(range(n))
+    pts = [(math.cos(math.radians(h)), math.sin(math.radians(h))) for h in hs]
+    best_j = 1
+    best_d = -1.0
+    for j in range(1, n):
+        d = hue_delta(hs[0], hs[j])
+        if d > best_d:
+            best_d = d
+            best_j = j
+    c1 = [pts[0][0], pts[0][1]]
+    c2 = [pts[best_j][0], pts[best_j][1]]
+    g1: list[int] = []
+    g2: list[int] = []
+    for _ in range(8):
+        g1, g2 = [], []
+        for i, p in enumerate(pts):
+            d1 = (p[0] - c1[0]) ** 2 + (p[1] - c1[1]) ** 2
+            d2 = (p[0] - c2[0]) ** 2 + (p[1] - c2[1]) ** 2
+            (g1 if d1 <= d2 else g2).append(i)
+        if not g1 or not g2:
+            return list(range(n))
+
+        def mean_xy(ixs: list[int]) -> list[float]:
+            sx = sum(pts[i][0] for i in ixs) / len(ixs)
+            sy = sum(pts[i][1] for i in ixs) / len(ixs)
+            return [sx, sy]
+
+        c1, c2 = mean_xy(g1), mean_xy(g2)
+    if len(g1) == len(g2):
+        return list(range(n))
+    return g1 if len(g1) > len(g2) else g2
+
+
 def hue_delta(a: float, b: float) -> float:
     d = abs(a - b) % 360.0
     return min(d, 360.0 - d)
@@ -104,26 +145,40 @@ def gaussian_hue_kernel(query_h: float, palette_h: float, sigma: float) -> float
 
 
 def palette_profile(hexes: list[str]) -> dict[str, float]:
+    """
+    Whole-palette semantics: arousal/contrast use all swatches; hue story (mean hue,
+    warm/cool, grounding) uses the dominant hue cluster so a single accent does not
+    hijack mood (e.g. five reds + one green).
+    """
     hsls = [rgb_to_hsl(*hex_to_rgb(h)) for h in hexes]
     hs = [h for h, s, _l in hsls]
     ss = [s for h, s, _l in hsls]
     ls = [_l for h, s, _l in hsls]
-    mean_h = circular_mean_hues(hs)
+    dom_idx = dominant_hue_cluster_indices(hs)
+    dom_hs = [hs[i] for i in dom_idx]
+
+    mean_h = circular_mean_hues(dom_hs)
+    warm_cool = sum(math.cos(math.radians(h)) for h in dom_hs) / len(dom_hs)
+
     mean_s = sum(ss) / len(ss)
     mean_l = sum(ls) / len(ls)
     spread_l = max(ls) - min(ls)
-    warm_cool = sum(math.cos(math.radians(h)) for h in hs) / len(hs)
     arousal = min(1.0, 0.55 * mean_s + 0.45 * min(1.0, spread_l * 1.8))
     valence = max(-1.0, min(1.0, (mean_l - 0.45) * 2.2 + (mean_s - 0.35) * 0.8))
     sophistication = max(0.0, min(1.0, 1.0 - mean_s * 0.85 + (0.25 - abs(mean_l - 0.55)) * 0.4))
     grounding = 0.0
-    for h, s, l in hsls:
+    for i in dom_idx:
+        h, s, l = hsls[i]
         if 70 <= h % 360 <= 150 and s < 0.55:
             grounding += 0.2
         if 20 <= h % 360 <= 70 and l < 0.55:
             grounding += 0.12
     grounding = min(1.0, grounding)
     openness = max(0.0, min(1.0, 0.55 * mean_l + 0.35 * (1.0 - mean_s * 0.6)))
+    dom_samples = [
+        {"h": float(hs[i] % 360.0), "s": float(ss[i]), "l": float(ls[i])}
+        for i in dom_idx
+    ]
     return {
         "hueDeg": mean_h,
         "warmCool": warm_cool,
@@ -132,6 +187,9 @@ def palette_profile(hexes: list[str]) -> dict[str, float]:
         "sophistication": sophistication,
         "grounding": grounding,
         "openness": openness,
+        "meanS": mean_s,
+        "meanL": mean_l,
+        "domSamples": dom_samples,
     }
 
 

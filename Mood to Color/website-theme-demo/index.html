@@ -33,6 +33,24 @@
         <h2>Extra words</h2>
         <textarea id="extra" rows="2" placeholder="Optional words (same lemma nudge as palette demo)"></textarea>
       </section>
+      <section class="theme-options">
+        <h2>Theme tone (light mode only)</h2>
+        <p class="meta-bar">This demo is fixed to light mode. Tone adjusts chroma and contrast pressure while keeping readability targets.</p>
+        <div class="theme-options-row">
+          <label>
+            Tone
+            <select id="theme-tone" aria-label="Tone preset">
+              <option value="soft">Soft</option>
+              <option value="clear" selected>Clear</option>
+              <option value="vivid">Vivid</option>
+              <option value="muted">Muted</option>
+              <option value="neon">Neon</option>
+              <option value="luxury">Luxury</option>
+              <option value="minimal">Minimal</option>
+            </select>
+          </label>
+        </div>
+      </section>
       <section>
         <h2>Theme output</h2>
         <div id="theme-out"></div>

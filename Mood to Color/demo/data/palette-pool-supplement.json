@@ -1,0 +1,108 @@
+{
+  "palettes": [
+    {
+      "paletteNumber": 91001,
+      "paletteSummary": "curated minimal cool grey ladder airy ui",
+      "displayTitle": "Curated · cool grey minimal",
+      "colors": [
+        { "hex": "#fafafa" },
+        { "hex": "#f5f5f5" },
+        { "hex": "#eeeeee" },
+        { "hex": "#e0e0e0" },
+        { "hex": "#bdbdbd" },
+        { "hex": "#757575" }
+      ]
+    },
+    {
+      "paletteNumber": 91002,
+      "paletteSummary": "curated warm off-white stone minimal",
+      "displayTitle": "Curated · warm stone minimal",
+      "colors": [
+        { "hex": "#fdfcfb" },
+        { "hex": "#f7f5f2" },
+        { "hex": "#ebe8e4" },
+        { "hex": "#d8d4ce" },
+        { "hex": "#a8a29e" },
+        { "hex": "#78716c" }
+      ]
+    },
+    {
+      "paletteNumber": 91003,
+      "paletteSummary": "curated clinical white azure blue",
+      "displayTitle": "Curated · clinical white + azure",
+      "colors": [
+        { "hex": "#ffffff" },
+        { "hex": "#f8fbff" },
+        { "hex": "#eaf2fc" },
+        { "hex": "#c9ddf5" },
+        { "hex": "#2d7dd9" },
+        { "hex": "#0b4a92" }
+      ]
+    },
+    {
+      "paletteNumber": 91004,
+      "paletteSummary": "curated soft clinical ice blue",
+      "displayTitle": "Curated · soft clinical ice",
+      "colors": [
+        { "hex": "#ffffff" },
+        { "hex": "#f4f9fc" },
+        { "hex": "#e3f0fb" },
+        { "hex": "#b8d4f0" },
+        { "hex": "#1a6fd0" },
+        { "hex": "#0d3d6b" }
+      ]
+    },
+    {
+      "paletteNumber": 91005,
+      "paletteSummary": "curated white cyan medical crisp",
+      "displayTitle": "Curated · white + cyan",
+      "colors": [
+        { "hex": "#ffffff" },
+        { "hex": "#f0fbff" },
+        { "hex": "#d4f4fc" },
+        { "hex": "#7dd3fc" },
+        { "hex": "#0284c7" },
+        { "hex": "#0369a1" }
+      ]
+    },
+    {
+      "paletteNumber": 91006,
+      "paletteSummary": "curated slate minimal blue grey",
+      "displayTitle": "Curated · slate minimal",
+      "colors": [
+        { "hex": "#f8fafc" },
+        { "hex": "#f1f5f9" },
+        { "hex": "#e2e8f0" },
+        { "hex": "#cbd5e1" },
+        { "hex": "#64748b" },
+        { "hex": "#334155" }
+      ]
+    },
+    {
+      "paletteNumber": 91007,
+      "paletteSummary": "curated porcelain neutral ladder",
+      "displayTitle": "Curated · porcelain neutrals",
+      "colors": [
+        { "hex": "#fffffe" },
+        { "hex": "#faf9f6" },
+        { "hex": "#f3f2ef" },
+        { "hex": "#e8e6e1" },
+        { "hex": "#c8c2b8" },
+        { "hex": "#8a847b" }
+      ]
+    },
+    {
+      "paletteNumber": 91008,
+      "paletteSummary": "curated hospital crisp blue white",
+      "displayTitle": "Curated · crisp blue white",
+      "colors": [
+        { "hex": "#ffffff" },
+        { "hex": "#f5f8ff" },
+        { "hex": "#e8f0fe" },
+        { "hex": "#4f8ff7" },
+        { "hex": "#1e56b8" },
+        { "hex": "#0c2a5c" }
+      ]
+    }
+  ]
+}

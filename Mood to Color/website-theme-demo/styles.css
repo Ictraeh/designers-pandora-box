@@ -1,12 +1,12 @@
 :root {
-  --bg: #0c0e12;
-  --panel: #151922;
-  --text: #e8eaef;
-  --muted: #8b929c;
-  --accent: #7c9ef0;
-  --chip: #222833;
-  --chip-on: #2a3550;
-  --border: #2a313b;
+  --bg: #f6f8fc;
+  --panel: #ffffff;
+  --text: #1d2a38;
+  --muted: #5f6f82;
+  --accent: #2f6fe4;
+  --chip: #eef3fb;
+  --chip-on: #dce9ff;
+  --border: #d5dfec;
   --radius: 10px;
   font-family: "DM Sans", system-ui, sans-serif;
 }
@@ -107,7 +107,7 @@ textarea {
   padding: 0.55rem 0.75rem;
   border-radius: var(--radius);
   font-size: 0.78rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(17, 24, 39, 0.12);
 }
 .tok-label {
   font-weight: 600;
@@ -173,7 +173,7 @@ textarea {
 }
 .copy-css {
   background: var(--accent);
-  color: #fff;
+  color: #ffffff;
   border: none;
   padding: 0.5rem 0.9rem;
   border-radius: var(--radius);
@@ -212,4 +212,60 @@ textarea {
 .copy-toast--visible {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+.theme-options {
+  margin-top: 0.25rem;
+}
+.theme-options-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: flex-end;
+  margin-top: 0.5rem;
+}
+.theme-options-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.theme-options-row select {
+  font: inherit;
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  min-width: 9rem;
+}
+.theme-mode-badge {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+.token-section-title {
+  font-size: 0.95rem;
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+}
+.semantic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.mini-swatch {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.55rem;
+  font-size: 0.72rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.mini-swatch code {
+  font-size: 0.68rem;
+  word-break: break-all;
 }

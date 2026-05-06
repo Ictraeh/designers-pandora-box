@@ -44,7 +44,7 @@ h1 {
 
 main {
   padding: 1.25rem 1.5rem 3rem;
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
@@ -138,10 +138,40 @@ button.primary:disabled {
   margin-bottom: 0.75rem;
 }
 
+.meta-bar.status--loading {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+  min-height: 1.5rem;
+  animation: statusPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 0.85rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 1020px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {
@@ -172,21 +202,22 @@ button.primary:disabled {
 
 .swatch-fill {
   width: 100%;
-  min-height: 56px;
+  min-height: 52px;
   flex-shrink: 0;
 }
 
 .swatch-label-name {
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   color: var(--muted);
-  line-height: 1.25;
-  padding: 0.3rem 0.15rem 0.35rem;
+  line-height: 1.3;
+  padding: 0.35rem 0.2rem 0.4rem;
   text-align: center;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   word-break: break-word;
+  hyphens: auto;
 }
 
 .card-head {
@@ -196,10 +227,10 @@ button.primary:disabled {
 
 .card-head-top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .card-head-left {
@@ -249,7 +280,9 @@ button.primary:disabled {
 }
 
 .card-palette-name {
-  margin-top: 0.45rem;
+  margin-top: 0;
+  flex: 1;
+  min-width: 0;
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.35;
@@ -315,6 +348,12 @@ button.primary:disabled {
   background: #2a1f28;
   color: #e8a4b8;
   border-color: #4a3038;
+}
+
+.source-pill.supplement {
+  background: #152a32;
+  color: #8ecbd4;
+  border-color: #2a4a52;
 }
 
 .card-heading {

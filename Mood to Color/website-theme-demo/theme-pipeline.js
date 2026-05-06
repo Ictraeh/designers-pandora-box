@@ -106,16 +106,19 @@
   }
 
   function paletteDistanceOKLab(paletteA, paletteB) {
-    const ca = (paletteA.colors || []).map((c) => enrichColor(c.hex));
-    const cb = (paletteB.colors || []).map((c) => enrichColor(c.hex));
+    const ca = (paletteA.colors || []).map((c) => enrichColor(c.hex)).filter((c) => c.hex);
+    const cb = (paletteB.colors || []).map((c) => enrichColor(c.hex)).filter((c) => c.hex);
     if (!ca.length || !cb.length) return 1;
-    let total = 0;
-    for (const a of ca) {
-      let nearest = Infinity;
-      for (const b of cb) nearest = Math.min(nearest, colorDistanceOKLab(a, b));
-      total += nearest;
+    function meanNearest(from, to) {
+      let tot = 0;
+      for (const a of from) {
+        let nearest = Infinity;
+        for (const b of to) nearest = Math.min(nearest, colorDistanceOKLab(a, b));
+        tot += nearest;
+      }
+      return tot / from.length;
     }
-    return total / ca.length;
+    return (meanNearest(ca, cb) + meanNearest(cb, ca)) / 2;
   }
 
   function dedupePalettesPerceptual(scoredRows, minDistance) {
@@ -338,6 +341,120 @@
     return (lighter + 0.05) / (darker + 0.05);
   }
 
+  const MOODS_ALLOW_PURE_BW = ["urgent", "noir", "pure", "festival"];
+
+  function moodAllowsPureBlackWhite(moodId) {
+    return MOODS_ALLOW_PURE_BW.includes(moodId);
+  }
+
+  const TONE_MODES = {
+    soft: { chromaMultiplier: 0.72, contrastMultiplier: 0.86, surfaceTint: 0.08, textContrastTarget: 4.5, decorationOpacity: 0.18 },
+    clear: { chromaMultiplier: 1, contrastMultiplier: 1, surfaceTint: 0.05, textContrastTarget: 4.5, decorationOpacity: 0.22 },
+    vivid: { chromaMultiplier: 1.18, contrastMultiplier: 1.06, surfaceTint: 0.06, textContrastTarget: 4.5, decorationOpacity: 0.28 },
+    muted: { chromaMultiplier: 0.58, contrastMultiplier: 0.9, surfaceTint: 0.1, textContrastTarget: 4.5, decorationOpacity: 0.16 },
+    neon: {
+      chromaMultiplier: 1.35,
+      contrastMultiplier: 1.12,
+      preferDarkBase: true,
+      textContrastTarget: 4.5,
+      decorationOpacity: 0.32,
+    },
+    luxury: {
+      chromaMultiplier: 0.88,
+      contrastMultiplier: 0.96,
+      preferDeepBase: true,
+      textContrastTarget: 4.5,
+      decorationOpacity: 0.14,
+    },
+    minimal: { chromaMultiplier: 0.42, contrastMultiplier: 0.94, maxAccentCount: 1, textContrastTarget: 4.5, decorationOpacity: 0.1 },
+  };
+
+  const MOOD_CONTRAST_PROFILE = {
+    calm: { ui: "lowMedium", text: 4.5, decorative: 1.25 },
+    trust: { ui: "medium", text: 4.5, decorative: 1.4 },
+    energy: { ui: "mediumHigh", text: 4.5, decorative: 1.75 },
+    play: { ui: "medium", text: 4.5, decorative: 1.55 },
+    lux: { ui: "controlled", text: 4.5, decorative: 1.35 },
+    earth: { ui: "lowMedium", text: 4.5, decorative: 1.25 },
+    melancholy: { ui: "lowDark", text: 4.5, decorative: 1.18 },
+    joy: { ui: "mediumBright", text: 4.5, decorative: 1.55 },
+    romance: { ui: "soft", text: 4.5, decorative: 1.22 },
+    clinical: { ui: "clear", text: 4.5, decorative: 1.45 },
+    tech: { ui: "sharp", text: 4.5, decorative: 1.7 },
+    cozy: { ui: "softWarm", text: 4.5, decorative: 1.22 },
+    crisp: { ui: "clearCool", text: 4.5, decorative: 1.35 },
+    noir: { ui: "dramatic", text: 4.5, decorative: 1.85 },
+    nostalgia: { ui: "muted", text: 4.5, decorative: 1.2 },
+    pure: { ui: "functional", text: 4.5, decorative: 1.15 },
+    urgent: { ui: "high", text: 4.5, decorative: 2.0 },
+    ocean: { ui: "mediumSoft", text: 4.5, decorative: 1.3 },
+    forest: { ui: "deepNatural", text: 4.5, decorative: 1.28 },
+    midnight: { ui: "darkControlled", text: 4.5, decorative: 1.45 },
+    dawn: { ui: "softBright", text: 4.5, decorative: 1.18 },
+    festival: { ui: "maximalHigh", text: 4.5, decorative: 2.0 },
+    wedding: { ui: "softElegant", text: 4.5, decorative: 1.18 },
+    artisan: { ui: "mutedCraft", text: 4.5, decorative: 1.22 },
+    default: { ui: "medium", text: 4.5, decorative: 1.35 },
+  };
+
+  const WEBSITE_COLOR_RULES = {
+    philosophy: [
+      "Primary expresses brand action.",
+      "Secondary supports structure and interaction.",
+      "Tertiary adds expressive contrast.",
+      "Supplementary protects readability and layout.",
+      "Light and dark modes preserve contrast intent, not naive inversion.",
+      "Large surfaces use lower chroma than buttons or accents.",
+      "Decorative elements stay mood-rich but hierarchy-soft.",
+      "Text must pass contrast requirements.",
+    ],
+    accessibility: { normalText: 4.5, largeText: 3, icons: 3, focusRing: 3, decorativeMinimum: 1.15 },
+    contrastStyle: {
+      avoidPureBlackWhiteByDefault: true,
+      useSoftBlack: true,
+      useSoftWhite: true,
+      allowPureContrastFor: MOODS_ALLOW_PURE_BW,
+    },
+  };
+
+  function mixHexRgb(hexA, hexB, t) {
+    const a = global.MoodThemePalette.normalizeHex(hexA);
+    const b = global.MoodThemePalette.normalizeHex(hexB);
+    const [ra, ga, ba] = global.MoodThemePalette.hexToRgb(a);
+    const [rb, gb, bb] = global.MoodThemePalette.hexToRgb(b);
+    const u = clamp01(t);
+    return rgb01ToHex(ra + (rb - ra) * u, ga + (gb - ga) * u, ba + (bb - ba) * u);
+  }
+
+  function nudgeHueToward(hDeg, targetDeg, amount) {
+    const h = ((hDeg % 360) + 360) % 360;
+    const t = ((targetDeg % 360) + 360) % 360;
+    let d = t - h;
+    if (d > 180) d -= 360;
+    if (d < -180) d += 360;
+    return ((h + d * clamp01(amount)) % 360 + 360) % 360;
+  }
+
+  function hslLightnessNudge(hex, delta) {
+    const [r, g, b] = global.MoodThemePalette.hexToRgb(global.MoodThemePalette.normalizeHex(hex));
+    const hsl = rgbToHsl(r, g, b);
+    hsl[2] = clamp01(hsl[2] + delta);
+    const [nr, ng, nb] = hslToRgb(((hsl[0] % 360) + 360) % 360, hsl[1], hsl[2]);
+    return rgb01ToHex(nr, ng, nb);
+  }
+
+  function ensureContrastAgainstBg(bgHex, fgHex, minRatio, mode) {
+    let cand = global.MoodThemePalette.normalizeHex(fgHex);
+    const bg = global.MoodThemePalette.normalizeHex(bgHex);
+    for (let i = 0; i < 18; i++) {
+      if (contrastRatio(bg, cand) >= minRatio) return cand;
+      cand = mode === "light" ? hslLightnessNudge(cand, -0.045) : hslLightnessNudge(cand, 0.055);
+    }
+    const w = contrastRatio(bg, "#FFFFFF");
+    const k = contrastRatio(bg, "#000000");
+    return w >= k ? "#FFFFFF" : "#171717";
+  }
+
   function chooseOnColor(bgHex, candidateHexes) {
     const defaults = ["#FFFFFF", "#000000", "#111111", "#F8F5EF", "#1C1C1C"];
     const pool = [...new Set([...candidateHexes.map((h) => global.MoodThemePalette.normalizeHex(h)).filter(Boolean), ...defaults])];
@@ -353,12 +470,18 @@
     return { hex: best, contrast: bestC, passesNormalText: bestC >= 4.5, passesLargeText: bestC >= 3 };
   }
 
-  function readableOrFallback(bgHex, candidateHexes) {
-    const ch = chooseOnColor(bgHex, candidateHexes);
+  function readableOrFallback(bgHex, candidateHexes, moodId) {
+    const soft = ["#171717", "#1C1C1C", "#252B2E", "#F7F4EE", "#F4F6F8", "#EEF1F3", "#EDEAE4"];
+    const allowPure = moodId && moodAllowsPureBlackWhite(moodId);
+    const pool = allowPure
+      ? [...candidateHexes]
+      : [...soft, ...candidateHexes, "#111111", "#FAFAFA"];
+    const ch = chooseOnColor(bgHex, pool);
     if (ch.contrast >= 4.5) return ch.hex;
-    const w = contrastRatio(bgHex, "#FFFFFF");
-    const k = contrastRatio(bgHex, "#000000");
-    return w >= k ? "#FFFFFF" : "#000000";
+    const w = contrastRatio(bgHex, "#FAFAFA");
+    const k = contrastRatio(bgHex, "#171717");
+    if (allowPure) return w >= k ? "#FFFFFF" : "#000000";
+    return w >= k ? "#FAFAFA" : "#171717";
   }
 
   function supplementaryColorScore(color, primary, secondary, tertiary, moodId) {
@@ -385,14 +508,41 @@
     return best;
   }
 
-  function buildCandidatePool(scoredRows, limitPalettes) {
+  function rowIsPinterest(row) {
+    return row.p && row.p.source === "pinterest";
+  }
+
+  /** Reserve roughly half the pool for Mindful vs Pinterest so theme swatches are not dominated by one source. */
+  function stratifyScoredRowsForPool(rows, limit) {
+    const pin = rows.filter((r) => rowIsPinterest(r)).sort((a, b) => b.score - a.score);
+    const mind = rows.filter((r) => !rowIsPinterest(r)).sort((a, b) => b.score - a.score);
+    const half = Math.ceil(limit / 2);
+    const mindTake = Math.min(half, mind.length);
+    const pinTake = Math.min(limit - mindTake, pin.length);
+    const picked = [...mind.slice(0, mindTake), ...pin.slice(0, pinTake)];
+    if (picked.length < limit) {
+      const restM = mind.slice(mindTake);
+      const restP = pin.slice(pinTake);
+      let mi = 0;
+      let pi = 0;
+      while (picked.length < limit && (mi < restM.length || pi < restP.length)) {
+        if (picked.length < limit && mi < restM.length) picked.push(restM[mi++]);
+        if (picked.length < limit && pi < restP.length) picked.push(restP[pi++]);
+      }
+    }
+    picked.sort((a, b) => b.score - a.score);
+    return picked.slice(0, limit);
+  }
+
+  function buildCandidatePool(scoredRows) {
     const pool = [];
-    for (const row of scoredRows.slice(0, limitPalettes)) {
+    for (const row of scoredRows) {
       const sc = row.score;
+      const src = rowIsPinterest(row) ? "pinterest" : "mindful";
       for (const col of row.p.colors || []) {
         const hx = global.MoodThemePalette.normalizeHex(col.hex);
         if (!hx) continue;
-        pool.push({ ...enrichColor(hx), paletteScore: sc });
+        pool.push({ ...enrichColor(hx), paletteScore: sc, paletteSource: src });
       }
     }
     return dedupeSimilarColors(pool);
@@ -468,11 +618,308 @@
     return rgb01ToHex(nr, ng, nb);
   }
 
+  function applyToneChromaHex(hex, mult) {
+    const H = global.MoodThemePalette.normalizeHex(hex);
+    const [r, g, b] = global.MoodThemePalette.hexToRgb(H);
+    const hsl = rgbToHsl(r, g, b);
+    hsl[1] = clamp01(hsl[1] * mult);
+    const [nr, ng, nb] = hslToRgb(((hsl[0] % 360) + 360) % 360, hsl[1], hsl[2]);
+    return rgb01ToHex(nr, ng, nb);
+  }
+
+  function softenOffWhitePageBackground(bgHex, tintHex, moodId) {
+    if (moodAllowsPureBlackWhite(moodId)) return global.MoodThemePalette.normalizeHex(bgHex);
+    const u = String(bgHex).toUpperCase();
+    if (u === "#FFFFFF" || u === "#FFF") return mixHexRgb(bgHex, tintHex, 0.07);
+    const e = enrichColor(bgHex);
+    if (e.l > 0.97 && e.c < 0.02) return mixHexRgb(bgHex, tintHex, 0.05);
+    return global.MoodThemePalette.normalizeHex(bgHex);
+  }
+
+  function hexToRgba(hex, a) {
+    const [r, g, b] = global.MoodThemePalette.hexToRgb(global.MoodThemePalette.normalizeHex(hex));
+    return `rgba(${Math.round(r * 255)},${Math.round(g * 255)},${Math.round(b * 255)},${clamp01(a)})`;
+  }
+
+  function chooseTagSourceHex(material, moodId) {
+    const tertiaryTagMoods = ["play", "joy", "festival", "wedding", "romance", "dawn", "artisan", "ocean"];
+    const secondaryTagMoods = ["calm", "trust", "clinical", "cozy", "earth", "forest", "nostalgia"];
+    if (tertiaryTagMoods.includes(moodId)) return material.tertiary;
+    if (secondaryTagMoods.includes(moodId)) return material.secondary;
+    return material.primary;
+  }
+
+  function buildWebsiteFrontendTokens(material, moodId, mode, tone, candHexes) {
+    const toneProfile = TONE_MODES[tone] || TONE_MODES.clear;
+    const cp = MOOD_CONTRAST_PROFILE[moodId] || MOOD_CONTRAST_PROFILE.default;
+    const cMult = toneProfile.chromaMultiplier;
+    const p = applyToneChromaHex(material.primary, cMult);
+    const s = applyToneChromaHex(material.secondary, cMult * 0.96);
+    const t = applyToneChromaHex(material.tertiary, cMult * 0.94);
+    const q = applyToneChromaHex(material.supplementary, Math.min(1, cMult * 0.52));
+
+    let bg = global.MoodThemePalette.normalizeHex(material.background);
+    if (mode === "light") {
+      bg = softenOffWhitePageBackground(bg, p, moodId);
+    } else {
+      const eb = enrichColor(bg);
+      if (eb.l > 0.45) bg = mixHexRgb(bg, mixHexRgb(p, "#0a0c10", 0.88), 0.58);
+      if (toneProfile.preferDarkBase) bg = mixHexRgb(bg, "#050608", 0.28);
+      if (toneProfile.preferDeepBase) bg = mixHexRgb(bg, "#080a0c", 0.22);
+    }
+
+    const backgroundAlt =
+      mode === "light" ? mixHexRgb(bg, s, toneProfile.surfaceTint) : mixHexRgb(bg, s, toneProfile.surfaceTint * 0.72);
+    const surface = mode === "light" ? hslLightnessNudge(bg, -0.02) : hslLightnessNudge(bg, 0.042);
+    const surfaceElevated = mixHexRgb(surface, p, mode === "light" ? 0.03 : 0.06);
+    const surfaceMuted = mode === "light" ? mixHexRgb(bg, s, 0.055) : mixHexRgb(bg, s, 0.08);
+
+    const textMode = mode === "light" ? "light" : "dark";
+    const textPriSeed = mode === "light" ? mixHexRgb("#1a1f24", p, 0.12) : mixHexRgb("#E8EEF0", p, 0.1);
+    const textPrimary = ensureContrastAgainstBg(bg, textPriSeed, cp.text, textMode);
+    const textSecondary = ensureContrastAgainstBg(
+      bg,
+      mode === "light" ? mixHexRgb(textPrimary, bg, 0.25) : mixHexRgb(textPrimary, bg, 0.2),
+      cp.text,
+      textMode,
+    );
+    const textMuted = ensureContrastAgainstBg(
+      bg,
+      mode === "light" ? mixHexRgb(textPrimary, bg, 0.45) : mixHexRgb(textPrimary, bg, 0.38),
+      3,
+      textMode,
+    );
+    const textInverse = mode === "light" ? "#F7F4EE" : "#141618";
+
+    const borderSubtle = mixHexRgb(mode === "light" ? "#1c2126" : "#eef2f4", bg, mode === "light" ? 0.9 : 0.92);
+    const borderDefault = mixHexRgb(mode === "light" ? "#2a3238" : "#d8dee2", bg, mode === "light" ? 0.75 : 0.82);
+    const divider = mixHexRgb(borderSubtle, bg, 0.42);
+
+    const link = ensureContrastAgainstBg(bg, p, 4.5, textMode);
+    const linkHover = hslLightnessNudge(link, mode === "light" ? -0.07 : 0.08);
+
+    const buttonPrimaryBg = p;
+    const buttonPrimaryText = readableOrFallback(buttonPrimaryBg, candHexes, moodId);
+    const buttonPrimaryHover = hslLightnessNudge(buttonPrimaryBg, mode === "light" ? -0.06 : 0.07);
+    const buttonPrimaryPressed = hslLightnessNudge(buttonPrimaryBg, mode === "light" ? -0.1 : 0.04);
+
+    const buttonSecondaryBg = mode === "light" ? mixHexRgb(s, bg, 0.78) : mixHexRgb(s, bg, 0.55);
+    const buttonSecondaryText = ensureContrastAgainstBg(buttonSecondaryBg, s, 4.5, textMode);
+    const buttonSecondaryBorder = mixHexRgb(s, bg, mode === "light" ? 0.55 : 0.38);
+    const buttonSecondaryHover = hslLightnessNudge(buttonSecondaryBg, mode === "light" ? -0.04 : 0.05);
+
+    const buttonGhostText = ensureContrastAgainstBg(bg, p, 4.5, textMode);
+    const buttonGhostHoverBg = mixHexRgb(p, bg, mode === "light" ? 0.88 : 0.72);
+
+    const focusRing = mixHexRgb(p, mode === "light" ? "#ffffff" : "#0c0e12", 0.38);
+
+    const tagSrc = chooseTagSourceHex({ primary: p, secondary: s, tertiary: t, supplementary: q }, moodId);
+    const tagBg = mode === "light" ? mixHexRgb(tagSrc, bg, 0.86) : mixHexRgb(tagSrc, bg, 0.72);
+    const tagText = ensureContrastAgainstBg(tagBg, tagSrc, 4.5, textMode);
+    const tagBorder = mode === "light" ? mixHexRgb(tagSrc, bg, 0.62) : mixHexRgb(tagSrc, bg, 0.48);
+
+    const op = toneProfile.decorationOpacity;
+    const decorativeSoft = hexToRgba(s, op);
+    const decorativeStrong = hexToRgba(t, Math.min(op + 0.12, 0.42));
+    const glow =
+      ["energy", "festival", "tech", "urgent", "joy", "play"].includes(moodId) && mode === "dark"
+        ? hexToRgba(p, 0.28)
+        : "transparent";
+    const gradientA = mixHexRgb(p, bg, mode === "light" ? 0.72 : 0.52);
+    const gradientB = mixHexRgb(t, bg, mode === "light" ? 0.82 : 0.62);
+
+    const semantic = {
+      background: bg,
+      backgroundAlt,
+      surface,
+      surfaceElevated,
+      surfaceMuted,
+      overlay: mode === "light" ? "rgba(20, 22, 24, 0.42)" : "rgba(0, 0, 0, 0.58)",
+      shadowColor: mode === "light" ? "rgba(24, 28, 32, 0.1)" : "rgba(0, 0, 0, 0.36)",
+      textPrimary,
+      textSecondary,
+      textMuted,
+      textInverse,
+      borderSubtle,
+      borderDefault,
+      divider,
+      link,
+      linkHover,
+      buttonPrimaryBg,
+      buttonPrimaryText,
+      buttonPrimaryHover,
+      buttonPrimaryPressed,
+      buttonSecondaryBg,
+      buttonSecondaryText,
+      buttonSecondaryBorder,
+      buttonSecondaryHover,
+      buttonGhostText,
+      buttonGhostHoverBg,
+      focusRing,
+      tertiaryActionBg: tagBg,
+      tertiaryActionText: tagText,
+      tagBg,
+      tagText,
+      tagBorder,
+      decorativeSoft,
+      decorativeStrong,
+      glow,
+      gradientA,
+      gradientB,
+    };
+
+    const statesLight = {
+      success: "#2E7D32",
+      warning: "#B26A00",
+      error: "#B3261E",
+      info: "#1769AA",
+    };
+    const statesDark = {
+      success: "#81C784",
+      warning: "#FFB74D",
+      error: "#F2A6A0",
+      info: "#8EC5FF",
+    };
+    const st = mode === "light" ? statesLight : statesDark;
+    const successBg = mixHexRgb(st.success, bg, mode === "light" ? 0.9 : 0.78);
+    const warningBg = mixHexRgb(st.warning, bg, mode === "light" ? 0.9 : 0.78);
+    const errorBg = mixHexRgb(st.error, bg, mode === "light" ? 0.9 : 0.78);
+    const infoBg = mixHexRgb(st.info, bg, mode === "light" ? 0.9 : 0.78);
+
+    const states = {
+      success: st.success,
+      onSuccess: readableOrFallback(st.success, candHexes, moodId),
+      warning: st.warning,
+      onWarning: readableOrFallback(st.warning, candHexes, moodId),
+      error: st.error,
+      onError: readableOrFallback(st.error, candHexes, moodId),
+      info: st.info,
+      onInfo: readableOrFallback(st.info, candHexes, moodId),
+      successBg,
+      warningBg,
+      errorBg,
+      infoBg,
+    };
+
+    const components = {
+      card: {
+        bg: surface,
+        bgElevated: surfaceElevated,
+        border: borderSubtle,
+        title: textPrimary,
+        body: textSecondary,
+        accent: p,
+      },
+      navbar: {
+        bg: hexToRgba(surface, mode === "light" ? 0.92 : 0.88),
+        text: textSecondary,
+        activeText: p,
+        activeIndicator: p,
+        border: borderSubtle,
+      },
+      hero: {
+        bg,
+        headline: textPrimary,
+        body: textSecondary,
+        accent: p,
+        decorativeA: decorativeSoft,
+        decorativeB: decorativeStrong,
+      },
+      tag: { tagBg: semantic.tagBg, tagText: semantic.tagText, tagBorder: semantic.tagBorder },
+      form: {
+        inputBg: surface,
+        inputText: textPrimary,
+        placeholder: textMuted,
+        border: borderDefault,
+        borderFocus: p,
+        helperText: textMuted,
+      },
+      footer: {
+        bg: mode === "light" ? mixHexRgb(bg, "#0f1214", 0.92) : mixHexRgb(bg, "#000000", 0.25),
+        text: textInverse,
+        link: s,
+        accent: t,
+      },
+      decorative: { decorativeSoft, decorativeStrong, glow, gradientA, gradientB },
+    };
+
+    const cssVariables = {
+      "--color-primary": p,
+      "--color-secondary": s,
+      "--color-tertiary": t,
+      "--color-supplementary": q,
+      "--color-bg": semantic.background,
+      "--color-bg-alt": semantic.backgroundAlt,
+      "--color-surface": semantic.surface,
+      "--color-surface-elevated": semantic.surfaceElevated,
+      "--color-surface-muted": semantic.surfaceMuted,
+      "--color-overlay": semantic.overlay,
+      "--color-shadow": semantic.shadowColor,
+      "--color-text-primary": semantic.textPrimary,
+      "--color-text-secondary": semantic.textSecondary,
+      "--color-text-muted": semantic.textMuted,
+      "--color-text-inverse": semantic.textInverse,
+      "--color-border-subtle": semantic.borderSubtle,
+      "--color-border-default": semantic.borderDefault,
+      "--color-divider": semantic.divider,
+      "--color-link": semantic.link,
+      "--color-link-hover": semantic.linkHover,
+      "--color-link-visited": mixHexRgb(t, semantic.link, 0.35),
+      "--color-button-primary-bg": semantic.buttonPrimaryBg,
+      "--color-button-primary-text": semantic.buttonPrimaryText,
+      "--color-button-primary-hover": semantic.buttonPrimaryHover,
+      "--color-button-primary-pressed": semantic.buttonPrimaryPressed,
+      "--color-button-secondary-bg": semantic.buttonSecondaryBg,
+      "--color-button-secondary-text": semantic.buttonSecondaryText,
+      "--color-button-secondary-border": semantic.buttonSecondaryBorder,
+      "--color-button-secondary-hover": semantic.buttonSecondaryHover,
+      "--color-button-ghost-text": semantic.buttonGhostText,
+      "--color-button-ghost-hover-bg": semantic.buttonGhostHoverBg,
+      "--color-focus-ring": semantic.focusRing,
+      "--color-card-bg": components.card.bg,
+      "--color-card-border": components.card.border,
+      "--color-tag-bg": semantic.tagBg,
+      "--color-tag-text": semantic.tagText,
+      "--color-tag-border": semantic.tagBorder,
+      "--color-decorative-soft": semantic.decorativeSoft,
+      "--color-decorative-strong": semantic.decorativeStrong,
+      "--color-decorative-glow": semantic.glow,
+      "--color-gradient-a": semantic.gradientA,
+      "--color-gradient-b": semantic.gradientB,
+      "--color-success": states.success,
+      "--color-on-success": states.onSuccess,
+      "--color-success-bg": states.successBg,
+      "--color-warning": states.warning,
+      "--color-on-warning": states.onWarning,
+      "--color-warning-bg": states.warningBg,
+      "--color-error": states.error,
+      "--color-on-error": states.onError,
+      "--color-error-bg": states.errorBg,
+      "--color-info": states.info,
+      "--color-on-info": states.onInfo,
+      "--color-info-bg": states.infoBg,
+    };
+
+    return {
+      coreRoles: { primary: p, secondary: s, tertiary: t, supplementary: q },
+      semantic,
+      states,
+      components,
+      cssVariables,
+      contrastProfile: cp,
+      toneProfile,
+      websiteRules: WEBSITE_COLOR_RULES,
+    };
+  }
+
   function buildMoodWebsiteTheme(scoredPaletteRows, moodId, options) {
-    const minPalDist = options?.minPaletteDistance ?? 0.082;
+    const minPalDist = options?.minPaletteDistance ?? 0.073;
     const poolPaletteN = options?.poolPaletteLimit ?? 28;
     const deduped = dedupePalettesPerceptual(scoredPaletteRows, minPalDist);
-    const candidates = buildCandidatePool(deduped, poolPaletteN);
+    const rowsForPool = stratifyScoredRowsForPool(deduped, poolPaletteN);
+    const mindfulPoolRows = rowsForPool.filter((r) => !rowIsPinterest(r)).length;
+    const pinterestPoolRows = rowsForPool.length - mindfulPoolRows;
+    const candidates = buildCandidatePool(rowsForPool);
     const candHexes = candidates.map((c) => c.hex);
 
     const fb = (hex) => enrichColor(hex);
@@ -494,15 +941,16 @@
     );
     if (!supplementary) supplementary = fb("#F8FAFC");
 
-    const onPrimary = readableOrFallback(primary.hex, candHexes);
-    const onSecondary = readableOrFallback(secondary.hex, candHexes);
-    const onTertiary = readableOrFallback(tertiary.hex, candHexes);
-    const onSupplementary = readableOrFallback(supplementary.hex, candHexes);
+    const onPrimary = readableOrFallback(primary.hex, candHexes, moodId);
+    const onSecondary = readableOrFallback(secondary.hex, candHexes, moodId);
+    const onTertiary = readableOrFallback(tertiary.hex, candHexes, moodId);
+    const onSupplementary = readableOrFallback(supplementary.hex, candHexes, moodId);
 
-    const background = chooseBackgroundColor(supplementary, moodId, candidates);
+    let background = chooseBackgroundColor(supplementary, moodId, candidates);
+    background = enrichColor(softenOffWhitePageBackground(background.hex, primary.hex, moodId));
     const surface = chooseSurfaceColor(background, candidates);
-    const onBackground = readableOrFallback(background.hex, candHexes);
-    const onSurface = readableOrFallback(surface.hex, candHexes);
+    const onBackground = readableOrFallback(background.hex, candHexes, moodId);
+    const onSurface = readableOrFallback(surface.hex, candHexes, moodId);
 
     const primaryVariant = makeVariant(primary.hex, moodId, "primary");
     const secondaryVariant = makeVariant(secondary.hex, moodId, "secondary");
@@ -511,40 +959,49 @@
       `Primary chosen for ${moodId} mood fit, chroma/lightness bands, and distinctiveness.`,
       `Secondary harmonizes (${calmAnalogous(moodId) ? "analogous" : highContrastMoods(moodId) ? "contrast" : "balanced"}) with primary.`,
       `Tertiary adds hue separation for accents and callouts.`,
-      `Supplementary supports surfaces and readable layers; on-colors meet WCAG where possible.`,
+      `Supplementary supports surfaces and readable layers; on-colors prefer soft black/white unless the mood calls for pure contrast.`,
+      `Frontend tokens add surfaces, typography, actions, tags, components, and semantic states for light/dark + tone modes.`,
     ];
+
+    const mode = options?.mode === "dark" ? "dark" : "light";
+    const tone = options?.tone && TONE_MODES[options.tone] ? options.tone : "clear";
+    const material = {
+      primary: primary.hex,
+      onPrimary,
+      primaryVariant,
+      secondary: secondary.hex,
+      onSecondary,
+      secondaryVariant,
+      tertiary: tertiary.hex,
+      onTertiary,
+      supplementary: supplementary.hex,
+      onSupplementary,
+      background: background.hex,
+      onBackground,
+      surface: surface.hex,
+      onSurface,
+      error: "#B00020",
+      onError: "#FFFFFF",
+    };
+    const frontend = buildWebsiteFrontendTokens(material, moodId, mode, tone, candHexes);
 
     return {
       mood: moodId,
+      mode,
+      tone,
       core: {
         primary: primary.hex,
         secondary: secondary.hex,
         tertiary: tertiary.hex,
         supplementary: supplementary.hex,
       },
-      material: {
-        primary: primary.hex,
-        onPrimary,
-        primaryVariant,
-        secondary: secondary.hex,
-        onSecondary,
-        secondaryVariant,
-        tertiary: tertiary.hex,
-        onTertiary,
-        supplementary: supplementary.hex,
-        onSupplementary,
-        background: background.hex,
-        onBackground,
-        surface: surface.hex,
-        onSurface,
-        error: "#B00020",
-        onError: "#FFFFFF",
-      },
+      material,
+      frontend,
       usage: {
-        primary: "CTA, links, key brand",
-        secondary: "Secondary controls, tabs, supporting accents",
-        tertiary: "Badges, charts, callouts",
-        supplementary: "Backgrounds, borders, text support",
+        primary: "CTA, links, active states, hero accents",
+        secondary: "Secondary buttons, panels, nav states, highlights",
+        tertiary: "Tags, badges, charts, decorative details",
+        supplementary: "Backgrounds, surfaces, text support, borders, layers",
       },
       accessibility: {
         primaryContrast: contrastRatio(primary.hex, onPrimary),
@@ -557,6 +1014,7 @@
       why,
       sourcePaletteCount: deduped.length,
       candidateColorCount: candidates.length,
+      poolRowSources: { mindful: mindfulPoolRows, pinterest: pinterestPoolRows },
     };
   }
 
@@ -565,6 +1023,10 @@
     buildMoodWebsiteTheme,
     dedupePalettesPerceptual,
     buildCandidatePool,
+    stratifyScoredRowsForPool,
     contrastRatio,
+    TONE_MODES,
+    MOOD_CONTRAST_PROFILE,
+    WEBSITE_COLOR_RULES,
   };
 })(typeof window !== "undefined" ? window : globalThis);
