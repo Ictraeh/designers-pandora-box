@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Palette switch demo — full site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <p class="error error--banner" id="err" hidden role="alert"></p>
+
+    <div class="control-backdrop" id="control-backdrop" hidden aria-hidden="true"></div>
+
+    <div class="control-shell" id="control-shell">
+      <div class="control-actions">
+        <button
+          type="button"
+          class="control-toggle"
+          id="control-toggle"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="control-panel"
+        >
+          Mood &amp; palettes
+        </button>
+        <button
+          type="button"
+          class="control-toggle"
+          id="typography-toggle"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="typography-panel"
+        >
+          Typography
+        </button>
+      </div>
+
+      <aside class="control-panel" id="control-panel" aria-label="Mood to Color — pick a palette">
+        <div class="field">
+          <label for="mood-select">Mood</label>
+          <select id="mood-select" aria-label="Mood options"></select>
+          <p id="mood-detail" class="mood-detail" aria-live="polite"></p>
+        </div>
+        <div id="palette-grid" class="palette-grid"></div>
+      </aside>
+
+      <aside class="control-panel" id="typography-panel" aria-label="Typography pairings">
+        <h2 class="control-panel__title">Typography</h2>
+        <div id="typography-list" class="typography-list"></div>
+      </aside>
+    </div>
+
+    <div id="site">
+      <nav class="site-nav">
+        <div class="site-nav__brand">
+          <span class="site-nav__mark" aria-hidden="true"></span>
+          <span>Lumen Analytics</span>
+        </div>
+        <ul class="site-nav__links">
+          <li><a href="#product">Product</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#stories">Stories</a></li>
+        </ul>
+        <button type="button" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem">Book demo</button>
+      </nav>
+
+      <header class="hero" id="product">
+        <div class="hero__inner">
+          <div>
+            <span class="eyebrow">Operational intelligence</span>
+            <h1>See revenue risk before your spreadsheet does.</h1>
+            <p class="hero__lede">
+              Unify pipelines, forecasts, and team signals in one calm surface—so leaders act on contrast, not clutter.
+            </p>
+            <div class="hero__actions">
+              <button type="button" class="btn-hero-primary">Start free trial</button>
+              <button type="button" class="btn-hero-secondary">Watch overview</button>
+            </div>
+            <div class="tag-row">
+              <span class="tag">SOC2</span>
+              <span class="tag">Realtime</span>
+              <span class="tag">API</span>
+            </div>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero__visual-stat">
+              <strong>94%</strong>
+              <span style="font-size: 0.85rem; color: var(--color-text-muted)">faster variance detection</span>
+            </div>
+            <div class="hero__mini-bars">
+              <div class="hero__bar"></div>
+              <div class="hero__bar"></div>
+              <div class="hero__bar"></div>
+            </div>
+            <p style="margin: 20px 0 0; font-size: 0.8rem; color: var(--color-text-muted)">
+              Preview uses your applied semantic tokens: surfaces, accents, and decorative gradients.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section class="section section--alt" aria-label="Social proof">
+        <div class="logo-strip">
+          <span>Northwind Labs</span>
+          <span>Atlas Health</span>
+          <span>Courier Studio</span>
+          <span>Blue Harbor Bank</span>
+          <span>Velvet FM</span>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section__head">
+          <h2>Everything stays legible when palettes move</h2>
+          <p>
+            Background, surface, text, borders, CTAs, tags, and focus rings are rebuilt from roles—not a one-to-one hex
+            swap.
+          </p>
+        </div>
+        <div class="features">
+          <article class="card">
+            <div class="card__icon"></div>
+            <h3>Role-safe switching</h3>
+            <p>Primary stays the action color; neutrals carry structure so hierarchy survives new hues.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon"></div>
+            <h3>Mood-ranked libraries</h3>
+            <p>Mindful Palettes (and optional Pinterest rows) score against chips + your extra words.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon"></div>
+            <h3>Contrast-aware fills</h3>
+            <p>When a swatch cannot carry text or borders, the pipeline mixes and nudges to preserve readability.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="workspace">
+        <div class="section__head">
+          <h2>Operator workspace preview</h2>
+          <p>A denser UI sample to validate cards, data, alerts, navigation states, and mixed emphasis text.</p>
+        </div>
+        <div class="complex-shell">
+          <div class="kpi-grid">
+            <article class="kpi-card">
+              <p>MRR forecast</p>
+              <strong>$1.42M</strong>
+              <span class="kpi-trend kpi-trend--up">+12.4% MoM</span>
+            </article>
+            <article class="kpi-card">
+              <p>Pipeline risk</p>
+              <strong>7.8%</strong>
+              <span class="kpi-trend kpi-trend--down">-2.1 pts</span>
+            </article>
+            <article class="kpi-card">
+              <p>Renewal confidence</p>
+              <strong>91/100</strong>
+              <span class="kpi-trend kpi-trend--up">stable high</span>
+            </article>
+            <article class="kpi-card">
+              <p>Escalations</p>
+              <strong>14</strong>
+              <span class="kpi-trend">2 require follow-up</span>
+            </article>
+          </div>
+
+          <div class="workspace-grid">
+            <section class="panel">
+              <header class="panel__head">
+                <h3>Revenue pipeline</h3>
+                <span class="tag">live</span>
+              </header>
+              <ul class="pipeline-list">
+                <li class="pipeline-item">
+                  <div>
+                    <strong>Enterprise · APAC expansion</strong>
+                    <p>6 legal approvals pending</p>
+                  </div>
+                  <span class="pipeline-pill">$220k</span>
+                </li>
+                <li class="pipeline-item">
+                  <div>
+                    <strong>SMB annual push</strong>
+                    <p>Discount burn above threshold</p>
+                  </div>
+                  <span class="pipeline-pill">$94k</span>
+                </li>
+                <li class="pipeline-item">
+                  <div>
+                    <strong>Healthcare renewals</strong>
+                    <p>Procurement freeze risk</p>
+                  </div>
+                  <span class="pipeline-pill">$61k</span>
+                </li>
+              </ul>
+            </section>
+
+            <section class="panel">
+              <header class="panel__head">
+                <h3>On-call timeline</h3>
+                <span class="tag">24h</span>
+              </header>
+              <ol class="timeline-list">
+                <li><time>07:15</time><span>ETL lag detected on warehouse ingest</span></li>
+                <li><time>08:02</time><span>Auto-mitigation rerouted queue to warm replica</span></li>
+                <li><time>09:28</time><span>False-positive alerts reduced after threshold update</span></li>
+                <li><time>11:41</time><span>Weekly health report posted to leadership channel</span></li>
+              </ol>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="comparison">
+        <div class="section__head">
+          <h2>Plan comparison matrix</h2>
+          <p>Table styling checks borders, stripe layers, dense text, and action contrast against the active theme.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Starter</th>
+                <th>Growth</th>
+                <th>Scale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dashboards</td>
+                <td>15</td>
+                <td>Unlimited</td>
+                <td>Unlimited + templates</td>
+              </tr>
+              <tr>
+                <td>Data retention</td>
+                <td>90 days</td>
+                <td>1 year</td>
+                <td>7 years</td>
+              </tr>
+              <tr>
+                <td>Audit trails</td>
+                <td>—</td>
+                <td>Partial</td>
+                <td>Full immutable log</td>
+              </tr>
+              <tr>
+                <td>SSO / SCIM</td>
+                <td>—</td>
+                <td>SSO</td>
+                <td>SSO + SCIM</td>
+              </tr>
+              <tr>
+                <td>Support SLA</td>
+                <td>48h</td>
+                <td>24h</td>
+                <td>4h + shared Slack</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="stats">
+          <div>
+            <strong>120+</strong>
+            <span>integrations</span>
+          </div>
+          <div>
+            <strong>48ms</strong>
+            <span>p95 query latency</span>
+          </div>
+          <div>
+            <strong>99.99%</strong>
+            <span>uptime SLA</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="stories">
+        <blockquote class="quote">
+          “We stopped debating hex codes in Slack. The system keeps our dark UI readable while we explore palette
+          directions.”
+          <footer>— Jamie Ortiz, VP Design · Courier Studio</footer>
+        </blockquote>
+      </section>
+
+      <section class="section section--alt" id="pricing">
+        <div class="section__head">
+          <h2>Pricing</h2>
+          <p>Secondary buttons and featured tiers pick up secondary and primary accents from the same theme.</p>
+        </div>
+        <div class="pricing">
+          <div class="price-card">
+            <span class="badge-live">Live boards</span>
+            <h3>Team</h3>
+            <p class="price">$48<span style="font-size: 1rem; font-weight: 500">/seat</span></p>
+            <ul>
+              <li>Unlimited dashboards</li>
+              <li>Slack + email digests</li>
+              <li>Standard support</li>
+            </ul>
+            <button type="button" class="btn-hero-secondary" style="width: 100%">Choose Team</button>
+          </div>
+          <div class="price-card price-card--featured">
+            <span class="eyebrow">Most popular</span>
+            <h3>Business</h3>
+            <p class="price">$112<span style="font-size: 1rem; font-weight: 500">/seat</span></p>
+            <ul>
+              <li>Everything in Team</li>
+              <li>Audit trails &amp; SSO</li>
+              <li>Dedicated success</li>
+            </ul>
+            <button type="button" class="btn-hero-primary" style="width: 100%">Choose Business</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="newsletter">
+          <h2>Notes on new palettes</h2>
+          <p style="color: var(--color-text-secondary)">Monthly teardowns of mindful sets and UI mapping tricks.</p>
+          <form onsubmit="event.preventDefault()">
+            <input type="email" placeholder="you@company.com" autocomplete="email" />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="faq">
+        <div class="section__head">
+          <h2>FAQ</h2>
+          <p>Collapsible content sample for typography hierarchy, borders, and hover states.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>How do palette roles stay consistent across pages?</summary>
+            <p>Semantic roles are mapped first, then swatches are assigned. Text, controls, and focus tokens are checked for visibility before apply.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can we lock backgrounds but vary accent families?</summary>
+            <p>Yes. Keep mode fixed and shuffle tone layers only. This preserves readability while exploring brand expression.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What if a palette has too many similar neutrals?</summary>
+            <p>The system can generate missing support tones from contrast-safe mixes, then validate hierarchy and interaction clarity.</p>
+          </details>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="site-footer__grid">
+          <div>
+            <div class="site-nav__brand" style="margin-bottom: 12px">
+              <span class="site-nav__mark"></span>
+              <span>Lumen</span>
+            </div>
+            <p style="margin: 0; opacity: 0.85; font-size: 0.9rem; max-width: 32ch">
+              Footer uses inverse text and a cooled background mix so you can verify contrast after each apply.
+            </p>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#product">Overview</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Security</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="site-footer__bottom">© 2026 Lumen Analytics demo · Palette switch playground</p>
+      </footer>
+    </div>
+
+    <div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
+
+    <script src="../../Mood to Color/website-theme-demo/mood-config.js"></script>
+    <script src="../../Mood to Color/website-theme-demo/mood-engine-v2.js"></script>
+    <script src="../../Mood to Color/website-theme-demo/palette-analyze.js"></script>
+    <script src="../../Mood to Color/website-theme-demo/theme-pipeline.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
