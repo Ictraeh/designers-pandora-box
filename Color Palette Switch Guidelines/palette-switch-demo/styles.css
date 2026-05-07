@@ -348,6 +348,30 @@ a:hover {
   color: var(--color-text-muted);
 }
 
+.typography-feeling-field {
+  margin-bottom: 12px;
+}
+
+.typography-card__feelings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin-bottom: 8px;
+}
+
+.typography-card__feelings .feeling-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: var(--color-text-secondary);
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface-muted));
+  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, var(--color-border-subtle));
+}
+
 .typography-list {
   display: grid;
   gap: 10px;

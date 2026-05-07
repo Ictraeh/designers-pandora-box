@@ -24,6 +24,21 @@ Then open:
 
 If Pinterest data is missing, the demo still runs on Mindful Palettes only.
 
+## Typography (Google Fonts “Feeling” filter)
+
+Font pairings load from `font-pairings.json`. The **Feeling** control filters pairings using **Google Fonts official expressive tags** (`/Expressive/*` paths from the [`google/fonts`](https://github.com/google/fonts) `tags/tags_metadata.csv` and per-family scores from `tags/all/families.csv`). A pairing appears under a feeling when **either** the heading or body family has that tag score above the threshold in `font-expressive-tags.json` (default **20**). **All feelings** shows the full list.
+
+### Regenerate `font-expressive-tags.json`
+
+After you change `font-pairings.json`, rebuild the tag file (small download of the official CSVs). On some systems Python’s HTTPS fails; using `curl` first avoids that:
+
+```bash
+cd "/path/to/Designer's pandora box/Color Palette Switch Guidelines/palette-switch-demo"
+curl -sS -o /tmp/gf-families.csv "https://raw.githubusercontent.com/google/fonts/main/tags/all/families.csv"
+curl -sS -o /tmp/gf-tags-meta.csv "https://raw.githubusercontent.com/google/fonts/main/tags/tags_metadata.csv"
+python3 scripts/build_font_expressive_tags.py /tmp/gf-tags-meta.csv /tmp/gf-families.csv
+```
+
 ## Use
 
 1. Choose a **mood** chip (and optional extra words).

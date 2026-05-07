@@ -1,0 +1,2229 @@
+{
+  "meta": {
+    "feelingsSource": "https://raw.githubusercontent.com/google/fonts/main/tags/tags_metadata.csv",
+    "scoresSource": "https://raw.githubusercontent.com/google/fonts/main/tags/all/families.csv",
+    "matchThreshold": 20,
+    "note": "Feeling ids match Google Fonts /Expressive/* tag slugs (lowercase)."
+  },
+  "feelings": [
+    {
+      "id": "active",
+      "path": "/Expressive/Active",
+      "label": "Active"
+    },
+    {
+      "id": "artistic",
+      "path": "/Expressive/Artistic",
+      "label": "Artistic"
+    },
+    {
+      "id": "awkward",
+      "path": "/Expressive/Awkward",
+      "label": "Awkward"
+    },
+    {
+      "id": "business",
+      "path": "/Expressive/Business",
+      "label": "Business"
+    },
+    {
+      "id": "calm",
+      "path": "/Expressive/Calm",
+      "label": "Calm"
+    },
+    {
+      "id": "childlike",
+      "path": "/Expressive/Childlike",
+      "label": "Childlike"
+    },
+    {
+      "id": "competent",
+      "path": "/Expressive/Competent",
+      "label": "Competent"
+    },
+    {
+      "id": "cute",
+      "path": "/Expressive/Cute",
+      "label": "Cute"
+    },
+    {
+      "id": "excited",
+      "path": "/Expressive/Excited",
+      "label": "Excited"
+    },
+    {
+      "id": "fancy",
+      "path": "/Expressive/Fancy",
+      "label": "Fancy"
+    },
+    {
+      "id": "futuristic",
+      "path": "/Expressive/Futuristic",
+      "label": "Futuristic"
+    },
+    {
+      "id": "happy",
+      "path": "/Expressive/Happy",
+      "label": "Happy"
+    },
+    {
+      "id": "innovative",
+      "path": "/Expressive/Innovative",
+      "label": "Innovative"
+    },
+    {
+      "id": "loud",
+      "path": "/Expressive/Loud",
+      "label": "Loud"
+    },
+    {
+      "id": "playful",
+      "path": "/Expressive/Playful",
+      "label": "Playful"
+    },
+    {
+      "id": "rugged",
+      "path": "/Expressive/Rugged",
+      "label": "Rugged"
+    },
+    {
+      "id": "sincere",
+      "path": "/Expressive/Sincere",
+      "label": "Sincere"
+    },
+    {
+      "id": "sophisticated",
+      "path": "/Expressive/Sophisticated",
+      "label": "Sophisticated"
+    },
+    {
+      "id": "stiff",
+      "path": "/Expressive/Stiff",
+      "label": "Stiff"
+    },
+    {
+      "id": "vintage",
+      "path": "/Expressive/Vintage",
+      "label": "Vintage"
+    }
+  ],
+  "families": {
+    "Unbounded": {
+      "business": 5,
+      "calm": 20,
+      "excited": 20,
+      "loud": 8,
+      "rugged": 60,
+      "sincere": 35,
+      "stiff": 25,
+      "vintage": 25
+    },
+    "Archivo": {
+      "business": 77,
+      "calm": 84,
+      "competent": 85,
+      "loud": 3,
+      "rugged": 54,
+      "sincere": 50,
+      "vintage": 25
+    },
+    "Inknut Antiqua": {
+      "loud": 31,
+      "rugged": 50,
+      "vintage": 55
+    },
+    "Darker Grotesque": {
+      "business": 20,
+      "calm": 65,
+      "rugged": 50,
+      "vintage": 15
+    },
+    "Roboto Slab": {
+      "business": 70,
+      "competent": 85,
+      "loud": 3,
+      "rugged": 50,
+      "sincere": 40,
+      "vintage": 31
+    },
+    "Stack Sans Headline": {
+      "business": 100,
+      "calm": 80,
+      "competent": 80
+    },
+    "Plus Jakarta Sans": {
+      "business": 60,
+      "calm": 79,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 40,
+      "vintage": 25
+    },
+    "PT Sans Narrow": {
+      "business": 72,
+      "calm": 79,
+      "competent": 45,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 10,
+      "stiff": 30,
+      "vintage": 30
+    },
+    "Gentium Book Plus": {
+      "business": 78,
+      "competent": 62,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 88,
+      "vintage": 40
+    },
+    "Lora": {
+      "business": 70,
+      "competent": 70,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 70,
+      "vintage": 25
+    },
+    "Aleo": {
+      "business": 60,
+      "calm": 42,
+      "competent": 20,
+      "loud": 3,
+      "rugged": 44,
+      "sincere": 20,
+      "vintage": 25
+    },
+    "Funnel Sans": {
+      "business": 30,
+      "calm": 73,
+      "competent": 90,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 20,
+      "vintage": 25
+    },
+    "PT Serif": {
+      "business": 90,
+      "competent": 85,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 79,
+      "stiff": 10,
+      "vintage": 45
+    },
+    "Familjen Grotesk": {
+      "business": 30,
+      "calm": 74,
+      "competent": 19,
+      "loud": 3,
+      "rugged": 40,
+      "sincere": 50,
+      "vintage": 20
+    },
+    "Stack Sans Notch": {
+      "artistic": 50,
+      "business": 100,
+      "calm": 80,
+      "competent": 80,
+      "excited": 50,
+      "playful": 50
+    },
+    "Be Vietnam Pro": {
+      "business": 55,
+      "calm": 83,
+      "competent": 11,
+      "loud": 3,
+      "rugged": 40,
+      "sincere": 30,
+      "vintage": 30
+    },
+    "Saira": {
+      "business": 70,
+      "calm": 74,
+      "futuristic": 60,
+      "loud": 1,
+      "rugged": 58,
+      "stiff": 52,
+      "vintage": 20
+    },
+    "Spline Sans": {
+      "business": 90,
+      "calm": 80,
+      "competent": 11,
+      "loud": 1,
+      "rugged": 55,
+      "sincere": 45,
+      "stiff": 20,
+      "vintage": 20
+    },
+    "Red Hat Text": {
+      "business": 80,
+      "calm": 80,
+      "competent": 52,
+      "rugged": 50,
+      "sincere": 40,
+      "stiff": 10,
+      "vintage": 20
+    },
+    "Alumni Sans": {
+      "business": 30,
+      "calm": 70,
+      "excited": 10,
+      "futuristic": 15,
+      "happy": 10,
+      "loud": 1,
+      "rugged": 35,
+      "sincere": 10,
+      "stiff": 41,
+      "vintage": 60
+    },
+    "Ubuntu Sans": {
+      "business": 70,
+      "calm": 73,
+      "competent": 65,
+      "futuristic": 48,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 20,
+      "stiff": 38,
+      "vintage": 20
+    },
+    "Bitter": {
+      "business": 85,
+      "calm": 32,
+      "competent": 83,
+      "happy": 5,
+      "loud": 3,
+      "rugged": 42,
+      "sincere": 60,
+      "stiff": 20,
+      "vintage": 20
+    },
+    "Encode Sans": {
+      "business": 80,
+      "calm": 93,
+      "competent": 50,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 30,
+      "stiff": 40,
+      "vintage": 20
+    },
+    "Wix Madefor Display": {
+      "business": 70,
+      "calm": 80,
+      "competent": 40,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 50,
+      "stiff": 10,
+      "vintage": 20
+    },
+    "Urbanist": {
+      "business": 59,
+      "calm": 79,
+      "competent": 20,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 50,
+      "vintage": 40
+    },
+    "Roboto Serif": {
+      "business": 70,
+      "competent": 77,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 80,
+      "vintage": 40
+    },
+    "Overpass": {
+      "business": 30,
+      "calm": 76,
+      "competent": 40,
+      "loud": 3,
+      "rugged": 45,
+      "vintage": 50
+    },
+    "Cambo": {
+      "business": 29,
+      "competent": 60,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 62,
+      "vintage": 50
+    },
+    "Archivo Black": {
+      "business": 20,
+      "calm": 15,
+      "loud": 50,
+      "rugged": 78,
+      "sincere": 60,
+      "stiff": 10,
+      "vintage": 35
+    },
+    "Teko": {
+      "futuristic": 73,
+      "loud": 4,
+      "rugged": 70,
+      "sincere": 20,
+      "stiff": 84,
+      "vintage": 25
+    },
+    "Playfair Display": {
+      "business": 90,
+      "competent": 80,
+      "loud": 1,
+      "rugged": 15,
+      "sincere": 90,
+      "stiff": 5,
+      "vintage": 55
+    },
+    "Tajawal": {
+      "business": 70,
+      "calm": 74,
+      "competent": 11,
+      "rugged": 50,
+      "sincere": 40,
+      "stiff": 15,
+      "vintage": 20
+    },
+    "Heebo": {
+      "calm": 80,
+      "competent": 40,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 70,
+      "vintage": 20
+    },
+    "Rubik": {
+      "business": 70,
+      "calm": 84,
+      "competent": 40,
+      "loud": 6,
+      "rugged": 50,
+      "sincere": 40,
+      "vintage": 20
+    },
+    "Sofia Sans": {
+      "business": 46,
+      "calm": 77,
+      "competent": 17,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 49,
+      "stiff": 30,
+      "vintage": 20
+    },
+    "Stack Sans Text": {
+      "business": 100,
+      "calm": 80,
+      "competent": 80
+    },
+    "IBM Plex Mono": {
+      "business": 30,
+      "calm": 75,
+      "futuristic": 25,
+      "loud": 1,
+      "rugged": 40,
+      "stiff": 20,
+      "vintage": 5
+    },
+    "Fira Mono": {
+      "business": 20,
+      "calm": 45,
+      "futuristic": 25,
+      "loud": 1,
+      "rugged": 50,
+      "vintage": 10
+    },
+    "Rethink Sans": {
+      "business": 88,
+      "calm": 82,
+      "loud": 1,
+      "rugged": 50,
+      "stiff": 20,
+      "vintage": 40
+    },
+    "TikTok Sans": {
+      "business": 75,
+      "calm": 82,
+      "competent": 22,
+      "loud": 3,
+      "rugged": 45,
+      "sincere": 50,
+      "vintage": 20
+    },
+    "Barlow Semi Condensed": {
+      "active": 15,
+      "business": 30,
+      "calm": 72,
+      "competent": 40,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 15,
+      "stiff": 20,
+      "vintage": 40
+    },
+    "Geist Mono": {
+      "business": 10,
+      "calm": 52,
+      "futuristic": 25,
+      "loud": 1,
+      "rugged": 55,
+      "vintage": 10
+    },
+    "Yaldevi": {
+      "business": 65,
+      "calm": 85,
+      "competent": 50,
+      "excited": 10,
+      "happy": 30,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 30,
+      "vintage": 25
+    },
+    "Josefin Slab": {
+      "awkward": 30,
+      "business": 20,
+      "happy": 13,
+      "rugged": 6,
+      "vintage": 55
+    },
+    "Bebas Neue": {
+      "business": 10,
+      "excited": 10,
+      "futuristic": 10,
+      "loud": 9,
+      "rugged": 65,
+      "sincere": 30,
+      "stiff": 20,
+      "vintage": 40
+    },
+    "BenchNine": {
+      "active": 10,
+      "awkward": 20,
+      "business": 30,
+      "calm": 65,
+      "competent": 20,
+      "loud": 1,
+      "playful": 5,
+      "rugged": 25,
+      "sincere": 40,
+      "stiff": 42,
+      "vintage": 45
+    },
+    "Lexend": {
+      "business": 70,
+      "calm": 90,
+      "loud": 3,
+      "rugged": 45,
+      "sincere": 40,
+      "vintage": 30
+    },
+    "Cormorant Garamond": {
+      "business": 68,
+      "calm": 30,
+      "competent": 40,
+      "rugged": 12,
+      "sincere": 77,
+      "vintage": 84
+    },
+    "Alegreya Sans SC": {
+      "business": 77,
+      "calm": 75,
+      "loud": 1,
+      "rugged": 54,
+      "sincere": 60,
+      "vintage": 30
+    },
+    "Arimo": {
+      "business": 80,
+      "calm": 80,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "stiff": 5,
+      "vintage": 20
+    },
+    "Chivo Mono": {
+      "business": 20,
+      "calm": 64,
+      "futuristic": 25,
+      "loud": 3,
+      "rugged": 55,
+      "stiff": 11,
+      "vintage": 25
+    },
+    "Inria Sans": {
+      "business": 77,
+      "calm": 75,
+      "competent": 50,
+      "futuristic": 10,
+      "loud": 3,
+      "rugged": 50,
+      "sincere": 20,
+      "stiff": 38,
+      "vintage": 20
+    },
+    "Sarabun": {
+      "business": 65,
+      "calm": 79,
+      "loud": 1,
+      "rugged": 48,
+      "sincere": 30,
+      "stiff": 10,
+      "vintage": 25
+    },
+    "News Cycle": {
+      "business": 50,
+      "calm": 79,
+      "competent": 20,
+      "rugged": 45,
+      "sincere": 45,
+      "vintage": 30
+    },
+    "Zilla Slab": {
+      "competent": 60,
+      "happy": 10,
+      "loud": 1,
+      "rugged": 60,
+      "sincere": 50,
+      "stiff": 16,
+      "vintage": 30
+    },
+    "Quattrocento": {
+      "business": 55,
+      "competent": 20,
+      "rugged": 40,
+      "vintage": 70
+    },
+    "Montserrat": {
+      "business": 70,
+      "calm": 93,
+      "competent": 20,
+      "futuristic": 20,
+      "rugged": 45,
+      "sincere": 40,
+      "vintage": 5
+    },
+    "Syne": {
+      "business": 60,
+      "calm": 30,
+      "competent": 55,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "stiff": 5,
+      "vintage": 10
+    },
+    "Ubuntu Condensed": {
+      "active": 10,
+      "business": 65,
+      "calm": 73,
+      "futuristic": 60,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 10,
+      "stiff": 35,
+      "vintage": 20
+    },
+    "Work Sans": {
+      "business": 70,
+      "calm": 87,
+      "competent": 51,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 50,
+      "stiff": 10,
+      "vintage": 40
+    },
+    "Fira Sans Condensed": {
+      "active": 20,
+      "business": 88,
+      "calm": 65,
+      "competent": 89,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 55,
+      "stiff": 25,
+      "vintage": 10
+    },
+    "Nunito": {
+      "business": 70,
+      "calm": 94,
+      "competent": 60,
+      "cute": 21,
+      "loud": 1,
+      "playful": 1,
+      "rugged": 35,
+      "sincere": 20,
+      "vintage": 35
+    },
+    "Cardo": {
+      "business": 55,
+      "competent": 40,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 70,
+      "vintage": 78
+    },
+    "Metrophobic": {
+      "active": 10,
+      "business": 20,
+      "calm": 75,
+      "competent": 20,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 30,
+      "stiff": 40,
+      "vintage": 20
+    },
+    "Montserrat Alternates": {
+      "awkward": 25,
+      "calm": 78,
+      "happy": 11,
+      "rugged": 40,
+      "vintage": 20
+    },
+    "Fira Sans": {
+      "business": 93,
+      "calm": 74,
+      "competent": 90,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 60,
+      "stiff": 5,
+      "vintage": 10
+    },
+    "Noto Sans": {
+      "business": 90,
+      "calm": 90,
+      "competent": 80,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 75,
+      "stiff": 10
+    },
+    "Ubuntu Sans Mono": {
+      "business": 20,
+      "calm": 73,
+      "futuristic": 77,
+      "loud": 1,
+      "rugged": 40,
+      "stiff": 36,
+      "vintage": 20
+    },
+    "Open Sans": {
+      "business": 90,
+      "calm": 89,
+      "competent": 92,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 70,
+      "stiff": 10,
+      "vintage": 20
+    },
+    "Titillium Web": {
+      "business": 44,
+      "calm": 85,
+      "competent": 65,
+      "futuristic": 30,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 20,
+      "stiff": 60,
+      "vintage": 20
+    },
+    "Halant": {
+      "business": 70,
+      "competent": 40,
+      "rugged": 30,
+      "sincere": 50,
+      "stiff": 7,
+      "vintage": 50
+    },
+    "Schibsted Grotesk": {
+      "business": 80,
+      "calm": 77,
+      "competent": 60,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 40,
+      "stiff": 10,
+      "vintage": 30
+    },
+    "Sen": {
+      "business": 65,
+      "calm": 79,
+      "loud": 3,
+      "rugged": 50,
+      "sincere": 30,
+      "vintage": 40
+    },
+    "Instrument Serif": {
+      "business": 55,
+      "competent": 32,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 67,
+      "vintage": 80
+    },
+    "Barlow": {
+      "active": 5,
+      "business": 30,
+      "calm": 82,
+      "competent": 22,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 20,
+      "stiff": 20,
+      "vintage": 40
+    },
+    "Mozilla Headline": {
+      "artistic": 40,
+      "business": 70,
+      "calm": 50,
+      "competent": 80,
+      "cute": 20,
+      "innovative": 70
+    },
+    "Mozilla Text": {
+      "artistic": 30,
+      "business": 100,
+      "calm": 80,
+      "competent": 100,
+      "innovative": 70
+    },
+    "Nanum Gothic": {
+      "business": 65,
+      "calm": 97,
+      "competent": 70,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 20,
+      "vintage": 30
+    },
+    "Funnel Display": {
+      "business": 30,
+      "calm": 60,
+      "competent": 30,
+      "futuristic": 20,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 20,
+      "vintage": 25
+    },
+    "Maitree": {
+      "rugged": 30,
+      "sincere": 80,
+      "vintage": 45
+    },
+    "Spinnaker": {
+      "active": 10,
+      "business": 50,
+      "calm": 79,
+      "cute": 20,
+      "innovative": 5,
+      "loud": 1,
+      "rugged": 35,
+      "sincere": 40,
+      "vintage": 20
+    },
+    "Space Mono": {
+      "awkward": 12,
+      "business": 40,
+      "calm": 64,
+      "futuristic": 63,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "stiff": 30,
+      "vintage": 20
+    },
+    "Assistant": {
+      "business": 45,
+      "calm": 92,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 60,
+      "stiff": 31,
+      "vintage": 20
+    },
+    "Hind": {
+      "business": 37,
+      "calm": 92,
+      "competent": 50,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 10,
+      "stiff": 5,
+      "vintage": 25
+    },
+    "Saira Condensed": {
+      "active": 20,
+      "business": 20,
+      "calm": 69,
+      "competent": 20,
+      "futuristic": 68,
+      "loud": 1,
+      "rugged": 52,
+      "stiff": 55,
+      "vintage": 20
+    },
+    "Alegreya": {
+      "business": 70,
+      "calm": 55,
+      "competent": 70,
+      "rugged": 53,
+      "sincere": 70,
+      "vintage": 75
+    },
+    "Hanken Grotesk": {
+      "business": 68,
+      "calm": 89,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 20,
+      "stiff": 20,
+      "vintage": 20
+    },
+    "Zen Kaku Gothic New": {
+      "business": 60,
+      "calm": 69,
+      "competent": 50,
+      "futuristic": 10,
+      "rugged": 40,
+      "sincere": 40,
+      "vintage": 20
+    },
+    "Onest": {
+      "business": 55,
+      "calm": 85,
+      "competent": 50,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 30,
+      "vintage": 20
+    },
+    "Libre Baskerville": {
+      "business": 75,
+      "competent": 66,
+      "loud": 3,
+      "rugged": 40,
+      "sincere": 50,
+      "vintage": 84
+    },
+    "Alegreya SC": {
+      "business": 77,
+      "calm": 50,
+      "loud": 1,
+      "rugged": 55,
+      "sincere": 70,
+      "vintage": 75
+    },
+    "Oxygen Mono": {
+      "business": 20,
+      "calm": 70,
+      "futuristic": 21,
+      "loud": 1,
+      "rugged": 50,
+      "stiff": 32,
+      "vintage": 20
+    },
+    "Encode Sans Condensed": {
+      "business": 80,
+      "calm": 89,
+      "competent": 32,
+      "loud": 1,
+      "rugged": 45,
+      "stiff": 56,
+      "vintage": 20
+    },
+    "PT Sans": {
+      "business": 85,
+      "calm": 90,
+      "competent": 85,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 60,
+      "stiff": 32,
+      "vintage": 30
+    },
+    "Instrument Sans": {
+      "business": 65,
+      "calm": 80,
+      "competent": 55,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 63,
+      "vintage": 20
+    },
+    "Merriweather": {
+      "active": 10,
+      "business": 90,
+      "calm": 20,
+      "competent": 92,
+      "futuristic": 5,
+      "happy": 10,
+      "loud": 4,
+      "rugged": 48,
+      "sincere": 91,
+      "stiff": 10,
+      "vintage": 30
+    },
+    "Faustina": {
+      "business": 77,
+      "competent": 70,
+      "loud": 1,
+      "rugged": 48,
+      "sincere": 50,
+      "vintage": 60
+    },
+    "Cabin": {
+      "business": 50,
+      "calm": 91,
+      "happy": 10,
+      "loud": 3,
+      "rugged": 50,
+      "sincere": 30,
+      "vintage": 20
+    },
+    "Quicksand": {
+      "business": 60,
+      "calm": 94,
+      "competent": 25,
+      "playful": 20,
+      "rugged": 40,
+      "sincere": 40,
+      "stiff": 5,
+      "vintage": 35
+    },
+    "Tenor Sans": {
+      "business": 10,
+      "calm": 45,
+      "rugged": 30,
+      "sincere": 40,
+      "vintage": 50
+    },
+    "Atkinson Hyperlegible": {
+      "business": 72,
+      "calm": 84,
+      "loud": 1,
+      "rugged": 56,
+      "sincere": 72,
+      "vintage": 10
+    },
+    "Domine": {
+      "business": 75,
+      "competent": 60,
+      "loud": 3,
+      "rugged": 30,
+      "sincere": 10,
+      "vintage": 50
+    },
+    "Merriweather Sans": {
+      "business": 88,
+      "calm": 94,
+      "competent": 88,
+      "futuristic": 10,
+      "happy": 5,
+      "loud": 6,
+      "rugged": 49,
+      "sincere": 76,
+      "stiff": 10,
+      "vintage": 30
+    },
+    "Gloock": {
+      "business": 20,
+      "loud": 26,
+      "rugged": 58,
+      "vintage": 60
+    },
+    "JetBrains Mono": {
+      "business": 20,
+      "calm": 74,
+      "futuristic": 25,
+      "loud": 1,
+      "rugged": 60,
+      "stiff": 30,
+      "vintage": 30
+    },
+    "Overpass Mono": {
+      "business": 20,
+      "calm": 50,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 45,
+      "stiff": 20,
+      "vintage": 30
+    },
+    "Palanquin Dark": {
+      "calm": 79,
+      "competent": 52,
+      "loud": 13,
+      "rugged": 55,
+      "sincere": 10,
+      "stiff": 20,
+      "vintage": 30
+    },
+    "Nata Sans": {
+      "business": 70,
+      "calm": 88,
+      "competent": 15,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 45,
+      "vintage": 30
+    },
+    "Zalando Sans": {
+      "business": 82,
+      "calm": 80,
+      "competent": 52,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 60,
+      "vintage": 20
+    },
+    "Mada": {
+      "business": 90,
+      "calm": 81,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 70,
+      "stiff": 8,
+      "vintage": 30
+    },
+    "Varela": {
+      "business": 77,
+      "calm": 84,
+      "competent": 11,
+      "cute": 5,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 50,
+      "stiff": 10,
+      "vintage": 30
+    },
+    "Caveat": {
+      "active": 70,
+      "artistic": 12,
+      "awkward": 51,
+      "childlike": 86,
+      "cute": 24,
+      "excited": 51,
+      "happy": 15,
+      "playful": 35,
+      "rugged": 20,
+      "sincere": 88,
+      "vintage": 45
+    },
+    "Trispace": {
+      "business": 20,
+      "calm": 74,
+      "futuristic": 22,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 30,
+      "stiff": 20,
+      "vintage": 68
+    },
+    "Varela Round": {
+      "business": 41,
+      "calm": 85,
+      "competent": 35,
+      "cute": 10,
+      "loud": 1,
+      "rugged": 35,
+      "sincere": 50,
+      "stiff": 25,
+      "vintage": 35
+    },
+    "Rajdhani": {
+      "awkward": 6,
+      "calm": 70,
+      "futuristic": 77,
+      "rugged": 50,
+      "stiff": 65,
+      "vintage": 20
+    },
+    "Maven Pro": {
+      "business": 20,
+      "calm": 77,
+      "competent": 50,
+      "loud": 88,
+      "rugged": 44,
+      "sincere": 40,
+      "stiff": 20,
+      "vintage": 10
+    },
+    "Inconsolata": {
+      "business": 20,
+      "calm": 79,
+      "futuristic": 25,
+      "loud": 1,
+      "rugged": 40,
+      "vintage": 22
+    },
+    "Reddit Mono": {
+      "business": 20,
+      "calm": 70,
+      "futuristic": 22,
+      "loud": 1,
+      "rugged": 50,
+      "vintage": 10
+    },
+    "Staatliches": {
+      "active": 25,
+      "loud": 24,
+      "rugged": 70,
+      "stiff": 57,
+      "vintage": 75
+    },
+    "Advent Pro": {
+      "active": 5,
+      "awkward": 30,
+      "calm": 45,
+      "cute": 10,
+      "futuristic": 20,
+      "loud": 1,
+      "playful": 31,
+      "sincere": 40,
+      "stiff": 20,
+      "vintage": 30
+    },
+    "Fraunces": {
+      "business": 20,
+      "cute": 13,
+      "loud": 1,
+      "rugged": 30,
+      "vintage": 84
+    },
+    "Andada Pro": {
+      "business": 70,
+      "calm": 15,
+      "excited": 5,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 40,
+      "vintage": 45
+    },
+    "Playfair": {
+      "business": 88,
+      "competent": 91,
+      "rugged": 15,
+      "sincere": 45,
+      "sophisticated": 60,
+      "vintage": 55
+    },
+    "Cambay": {
+      "business": 35,
+      "calm": 93,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 30,
+      "stiff": 55,
+      "vintage": 20
+    },
+    "Roboto Mono": {
+      "business": 20,
+      "calm": 79,
+      "loud": 1,
+      "rugged": 50,
+      "stiff": 31,
+      "vintage": 10
+    },
+    "Petrona": {
+      "business": 55,
+      "loud": 1,
+      "rugged": 35,
+      "sincere": 60,
+      "vintage": 63
+    },
+    "IBM Plex Sans": {
+      "business": 92,
+      "calm": 80,
+      "competent": 90,
+      "futuristic": 5,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 70,
+      "stiff": 20,
+      "vintage": 25
+    },
+    "Averia Serif Libre": {
+      "awkward": 41,
+      "business": 5,
+      "loud": 3,
+      "playful": 11,
+      "rugged": 25,
+      "sincere": 20,
+      "vintage": 80
+    },
+    "DM Serif Display": {
+      "business": 60,
+      "loud": 18,
+      "rugged": 45,
+      "stiff": 7,
+      "vintage": 75
+    },
+    "DM Sans": {
+      "business": 77,
+      "calm": 83,
+      "competent": 14,
+      "loud": 3,
+      "rugged": 50,
+      "vintage": 30
+    },
+    "Libertinus Serif": {
+      "business": 70,
+      "competent": 75,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 80,
+      "vintage": 45
+    },
+    "Outfit": {
+      "business": 59,
+      "calm": 80,
+      "loud": 3,
+      "rugged": 50,
+      "vintage": 20
+    },
+    "Spectral": {
+      "business": 77,
+      "competent": 80,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "vintage": 50
+    },
+    "Ovo": {
+      "business": 46,
+      "competent": 20,
+      "loud": 1,
+      "rugged": 35,
+      "vintage": 56
+    },
+    "Geologica": {
+      "business": 55,
+      "calm": 82,
+      "competent": 30,
+      "loud": 6,
+      "rugged": 64,
+      "stiff": 20,
+      "vintage": 25
+    },
+    "Old Standard TT": {
+      "business": 65,
+      "calm": 55,
+      "competent": 85,
+      "rugged": 30,
+      "sincere": 50,
+      "vintage": 53
+    },
+    "Mona Sans": {
+      "business": 70,
+      "calm": 86,
+      "competent": 30,
+      "loud": 1,
+      "rugged": 50,
+      "vintage": 30
+    },
+    "Palanquin": {
+      "business": 70,
+      "calm": 83,
+      "competent": 70,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 40,
+      "stiff": 20,
+      "vintage": 30
+    },
+    "Roboto": {
+      "business": 94,
+      "calm": 85,
+      "competent": 92,
+      "loud": 3,
+      "rugged": 50,
+      "sincere": 20,
+      "vintage": 10
+    },
+    "Google Sans": {
+      "business": 100,
+      "calm": 80,
+      "competent": 100,
+      "innovative": 60
+    },
+    "PT Sans Caption": {
+      "business": 88,
+      "calm": 88,
+      "competent": 82,
+      "loud": 3,
+      "rugged": 50,
+      "sincere": 20,
+      "stiff": 38,
+      "vintage": 30
+    },
+    "Fredoka": {
+      "calm": 89,
+      "cute": 18,
+      "loud": 1,
+      "playful": 25,
+      "rugged": 15,
+      "sincere": 20,
+      "vintage": 40
+    },
+    "Baskervville": {
+      "business": 70,
+      "competent": 77,
+      "rugged": 25,
+      "sincere": 70,
+      "vintage": 70
+    },
+    "Source Serif 4": {
+      "business": 90,
+      "competent": 92,
+      "rugged": 50,
+      "sincere": 91,
+      "vintage": 35
+    },
+    "Commissioner": {
+      "business": 89,
+      "calm": 95,
+      "competent": 52,
+      "loud": 1,
+      "rugged": 60,
+      "sincere": 20,
+      "stiff": 10,
+      "vintage": 10
+    },
+    "DM Serif Text": {
+      "business": 80,
+      "loud": 18,
+      "rugged": 45,
+      "stiff": 9,
+      "vintage": 35
+    },
+    "Raleway": {
+      "business": 60,
+      "calm": 84,
+      "competent": 5,
+      "happy": 20,
+      "loud": 1,
+      "rugged": 35,
+      "stiff": 8,
+      "vintage": 35
+    },
+    "Chivo": {
+      "business": 40,
+      "calm": 67,
+      "competent": 70,
+      "loud": 3,
+      "rugged": 60,
+      "sincere": 30,
+      "vintage": 25
+    },
+    "Space Grotesk": {
+      "awkward": 15,
+      "calm": 71,
+      "competent": 14,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 45,
+      "stiff": 20,
+      "vintage": 20
+    },
+    "Young Serif": {
+      "loud": 31,
+      "rugged": 70,
+      "sincere": 71,
+      "vintage": 82
+    },
+    "Courier Prime": {
+      "business": 10,
+      "competent": 50,
+      "loud": 1,
+      "rugged": 55,
+      "sincere": 76,
+      "stiff": 12,
+      "vintage": 80
+    },
+    "Mulish": {
+      "business": 80,
+      "calm": 91,
+      "competent": 60,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 45,
+      "vintage": 30
+    },
+    "Abril Fatface": {
+      "active": 10,
+      "business": 30,
+      "competent": 10,
+      "cute": 5,
+      "excited": 10,
+      "happy": 11,
+      "loud": 64,
+      "rugged": 60,
+      "vintage": 76
+    },
+    "Source Code Pro": {
+      "business": 20,
+      "calm": 78,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "stiff": 30,
+      "vintage": 20
+    },
+    "Brawler": {
+      "business": 81,
+      "competent": 50,
+      "loud": 3,
+      "rugged": 30,
+      "sincere": 52,
+      "vintage": 30
+    },
+    "Gothic A1": {
+      "business": 80,
+      "calm": 86,
+      "competent": 60,
+      "rugged": 50,
+      "sincere": 50,
+      "stiff": 11,
+      "vintage": 20
+    },
+    "Rasa": {
+      "business": 90,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 70,
+      "stiff": 10,
+      "vintage": 45
+    },
+    "Neuton": {
+      "business": 89,
+      "competent": 72,
+      "happy": 10,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 50,
+      "vintage": 45
+    },
+    "Alfa Slab One": {
+      "business": 20,
+      "cute": 10,
+      "excited": 26,
+      "loud": 88,
+      "rugged": 75,
+      "stiff": 20,
+      "vintage": 51
+    },
+    "Newsreader": {
+      "business": 75,
+      "competent": 83,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 60,
+      "vintage": 50
+    },
+    "Barlow Condensed": {
+      "active": 10,
+      "business": 40,
+      "calm": 70,
+      "competent": 20,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 55,
+      "sincere": 10,
+      "stiff": 20,
+      "vintage": 40
+    },
+    "Bricolage Grotesque": {
+      "business": 30,
+      "calm": 20,
+      "cute": 30,
+      "happy": 20,
+      "loud": 3,
+      "playful": 32,
+      "rugged": 50,
+      "sincere": 30,
+      "vintage": 15
+    },
+    "Albert Sans": {
+      "business": 80,
+      "calm": 85,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 40,
+      "vintage": 20
+    },
+    "Quattrocento Sans": {
+      "business": 20,
+      "calm": 88,
+      "competent": 20,
+      "rugged": 30,
+      "sincere": 40,
+      "stiff": 5,
+      "vintage": 45
+    },
+    "Crimson Pro": {
+      "business": 88,
+      "competent": 80,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 68,
+      "vintage": 35
+    },
+    "Asap": {
+      "business": 70,
+      "calm": 94,
+      "competent": 31,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 30,
+      "stiff": 10,
+      "vintage": 20
+    },
+    "Wix Madefor Text": {
+      "business": 77,
+      "calm": 82,
+      "competent": 52,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 50,
+      "stiff": 10,
+      "vintage": 20
+    },
+    "Lusitana": {
+      "business": 66,
+      "competent": 60,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 60,
+      "vintage": 55
+    },
+    "Libre Caslon Text": {
+      "business": 78,
+      "competent": 66,
+      "loud": 1,
+      "rugged": 35,
+      "sincere": 33,
+      "vintage": 40
+    },
+    "Manrope": {
+      "business": 55,
+      "calm": 86,
+      "loud": 1,
+      "rugged": 50,
+      "vintage": 30
+    },
+    "Roboto Condensed": {
+      "active": 10,
+      "business": 80,
+      "calm": 80,
+      "competent": 70,
+      "futuristic": 10,
+      "loud": 4,
+      "rugged": 54,
+      "stiff": 20,
+      "vintage": 20
+    },
+    "Stoke": {
+      "competent": 10,
+      "loud": 6,
+      "rugged": 50,
+      "sincere": 82,
+      "vintage": 70
+    },
+    "Libre Caslon Display": {
+      "business": 75,
+      "rugged": 35,
+      "vintage": 50
+    },
+    "Kumbh Sans": {
+      "business": 30,
+      "calm": 85,
+      "competent": 20,
+      "loud": 1,
+      "rugged": 35,
+      "sincere": 70,
+      "vintage": 20
+    },
+    "DM Mono": {
+      "business": 20,
+      "calm": 65,
+      "futuristic": 22,
+      "loud": 1,
+      "rugged": 50,
+      "stiff": 18,
+      "vintage": 45
+    },
+    "Ubuntu Mono": {
+      "business": 20,
+      "calm": 73,
+      "futuristic": 77,
+      "loud": 1,
+      "rugged": 40,
+      "stiff": 35,
+      "vintage": 20
+    },
+    "Encode Sans Expanded": {
+      "business": 77,
+      "calm": 92,
+      "competent": 20,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 30,
+      "vintage": 20
+    },
+    "Sora": {
+      "business": 60,
+      "calm": 81,
+      "competent": 5,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "stiff": 18,
+      "vintage": 20
+    },
+    "Besley": {
+      "business": 74,
+      "competent": 50,
+      "loud": 1,
+      "rugged": 35,
+      "sincere": 70,
+      "vintage": 76
+    },
+    "Libertinus Sans": {
+      "business": 50,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 60,
+      "vintage": 45
+    },
+    "Josefin Sans": {
+      "artistic": 71,
+      "business": 20,
+      "calm": 47,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 20,
+      "vintage": 80
+    },
+    "Readex Pro": {
+      "calm": 86,
+      "competent": 20,
+      "loud": 4,
+      "rugged": 55,
+      "sincere": 40,
+      "stiff": 10,
+      "vintage": 10
+    },
+    "Archivo Narrow": {
+      "active": 10,
+      "business": 30,
+      "calm": 82,
+      "competent": 30,
+      "futuristic": 20,
+      "happy": 10,
+      "loud": 3,
+      "rugged": 52,
+      "sincere": 40,
+      "stiff": 20,
+      "vintage": 10
+    },
+    "Noto Serif Display": {
+      "business": 90,
+      "competent": 80,
+      "loud": 1,
+      "rugged": 25,
+      "sincere": 70,
+      "vintage": 40
+    },
+    "Google Sans Code": {
+      "business": 60,
+      "calm": 50,
+      "futuristic": 25,
+      "loud": 1,
+      "rugged": 48,
+      "stiff": 20,
+      "vintage": 20
+    },
+    "Metal": {
+      "rugged": 12,
+      "sincere": 40,
+      "vintage": 65
+    },
+    "Figtree": {
+      "business": 81,
+      "calm": 84,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 20,
+      "vintage": 20
+    },
+    "TASA Orbiter": {
+      "business": 75,
+      "calm": 88,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "vintage": 20
+    },
+    "Red Hat Display": {
+      "business": 80,
+      "calm": 80,
+      "competent": 50,
+      "rugged": 48,
+      "stiff": 10,
+      "vintage": 20
+    },
+    "Lato": {
+      "business": 80,
+      "calm": 88,
+      "competent": 91,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 60,
+      "vintage": 20
+    },
+    "Caudex": {
+      "business": 20,
+      "loud": 1,
+      "playful": 12,
+      "rugged": 30,
+      "sincere": 68,
+      "vintage": 80
+    },
+    "Poppins": {
+      "business": 60,
+      "calm": 85,
+      "competent": 40,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "vintage": 20
+    },
+    "Nunito Sans": {
+      "business": 77,
+      "calm": 89,
+      "competent": 70,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 20,
+      "vintage": 30
+    },
+    "Ubuntu": {
+      "business": 70,
+      "calm": 73,
+      "competent": 60,
+      "futuristic": 60,
+      "loud": 3,
+      "rugged": 35,
+      "sincere": 20,
+      "stiff": 26,
+      "vintage": 20
+    },
+    "Public Sans": {
+      "business": 85,
+      "calm": 85,
+      "competent": 40,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 30,
+      "stiff": 10,
+      "vintage": 30
+    },
+    "Crimson Text": {
+      "business": 88,
+      "competent": 80,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 68,
+      "vintage": 35
+    },
+    "Jost": {
+      "business": 30,
+      "calm": 82,
+      "cute": 5,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 30,
+      "vintage": 20
+    },
+    "Rosario": {
+      "business": 50,
+      "calm": 67,
+      "loud": 3,
+      "rugged": 45,
+      "sincere": 20,
+      "stiff": 8,
+      "vintage": 40
+    },
+    "Epilogue": {
+      "business": 20,
+      "calm": 60,
+      "competent": 13,
+      "loud": 3,
+      "rugged": 58,
+      "sincere": 20,
+      "stiff": 20,
+      "vintage": 25
+    },
+    "Libre Franklin": {
+      "business": 88,
+      "calm": 87,
+      "competent": 66,
+      "loud": 1,
+      "rugged": 55,
+      "sincere": 50,
+      "stiff": 20,
+      "vintage": 30
+    },
+    "Khand": {
+      "calm": 25,
+      "futuristic": 66,
+      "loud": 1,
+      "rugged": 40,
+      "stiff": 64,
+      "vintage": 20
+    },
+    "Oxygen": {
+      "business": 88,
+      "calm": 87,
+      "competent": 60,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "stiff": 30,
+      "vintage": 20
+    },
+    "Prompt": {
+      "business": 55,
+      "calm": 94,
+      "competent": 11,
+      "loud": 3,
+      "rugged": 35,
+      "sincere": 60,
+      "stiff": 25,
+      "vintage": 20
+    },
+    "Catamaran": {
+      "business": 20,
+      "calm": 92,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 50,
+      "stiff": 18,
+      "vintage": 20
+    },
+    "Reddit Sans": {
+      "business": 80,
+      "calm": 78,
+      "competent": 60,
+      "loud": 3,
+      "rugged": 50,
+      "sincere": 40,
+      "vintage": 10
+    },
+    "Inter": {
+      "business": 85,
+      "calm": 80,
+      "competent": 91,
+      "futuristic": 5,
+      "loud": 1,
+      "rugged": 55,
+      "sincere": 50,
+      "vintage": 30
+    },
+    "Judson": {
+      "business": 30,
+      "competent": 30,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 77,
+      "vintage": 50
+    },
+    "Asap Condensed": {
+      "business": 58,
+      "calm": 88,
+      "competent": 20,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 10,
+      "stiff": 5,
+      "vintage": 20
+    },
+    "IBM Plex Serif": {
+      "business": 92,
+      "competent": 90,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 90,
+      "stiff": 20,
+      "vintage": 30
+    },
+    "Eczar": {
+      "loud": 3,
+      "rugged": 55,
+      "vintage": 45
+    },
+    "IBM Plex Sans Condensed": {
+      "business": 89,
+      "calm": 80,
+      "competent": 90,
+      "futuristic": 5,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 30,
+      "stiff": 20,
+      "vintage": 20
+    },
+    "Dosis": {
+      "business": 10,
+      "calm": 73,
+      "futuristic": 20,
+      "playful": 6,
+      "rugged": 30,
+      "stiff": 20,
+      "vintage": 30
+    },
+    "Playfair Display SC": {
+      "business": 80,
+      "loud": 1,
+      "rugged": 15,
+      "sincere": 89,
+      "sophisticated": 60,
+      "vintage": 55
+    },
+    "EB Garamond": {
+      "business": 81,
+      "competent": 77,
+      "rugged": 30,
+      "sincere": 80,
+      "vintage": 82
+    },
+    "Sofia Sans Condensed": {
+      "active": 20,
+      "business": 50,
+      "calm": 76,
+      "futuristic": 10,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 45,
+      "stiff": 40,
+      "vintage": 20
+    },
+    "Azeret Mono": {
+      "business": 20,
+      "calm": 70,
+      "futuristic": 20,
+      "loud": 3,
+      "rugged": 45,
+      "sincere": 20,
+      "stiff": 10,
+      "vintage": 20
+    },
+    "Yellowtail": {
+      "artistic": 52,
+      "cute": 30,
+      "excited": 21,
+      "happy": 42,
+      "playful": 18,
+      "rugged": 50,
+      "sincere": 45,
+      "vintage": 88
+    },
+    "Geist": {
+      "business": 88,
+      "calm": 85,
+      "competent": 24,
+      "loud": 1,
+      "rugged": 55,
+      "sincere": 50,
+      "vintage": 15
+    },
+    "Tinos": {
+      "business": 82,
+      "competent": 70,
+      "loud": 1,
+      "rugged": 45,
+      "sincere": 70,
+      "stiff": 10,
+      "vintage": 40
+    },
+    "VT323": {
+      "awkward": 50,
+      "futuristic": 30,
+      "innovative": 5,
+      "loud": 3,
+      "rugged": 30,
+      "sincere": 10,
+      "stiff": 50,
+      "vintage": 75
+    },
+    "Alegreya Sans": {
+      "business": 72,
+      "calm": 58,
+      "competent": 80,
+      "loud": 1,
+      "rugged": 54,
+      "sincere": 60,
+      "stiff": 20,
+      "vintage": 30
+    },
+    "David Libre": {
+      "loud": 1,
+      "rugged": 30,
+      "vintage": 20
+    },
+    "Fustat": {
+      "business": 90,
+      "calm": 40,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 20,
+      "vintage": 25
+    },
+    "BioRhyme": {
+      "business": 30,
+      "futuristic": 10,
+      "happy": 30,
+      "innovative": 55,
+      "loud": 3,
+      "playful": 20,
+      "rugged": 80,
+      "sincere": 55,
+      "stiff": 20,
+      "vintage": 30
+    },
+    "Noto Serif": {
+      "business": 90,
+      "competent": 80,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 75,
+      "vintage": 40
+    },
+    "Oswald": {
+      "active": 16,
+      "business": 80,
+      "calm": 76,
+      "loud": 11,
+      "rugged": 50,
+      "stiff": 44,
+      "vintage": 40
+    },
+    "Lustria": {
+      "business": 45,
+      "competent": 70,
+      "rugged": 30,
+      "sincere": 30,
+      "stiff": 7,
+      "vintage": 40
+    },
+    "Special Gothic Expanded One": {
+      "active": 10,
+      "business": 80,
+      "calm": 70,
+      "cute": 20,
+      "loud": 37,
+      "rugged": 70,
+      "sincere": 10,
+      "stiff": 20,
+      "vintage": 25
+    },
+    "Hubot Sans": {
+      "business": 75,
+      "calm": 70,
+      "competent": 10,
+      "futuristic": 20,
+      "loud": 3,
+      "rugged": 60,
+      "vintage": 20
+    },
+    "Reddit Sans Condensed": {
+      "business": 50,
+      "calm": 74,
+      "competent": 40,
+      "loud": 1,
+      "rugged": 55,
+      "sincere": 10,
+      "stiff": 10,
+      "vintage": 10
+    },
+    "Red Hat Mono": {
+      "business": 20,
+      "calm": 80,
+      "rugged": 50,
+      "stiff": 15,
+      "vintage": 35
+    },
+    "Fira Code": {
+      "business": 20,
+      "calm": 45,
+      "futuristic": 25,
+      "loud": 1,
+      "rugged": 50,
+      "vintage": 10
+    },
+    "Karla": {
+      "business": 80,
+      "calm": 79,
+      "competent": 40,
+      "loud": 1,
+      "rugged": 50,
+      "sincere": 60,
+      "stiff": 20,
+      "vintage": 20
+    },
+    "Martel": {
+      "business": 90,
+      "calm": 32,
+      "competent": 90,
+      "futuristic": 5,
+      "loud": 1,
+      "rugged": 30,
+      "sincere": 91,
+      "vintage": 40
+    },
+    "Inter Tight": {
+      "business": 70,
+      "calm": 80,
+      "competent": 80,
+      "futuristic": 5,
+      "loud": 1,
+      "rugged": 55,
+      "sincere": 50,
+      "vintage": 30
+    },
+    "Arvo": {
+      "business": 25,
+      "loud": 3,
+      "rugged": 60,
+      "sincere": 20,
+      "vintage": 50
+    },
+    "Mukta": {
+      "business": 80,
+      "calm": 94,
+      "competent": 60,
+      "loud": 1,
+      "rugged": 40,
+      "sincere": 45,
+      "vintage": 30
+    }
+  }
+}

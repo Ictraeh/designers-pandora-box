@@ -8,6 +8,8 @@
 
   const DATA_BASE = "../../Mood to Color/demo/data/";
   const FONT_PAIRINGS_JSON_PATH = "./font-pairings.json";
+  /** Google Fonts official /Expressive/* tags (from google/fonts tags CSVs). */
+  const FONT_EXPRESSIVE_TAGS_PATH = "./font-expressive-tags.json";
   const FONT_PAIRINGS_MD_PATHS = [
     "../../Design Style Layout Markdown Library/Font pairings/font-pairing-library.md",
     "../../Design Style Layout Markdown Library/Font pairings/font-size-proportion-guideline.md",
@@ -101,6 +103,9 @@
   const customColorsByPalette = new Map();
   let typographyPairs = [];
   let currentTypographyKey = "";
+  /** @type {{ feelings: Array<{id:string,label:string,path:string}>, families: Record<string, Record<string, number>>, meta?: { matchThreshold?: number } } | null} */
+  let expressiveTagPayload = null;
+  let typographyFeelingFilter = "";
   const loadedFontFamilies = new Set();
   let motionProfiles = [];
   let motionPresetById = {};
@@ -198,13 +203,88 @@
     currentTypographyKey = pair.key;
   }
 
-  function renderTypographyList(container, pairs) {
+  async function ensureExpressiveTags() {
+    if (expressiveTagPayload) return expressiveTagPayload;
+    try {
+      const res = await fetch(FONT_EXPRESSIVE_TAGS_PATH);
+      if (!res.ok) throw new Error(String(res.status));
+      expressiveTagPayload = await res.json();
+    } catch {
+      expressiveTagPayload = { feelings: [], families: {}, meta: { matchThreshold: 20 } };
+    }
+    return expressiveTagPayload;
+  }
+
+  function familyExpressiveScores(familyName, payload) {
+    const row = payload?.families?.[String(familyName || "").trim()];
+    return row && typeof row === "object" ? row : {};
+  }
+
+  function computePairFeelings(heading, body, payload) {
+    const threshold = Number(payload?.meta?.matchThreshold) || 20;
+    const a = familyExpressiveScores(heading, payload);
+    const b = familyExpressiveScores(body, payload);
+    const ids = new Set([...Object.keys(a), ...Object.keys(b)]);
+    const scored = [];
+    for (const id of ids) {
+      const score = Math.max(Number(a[id]) || 0, Number(b[id]) || 0);
+      if (score >= threshold) scored.push({ id, score });
+    }
+    scored.sort((x, y) => y.score - x.score || x.id.localeCompare(y.id));
+    return scored.map((x) => x.id);
+  }
+
+  function enrichTypographyPairsFeelings() {
+    if (!expressiveTagPayload || !typographyPairs.length) return;
+    for (const p of typographyPairs) {
+      p.feelings = computePairFeelings(p.heading, p.body, expressiveTagPayload);
+    }
+  }
+
+  function feelingLabelMap() {
+    const map = new Map();
+    const list = expressiveTagPayload?.feelings || [];
+    for (const f of list) {
+      if (f && f.id) map.set(f.id, f.label || f.id);
+    }
+    return map;
+  }
+
+  function populateTypographyFeelingSelect(selectEl) {
+    if (!selectEl || !expressiveTagPayload) return;
+    const current = typographyFeelingFilter || "";
+    selectEl.innerHTML = "";
+    const allOpt = document.createElement("option");
+    allOpt.value = "";
+    allOpt.textContent = "All feelings";
+    selectEl.appendChild(allOpt);
+    const feelings = Array.isArray(expressiveTagPayload.feelings) ? expressiveTagPayload.feelings : [];
+    for (const f of feelings) {
+      const opt = document.createElement("option");
+      opt.value = f.id;
+      opt.textContent = f.label || f.id;
+      selectEl.appendChild(opt);
+    }
+    selectEl.value = feelings.some((f) => f.id === current) ? current : "";
+  }
+
+  function renderTypographyList(container, pairs, feelingFilterId) {
     if (!container) return;
     container.innerHTML = "";
+    const filterId = String(feelingFilterId || "").trim().toLowerCase();
+    const filtered = filterId
+      ? pairs.filter((p) => Array.isArray(p.feelings) && p.feelings.includes(filterId))
+      : pairs;
     if (!pairs.length) {
       container.innerHTML = '<p class="hint">No font pairings found.</p>';
       return;
     }
+    if (!filtered.length) {
+      container.innerHTML =
+        '<p class="hint">No pairings match this feeling for fonts in this list. Try “All feelings”, or regenerate tags after adding pairings.</p>';
+      return;
+    }
+    const labels = feelingLabelMap();
     const observer =
       typeof IntersectionObserver !== "undefined"
         ? new IntersectionObserver(
@@ -222,7 +302,15 @@
             { root: container, threshold: 0.1 },
           )
         : null;
-    for (const pair of pairs) {
+    const chipsHtml = (pair) => {
+      const ids = Array.isArray(pair.feelings) ? pair.feelings.slice(0, 6) : [];
+      if (!ids.length) return "";
+      return `<div class="typography-card__feelings">${ids
+        .map((id) => `<span class="feeling-chip">${labels.get(id) || id}</span>`)
+        .join("")}</div>`;
+    };
+
+    for (const pair of filtered) {
       const card = document.createElement("button");
       card.type = "button";
       card.className = "typography-card";
@@ -231,6 +319,7 @@
       card.setAttribute("data-body-font", pair.body);
       card.innerHTML = `
         <div class="typography-card__label">${pair.heading} + ${pair.body}</div>
+        ${chipsHtml(pair)}
         <div class="typography-card__title" style="font-family: '${pair.heading}', '${pair.body}', sans-serif;">
           Heading Preview Aa
         </div>
@@ -255,7 +344,7 @@
       if (observer) observer.observe(card);
     }
     // Prime first visible set for immediate accurate previews.
-    for (const pair of pairs.slice(0, 14)) {
+    for (const pair of filtered.slice(0, 14)) {
       ensureFontFamilyLoaded(pair.heading);
       ensureFontFamilyLoaded(pair.body);
     }
@@ -303,6 +392,8 @@
         { heading: "Oswald", body: "Nunito Sans", key: "oswald__nunito sans" },
       ];
     }
+    await ensureExpressiveTags();
+    enrichTypographyPairsFeelings();
     if (!currentTypographyKey && typographyPairs[0]) {
       currentTypographyKey = typographyPairs[0].key;
       applyTypographyPair(typographyPairs[0]);
@@ -1562,6 +1653,7 @@
     const typographyPanel = document.getElementById("typography-panel");
     const typographyToggle = document.getElementById("typography-toggle");
     const typographyListEl = document.getElementById("typography-list");
+    const typographyFeelingEl = document.getElementById("typography-feeling-filter");
     const backdrop = document.getElementById("control-backdrop");
     const extraEl = document.getElementById("extra");
     const statusEl = document.getElementById("status");
@@ -1576,6 +1668,13 @@
     const debouncedFindWhenOpen = debounce(() => {
       if (panel.classList.contains("is-open") && depsReady) void runFindPalettes();
     }, 320);
+
+    function refreshTypographyPanel() {
+      void ensureTypographyPairs().then(() => {
+        if (typographyFeelingEl) populateTypographyFeelingSelect(typographyFeelingEl);
+        renderTypographyList(typographyListEl, typographyPairs, typographyFeelingFilter);
+      });
+    }
 
     function setOpenPanel(which) {
       const paletteOpen = which === "palette";
@@ -1605,9 +1704,7 @@
         if (errBanner) errBanner.hidden = true;
         void runFindPalettes();
       } else if (typeOpen) {
-        void ensureTypographyPairs().then((pairs) => {
-          renderTypographyList(typographyListEl, pairs);
-        });
+        refreshTypographyPanel();
       }
     }
 
@@ -1622,6 +1719,13 @@
       const open = !typographyPanel.classList.contains("is-open");
       setOpenPanel(open ? "typography" : null);
     });
+
+    if (typographyFeelingEl) {
+      typographyFeelingEl.addEventListener("change", () => {
+        typographyFeelingFilter = String(typographyFeelingEl.value || "").trim().toLowerCase();
+        renderTypographyList(typographyListEl, typographyPairs, typographyFeelingFilter);
+      });
+    }
 
     if (backdrop) {
       backdrop.addEventListener("click", () => setOpenPanel(null));
@@ -1711,7 +1815,7 @@
         errBanner.textContent = String(e.message || e);
       }
     });
-    void ensureTypographyPairs().then((pairs) => renderTypographyList(typographyListEl, pairs));
+    refreshTypographyPanel();
   }
 
   if (document.readyState === "loading") {
