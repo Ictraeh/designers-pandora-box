@@ -1,12 +1,12 @@
 /**
  * Full-site palette demo: score Mindful (+ optional Pinterest) with mood-engine-v2,
  * then apply buildMoodWebsiteTheme from a user-chosen palette row.
- * Serve from "Designer's pandora box" — see README.md for URLs.
+ * Palette data + Mood scripts ship under ./vendor for static hosting (Vercel).
  */
 (function () {
   "use strict";
 
-  const DATA_BASE = "../../Mood to Color/demo/data/";
+  const DATA_BASE = "./vendor/mood-data/";
   const FONT_PAIRINGS_JSON_PATH = "./font-pairings.json";
   /** Google Fonts official /Expressive/* tags (from google/fonts tags CSVs). */
   const FONT_EXPRESSIVE_TAGS_PATH = "./font-expressive-tags.json";
@@ -1070,7 +1070,7 @@
     if (!normalizeHex || !analyzePalette) {
       if (statusEl) {
         statusEl.textContent =
-          "Palette engine not loaded. Serve this page via HTTP from the folder that contains both “Mood to Color” and “Color Palette Switch Guidelines” (see palette-switch-demo/README.md).";
+          "Palette engine did not load. Open DevTools → Network and confirm ./vendor/mood-theme/*.js return 200 (re-deploy if vendor folder is missing).";
       }
       return;
     }
@@ -1692,12 +1692,12 @@
         if (!depsReady) {
           if (statusEl) {
             statusEl.textContent =
-              "Mood to Color scripts did not load (often a 404). Run a local server from the parent folder that contains BOTH “Mood to Color” and “Color Palette Switch Guidelines”, then open the URL in palette-switch-demo/README.md — port 9898.";
+              "Palette scripts did not load (check Network for ./vendor/mood-theme/*.js). Serve via HTTP and ensure vendor files are deployed.";
           }
           if (errBanner) {
             errBanner.hidden = false;
             errBanner.textContent =
-              "Demo scripts failed to load. Use HTTP (not file://) with document root = your “Designer's pandora box” folder. In DevTools → Network, check for red 404s on paths like …/Mood%20to%20Color/website-theme-demo/mood-config.js";
+              "Demo palette scripts failed to load. Use HTTP (not file://). In DevTools → Network, fix red 404s for ./vendor/mood-theme/mood-config.js and siblings.";
           }
           return;
         }
@@ -1776,7 +1776,7 @@
     if (!depsReady) {
       if (statusEl) {
         statusEl.textContent =
-          "Open this menu for setup help. The Mood to Color JS must load from ../../Mood to Color/… (requires local server).";
+          "Open this menu for help. Palette scripts should load from ./vendor/mood-theme/ over HTTP.";
       }
       return;
     }

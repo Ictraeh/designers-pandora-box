@@ -2,27 +2,37 @@
 
 This page is a **sample marketing site** whose entire color system is driven by **Mood to Color** data and the same **OKLab role pipeline** as `Mood to Color/website-theme-demo` (semantic roles, contrast-aware text, surfaces, focus, tags—not naive hex swaps). See `../AI_PALETTE_SWITCH_GUIDELINES.md` for the design rules the pipeline implements.
 
-## Run locally
+## Run locally (self-contained)
 
-The browser loads:
+The demo ships **vendored** palette engine scripts and `mindful-palettes.json` under `vendor/`, so you can open it from **this folder only** (static server or Vercel). Use **HTTP** (not `file://`).
 
-- `../../Mood to Color/demo/data/mindful-palettes.json` (and optional Pinterest JSON)
-- scripts from `../../Mood to Color/website-theme-demo/`
+```bash
+cd "/path/to/palette-switch-demo"
+python3 -m http.server 9898
+```
 
-So the HTTP server **document root** must be the folder that contains **both** `Mood to Color` and `Color Palette Switch Guidelines` (your **Designer's pandora box** directory).
+Open `http://127.0.0.1:9898/index.html`
+
+**Optional:** add `pinterest-colors.json` to `vendor/mood-data/` (copy from `Mood to Color/demo/data/`, ~3.6MB) for extra Pinterest rows; if missing, the demo uses Mindful palettes only.
+
+### Refresh vendored Mood assets
+
+When `Mood to Color` changes in your monorepo, run from **Designer's pandora box**:
+
+```bash
+sh "Color Palette Switch Guidelines/palette-switch-demo/scripts/sync-mood-vendor.sh"
+```
+
+## Full monorepo dev (optional)
+
+You can also serve the whole **Designer's pandora box** and open the same `index.html` path. The app loads palette code and data from `./vendor/…` inside the demo folder (no `../../Mood to Color`).
 
 ```bash
 cd "/Users/wenjiacreatie/Desktop/Designer's pandora box"
 python3 -m http.server 9898
 ```
 
-If the port is busy, use another (e.g. `9899`) and adjust the URL below.
-
-Then open:
-
 `http://127.0.0.1:9898/Color%20Palette%20Switch%20Guidelines/palette-switch-demo/index.html`
-
-If Pinterest data is missing, the demo still runs on Mindful Palettes only.
 
 ## Typography (Google Fonts “Feeling” filter)
 

@@ -406,10 +406,11 @@
 
     <div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
 
-    <script src="../../Mood to Color/website-theme-demo/mood-config.js"></script>
-    <script src="../../Mood to Color/website-theme-demo/mood-engine-v2.js"></script>
-    <script src="../../Mood to Color/website-theme-demo/palette-analyze.js"></script>
-    <script src="../../Mood to Color/website-theme-demo/theme-pipeline.js"></script>
+    <!-- Vendored copies so static hosts (e.g. Vercel) work without ../../Mood to Color -->
+    <script src="./vendor/mood-theme/mood-config.js"></script>
+    <script src="./vendor/mood-theme/mood-engine-v2.js"></script>
+    <script src="./vendor/mood-theme/palette-analyze.js"></script>
+    <script src="./vendor/mood-theme/theme-pipeline.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>
